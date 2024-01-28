@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "project-chore/typedoc/recommended"
+  ],
+  "intentionallyNotExported": [
+    "__global.configurable.LocaleName",
+    "__global.facades.lang.Context",
+    "__global.facades.lang.Word"
+  ],
+  "name": "Utility functions",
+  "out": "docs",
+  "tsconfig": "tsconfig-typedoc.json"
+}

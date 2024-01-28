@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "project-chore/package-json-lint/recommended.json",
+    "project-chore/package-json-lint/public.json",
+    "project-chore/package-json-lint/package.json"
+  ]
+}

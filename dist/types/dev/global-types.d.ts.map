@@ -1,0 +1,1 @@
+{"version":3,"file":"global-types.d.ts","sourceRoot":"","sources":["../../../src/types/dev/global-types.ts"],"names":[],"mappings":"AAAA,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,YAAY,CAAC;QACrB,UAAU,UAAU;YAClB,QAAQ,CAAC,OAAO,EAAE,IAAI,CAAC;SACxB;KACF;CACF;AAED,OAAO,EAAE,CAAC"}

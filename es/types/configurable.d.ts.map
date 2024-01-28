@@ -1,0 +1,1 @@
+{"version":3,"file":"configurable.d.ts","sourceRoot":"","sources":["../../src/types/configurable.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,KAAK,IAAI,MAAM,eAAe,CAAC;AAE3C,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,YAAY,CAAC;QAErB,UAAU,UAAU;SAAG;KACxB;CACF;AAED,MAAM,MAAM,UAAU,GAAG,IAAI,CAAC,IAAI,CAAC,YAAY,CAAC,UAAU,EAAE,IAAI,EAAE,WAAW,CAAC,CAAC"}
