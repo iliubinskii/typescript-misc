@@ -2,12 +2,9 @@
   "name": "typescript-misc",
   "version": "0.2.0",
   "private": false,
-  "description": "A collection of utility functions.",
+  "description": "Typescript library.",
   "keywords": [
-    "functions",
-    "ts",
-    "typescript",
-    "utility"
+    "typescript"
   ],
   "homepage": "https://github.com/iliubinskii/typescript-misc",
   "bugs": {

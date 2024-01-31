@@ -1,4 +1,4 @@
-# Typescript collection
+# Typescript library
 
 [![Stars](https://img.shields.io/github/stars/iliubinskii/typescript-misc)](https://github.com/iliubinskii/typescript-misc)
 [![Downloads](https://img.shields.io/npm/dm/typescript-misc)](https://www.npmjs.com/package/typescript-misc)
@@ -12,7 +12,7 @@
 
 ## <a id="overview"></a>Overview
 
-Typescript collection.
+Typescript library.
 
 ## <a id="installation"></a>Installation
 
