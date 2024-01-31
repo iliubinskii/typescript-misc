@@ -1,5 +1,7 @@
-import { assert, is } from "..";
-import { DateTime } from "../facade-implementations/datetime/date-fns-wrapper/DateTime";
+import { assert, is } from "../functions";
+import { DateTime
+// eslint-disable-next-line misc/no-relative-parent-import -- Ok
+ } from "../facade-implementations/datetime/date-fns-wrapper/DateTime";
 import { buildEqualsResult } from "./expect";
 import { equals } from "@jest/expect-utils";
 // eslint-disable-next-line no-console -- Ok

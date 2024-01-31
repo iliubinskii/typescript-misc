@@ -1,5 +1,5 @@
 "use strict";
-/* eslint-disable misc/ts-misc/functions/json/prefer-json -- Ok */
+/* eslint-disable misc/typescript-misc/functions/json/prefer-json -- Ok */
 /* eslint-disable unicorn/no-null -- Ok */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.neq = exports.eq = exports.encode = exports.decode = void 0;
@@ -19,7 +19,7 @@ function decode(source) {
         if (is.not.empty(source))
             return JSON.parse(source, reviver);
     }
-    catch (_a) {
+    catch {
         return null;
     }
     return null;

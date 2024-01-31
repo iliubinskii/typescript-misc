@@ -57,28 +57,23 @@ function defineMetadataKey(metadataKey, metadataValue, target, key) {
 }
 exports.defineMetadataKey = defineMetadataKey;
 function get(target, key, guard = is.unknown, defVal) {
-    var _a;
-    return as.byGuard((_a = Reflect.get(target, key)) !== null && _a !== void 0 ? _a : defVal, guard);
+    return as.byGuard(Reflect.get(target, key) ?? defVal, guard);
 }
 exports.get = get;
 function getMetadata(metadataKey, target, guard = is.unknown, defVal) {
-    var _a;
-    return as.byGuard((_a = Reflect.getMetadata(metadataKey, target)) !== null && _a !== void 0 ? _a : defVal, guard);
+    return as.byGuard(Reflect.getMetadata(metadataKey, target) ?? defVal, guard);
 }
 exports.getMetadata = getMetadata;
 function getMetadataKey(metadataKey, target, key, guard = is.unknown, defVal) {
-    var _a;
-    return as.byGuard((_a = Reflect.getMetadata(metadataKey, target, key)) !== null && _a !== void 0 ? _a : defVal, guard);
+    return as.byGuard(Reflect.getMetadata(metadataKey, target, key) ?? defVal, guard);
 }
 exports.getMetadataKey = getMetadataKey;
 function getOwnMetadata(metadataKey, target, guard = is.unknown, defVal) {
-    var _a;
-    return as.byGuard((_a = Reflect.getOwnMetadata(metadataKey, target)) !== null && _a !== void 0 ? _a : defVal, guard);
+    return as.byGuard(Reflect.getOwnMetadata(metadataKey, target) ?? defVal, guard);
 }
 exports.getOwnMetadata = getOwnMetadata;
 function getOwnMetadataKey(metadataKey, target, key, guard = is.unknown, defVal) {
-    var _a;
-    return as.byGuard((_a = Reflect.getOwnMetadata(metadataKey, target, key)) !== null && _a !== void 0 ? _a : defVal, guard);
+    return as.byGuard(Reflect.getOwnMetadata(metadataKey, target, key) ?? defVal, guard);
 }
 exports.getOwnMetadataKey = getOwnMetadataKey;
 /**

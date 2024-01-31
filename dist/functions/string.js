@@ -1,5 +1,5 @@
 "use strict";
-/* eslint-disable misc/ts-misc/functions/object/prefer-entries -- Ok */
+/* eslint-disable misc/typescript-misc/functions/object/prefer-entries -- Ok */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.unpadMultiline = exports.ucFirst = exports.trimTrailingEmptyLines = exports.trimStart = exports.trimLeadingEmptyLines = exports.trimEnd = exports.trailingSpaces = exports.singleLine = exports.replacePairs = exports.replaceAll = exports.multiline = exports.lines = exports.leadingSpaces = exports.lcFirst = exports.firstLine = exports.escapeRegExpSpecialChars = exports.empty = exports.detectEol = exports.path = exports.Eol = void 0;
 const tslib_1 = require("tslib");
@@ -274,7 +274,7 @@ exports.ucFirst = ucFirst;
 function unpadMultiline(str) {
     const matches = /^(?:\n|\r\n)\s+/u.exec(str);
     return matches
-        ? // eslint-disable-next-line misc/ts-misc/functions/guards/not-empty-always-true -- Wait for eslint-plugin-misc update
+        ? // eslint-disable-next-line misc/typescript-misc/functions/guards/not-empty-always-true -- Wait for eslint-plugin-misc update
             replaceAll(str.trim(), as.not.empty(matches[0]), detectEol(str))
         : str;
 }

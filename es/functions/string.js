@@ -1,4 +1,4 @@
-/* eslint-disable misc/ts-misc/functions/object/prefer-entries -- Ok */
+/* eslint-disable misc/typescript-misc/functions/object/prefer-entries -- Ok */
 import * as as from "./inline-assertions";
 export var Eol;
 (function (Eol) {
@@ -253,7 +253,7 @@ export function ucFirst(str) {
 export function unpadMultiline(str) {
     const matches = /^(?:\n|\r\n)\s+/u.exec(str);
     return matches
-        ? // eslint-disable-next-line misc/ts-misc/functions/guards/not-empty-always-true -- Wait for eslint-plugin-misc update
+        ? // eslint-disable-next-line misc/typescript-misc/functions/guards/not-empty-always-true -- Wait for eslint-plugin-misc update
             replaceAll(str.trim(), as.not.empty(matches[0]), detectEol(str))
         : str;
 }

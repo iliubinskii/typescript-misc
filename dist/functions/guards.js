@@ -1,9 +1,9 @@
 "use strict";
-/* eslint-disable misc/ts-misc/functions/array/prefer-clone -- Ok */
-/* eslint-disable misc/ts-misc/functions/array/prefer-fromIterable -- Ok */
-/* eslint-disable misc/ts-misc/functions/object/prefer-entries -- Ok */
-/* eslint-disable misc/ts-misc/functions/object/prefer-hasOwnProp -- Ok */
-/* eslint-disable misc/ts-misc/functions/object/prefer-values -- Ok */
+/* eslint-disable misc/typescript-misc/functions/array/prefer-clone -- Ok */
+/* eslint-disable misc/typescript-misc/functions/array/prefer-fromIterable -- Ok */
+/* eslint-disable misc/typescript-misc/functions/object/prefer-entries -- Ok */
+/* eslint-disable misc/typescript-misc/functions/object/prefer-hasOwnProp -- Ok */
+/* eslint-disable misc/typescript-misc/functions/object/prefer-values -- Ok */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.constructor = exports.callable = exports.boolean = exports.not = exports.unknownsU = exports.unknowns = exports.tuple = exports.symbolsU = exports.symbols = exports.symbolU = exports.stringsU = exports.strings = exports.setsU = exports.sets = exports.setU = exports.set = exports.propertyKeysU = exports.propertyKeys = exports.propertyKeyU = exports.objectsU = exports.objects = exports.objectU = exports.object = exports.numbersU = exports.numbers = exports.numberU = exports.numStrsU = exports.numStrs = exports.numStrU = exports.mapsU = exports.maps = exports.mapU = exports.map = exports.indexedObjectsU = exports.indexedObjects = exports.indexedObjectU = exports.indexedObject = exports.booleansU = exports.booleans = exports.booleanU = exports.arraysU = exports.arrays = exports.arrayU = exports.array = exports.or = exports.and = exports.undefined = exports.true = exports.null = exports.false = void 0;
 exports.unknown = exports.symbol = exports.stringU = exports.string = exports.propertyKey = exports.number = exports.numStr = exports.never = exports.instancesOf = exports.instanceOf = exports.factory = exports.enumeration = exports.empty = void 0;

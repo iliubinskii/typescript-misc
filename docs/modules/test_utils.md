@@ -13,7 +13,6 @@
 - [buildEqualsResult](test_utils.md#buildequalsresult)
 - [buildResult](test_utils.md#buildresult)
 - [clock](test_utils.md#clock)
-- [datetimeToBe](test_utils.md#datetimetobe)
 - [installFakeTimer](test_utils.md#installfaketimer)
 - [jestReset](test_utils.md#jestreset)
 - [jestSetup](test_utils.md#jestsetup)
@@ -61,12 +60,6 @@ ___
 ### clock
 
 Re-exports [clock](test_utils_fake_timers.md#clock)
-
-___
-
-### datetimeToBe
-
-Re-exports [datetimeToBe](test_utils_expect.md#datetimetobe)
 
 ___
 

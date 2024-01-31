@@ -177,7 +177,11 @@ function applyRuleRef(word, rule, owner) {
     const key = word.replacements.get(replacementId);
     assert.not.empty(key, `Missing replacement: ${replacementId}`);
     const replacement = owner.get(key, word.context, word.count, word.replacements, form);
-    return Object.assign(Object.assign({}, word), { forms: replacement.forms, value: word.value.replace(search, replacement.value) });
+    return {
+        ...word,
+        forms: replacement.forms,
+        value: word.value.replace(search, replacement.value)
+    };
 }
 /**
  * Applies rules to the word.
@@ -194,7 +198,7 @@ function applyRuleRefDependent(word, rule, owner) {
     const key = word.replacements.get(replacementId);
     assert.not.empty(key, `Missing replacement: ${replacementId}`);
     const replacement = owner.get(key, word.context, word.count, word.replacements, word.forms);
-    return Object.assign(Object.assign({}, word), { value: word.value.replace(search, replacement.value) });
+    return { ...word, value: word.value.replace(search, replacement.value) };
 }
 /**
  * Applies rules to the word.
@@ -212,7 +216,7 @@ function applyRuleRefSecondary(word, rule, owner) {
     const key = word.replacements.get(replacementId);
     assert.not.empty(key, `Missing replacement: ${replacementId}`);
     const replacement = owner.get(key, word.context, 1, word.replacements, form);
-    return Object.assign(Object.assign({}, word), { value: word.value.replace(search, replacement.value) });
+    return { ...word, value: word.value.replace(search, replacement.value) };
 }
 /**
  * Applies rules to the word.
@@ -227,7 +231,7 @@ function applyRuleVal(word, rule) {
     const replacementId = a.second(rule);
     const replacement = word.replacements.get(replacementId);
     assert.not.empty(replacement, `Missing replacement: ${replacementId}`);
-    return Object.assign(Object.assign({}, word), { value: word.value.replace(search, replacement) });
+    return { ...word, value: word.value.replace(search, replacement) };
 }
 /**
  * Applies rules to the word.
@@ -242,7 +246,7 @@ function applyRuleWordDependent(word, rule, owner) {
     const search = a.first(rule);
     const key = a.second(rule);
     const replacement = owner.get(key, word.context, word.count, word.replacements, word.forms);
-    return Object.assign(Object.assign({}, word), { value: word.value.replace(search, replacement.value) });
+    return { ...word, value: word.value.replace(search, replacement.value) };
 }
 /**
  * Applies rules to the word.
@@ -258,6 +262,6 @@ function applyRuleWordSecondary(word, rule, owner) {
     const key = a.second(rule);
     const form = a.third(rule).toLowerCase();
     const replacement = owner.get(key, word.context, 1, word.replacements, form);
-    return Object.assign(Object.assign({}, word), { value: word.value.replace(search, replacement.value) });
+    return { ...word, value: word.value.replace(search, replacement.value) };
 }
 //# sourceMappingURL=Definition.js.map

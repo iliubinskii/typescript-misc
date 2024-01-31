@@ -75,8 +75,7 @@ export class Definitions {
      * @returns Word.
      */
     get(key, context, count, replacements, forms = []) {
-        var _a;
-        forms = is.string(forms) ? (_a = this.wordForms.get(forms)) !== null && _a !== void 0 ? _a : [forms] : forms;
+        forms = is.string(forms) ? this.wordForms.get(forms) ?? [forms] : forms;
         const definition = this.words.get(key);
         assert.not.empty(definition, `Unknown word: ${key}`);
         return definition.get(this, context, count, replacements, forms);

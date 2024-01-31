@@ -1,6 +1,6 @@
-/* eslint-disable misc/ts-misc/functions/array/prefer-clone -- Ok */
-/* eslint-disable misc/ts-misc/functions/array/prefer-fromIterable -- Ok */
-/* eslint-disable misc/ts-misc/functions/object/prefer-hasOwnProp -- Ok */
+/* eslint-disable misc/typescript-misc/functions/array/prefer-clone -- Ok */
+/* eslint-disable misc/typescript-misc/functions/array/prefer-fromIterable -- Ok */
+/* eslint-disable misc/typescript-misc/functions/object/prefer-hasOwnProp -- Ok */
 import * as _ from "lodash-commonjs-es";
 import * as assert from "./assertions";
 import * as is from "./guards";
@@ -264,7 +264,7 @@ export function replaceBy(arr, value, keyOrReduce) {
  */
 export function reverse(arr) {
     const result = clone(arr);
-    // eslint-disable-next-line misc/ts-misc/functions/array/prefer-reverse -- Ok
+    // eslint-disable-next-line misc/typescript-misc/functions/array/prefer-reverse -- Ok
     result.reverse();
     return result;
 }
@@ -287,7 +287,7 @@ export function second(arr) {
  */
 export function sort(arr, compareFn) {
     const result = clone(arr);
-    // eslint-disable-next-line misc/ts-misc/functions/array/prefer-sort -- Ok
+    // eslint-disable-next-line misc/typescript-misc/functions/array/prefer-sort -- Ok
     result.sort(compareFn);
     return result;
 }
@@ -320,7 +320,7 @@ export function toggleBy(arr, value, keyOrReduce) {
  * @param mutableArray - Array.
  */
 export function truncate(mutableArray) {
-    // eslint-disable-next-line misc/ts-misc/functions/array/prefer-truncate -- Ok
+    // eslint-disable-next-line misc/typescript-misc/functions/array/prefer-truncate -- Ok
     mutableArray.length = 0;
 }
 /**
@@ -332,7 +332,7 @@ export function truncate(mutableArray) {
  */
 export function uniqueBy(arr, keyOrReduce) {
     const reduce = mixedToReduce(keyOrReduce);
-    // eslint-disable-next-line misc/ts-misc/functions/prefer-readonly-set -- Ok
+    // eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-set -- Ok
     const seen = new Set();
     return arr.filter(element => {
         const reduced = reduce(element);

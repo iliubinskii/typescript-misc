@@ -1,6 +1,5 @@
 import type { Extends } from "ts-toolbelt/out/Any/Extends";
 import type { If } from "ts-toolbelt/out/Any/If";
-export declare const datetimeToBe: ExpectFromMatcher<"datetimeToBe">;
 /**
  * Builds matcher result.
  *

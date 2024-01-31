@@ -8,7 +8,7 @@ import { DateTime } from "./DateTime";
  * @returns Datetime facade implementation.
  */
 export function dateFnsWrapper(options) {
-    const combined = Object.assign(Object.assign({}, defaultOptions), options);
+    const combined = { ...defaultOptions, ...options };
     return {
         create: (date) => new DateTime(date, combined),
         now: () => new DateTime(undefined, combined).toString(),

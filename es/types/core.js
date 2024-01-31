@@ -1,3 +1,3 @@
-/* eslint-disable misc/ts-misc/types/prefer-undefined-shorthand -- Ok */
+/* eslint-disable misc/typescript-misc/types/prefer-undefined-shorthand -- Ok */
 export {};
 //# sourceMappingURL=core.js.map

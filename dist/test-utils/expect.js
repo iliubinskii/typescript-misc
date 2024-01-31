@@ -1,16 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.buildResult = exports.buildEqualsResult = exports.datetimeToBe = void 0;
-const __1 = require("..");
+exports.buildResult = exports.buildEqualsResult = void 0;
 const jest_matcher_utils_1 = require("jest-matcher-utils");
-const DateTime_1 = require("../facade-implementations/datetime/date-fns-wrapper/DateTime");
-const datetimeToBe = (got, expected) => {
-    __1.assert.instanceOf(got, DateTime_1.DateTime, "Expecting DateTime instance");
-    const gotTime = got.toTime();
-    const expectedTime = new Date(expected).getTime();
-    return buildEqualsResult(gotTime === expectedTime, "Unexpected date", got.toString(), expected.toString());
-};
-exports.datetimeToBe = datetimeToBe;
+const functions_1 = require("../functions");
 /**
  * Builds matcher result.
  *
@@ -23,7 +15,7 @@ exports.datetimeToBe = datetimeToBe;
  */
 function buildEqualsResult(pass, message, got, expected, immediate = false) {
     return {
-        message: immediate ? __1.fn.valueToGenerator(factory()) : factory,
+        message: immediate ? functions_1.fn.valueToGenerator(factory()) : factory,
         pass
     };
     function factory() {

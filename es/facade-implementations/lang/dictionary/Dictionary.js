@@ -114,7 +114,7 @@ export class Dictionary {
             writable: true,
             value: void 0
         });
-        // eslint-disable-next-line misc/ts-misc/functions/prefer-readonly-map -- Ok
+        // eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-map -- Ok
         Object.defineProperty(this, "subs", {
             enumerable: true,
             configurable: true,
@@ -146,6 +146,6 @@ export class Dictionary {
         return this.definitions.pluralReduce(count);
     }
 }
-// eslint-disable-next-line misc/ts-misc/functions/prefer-readonly-map -- Ok
+// eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-map -- Ok
 const replacements = new Map();
 //# sourceMappingURL=Dictionary.js.map

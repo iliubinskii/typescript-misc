@@ -1,5 +1,6 @@
 import "jest-extended";
 import type { Writable } from "../types";
+import { dictionary } from "../facade-implementations";
 import type { Calls } from "./jest.internal";
 declare global {
     namespace jest {
@@ -52,12 +53,20 @@ declare global {
         }
     }
 }
-/**
- * Jest reset.
- */
-export declare function jestReset(): void;
-/**
- * Jest setup.
- */
-export declare function jestSetup(): void;
+export declare const jestReset: (() => void) & Readonly<{
+    /**
+     * Jest reset.
+     *
+     * @param definitions - Language definitions.
+     */
+    dictionary: (definitions: dictionary.Definitions) => void;
+}>;
+export declare const jestSetup: (() => void) & Readonly<{
+    /**
+     * Jest setup.
+     *
+     * @param definitions - Language definitions.
+     */
+    dictionary: (definitions: dictionary.Definitions) => void;
+}>;
 //# sourceMappingURL=jest.d.ts.map

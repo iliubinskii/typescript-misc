@@ -11,7 +11,7 @@ const DateTime_1 = require("./DateTime");
  * @returns Datetime facade implementation.
  */
 function dateFnsWrapper(options) {
-    const combined = Object.assign(Object.assign({}, core_1.defaultOptions), options);
+    const combined = { ...core_1.defaultOptions, ...options };
     return {
         create: (date) => new DateTime_1.DateTime(date, combined),
         now: () => new DateTime_1.DateTime(undefined, combined).toString(),

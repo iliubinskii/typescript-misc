@@ -1,6 +1,6 @@
 "use strict";
-/* eslint-disable misc/ts-misc/functions/converters/prefer-number -- Ok */
-/* eslint-disable misc/ts-misc/functions/converters/prefer-string -- Ok */
+/* eslint-disable misc/typescript-misc/functions/converters/prefer-number -- Ok */
+/* eslint-disable misc/typescript-misc/functions/converters/prefer-string -- Ok */
 /* eslint-disable unicorn/no-null -- Ok */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stringU = exports.string = exports.numberU = exports.number = exports.emptyToUndefined = exports.emptyToNull = exports.not = void 0;
@@ -44,8 +44,7 @@ exports.emptyToUndefined = emptyToUndefined;
  * @returns Converted value, defVal on failure.
  */
 function number(value, defVal = 0) {
-    var _a;
-    return (_a = numberU(value)) !== null && _a !== void 0 ? _a : defVal;
+    return numberU(value) ?? defVal;
 }
 exports.number = number;
 /**

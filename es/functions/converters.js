@@ -1,5 +1,5 @@
-/* eslint-disable misc/ts-misc/functions/converters/prefer-number -- Ok */
-/* eslint-disable misc/ts-misc/functions/converters/prefer-string -- Ok */
+/* eslint-disable misc/typescript-misc/functions/converters/prefer-number -- Ok */
+/* eslint-disable misc/typescript-misc/functions/converters/prefer-string -- Ok */
 /* eslint-disable unicorn/no-null -- Ok */
 import * as is from "./guards";
 export const not = {
@@ -38,8 +38,7 @@ export function emptyToUndefined(value) {
  * @returns Converted value, defVal on failure.
  */
 export function number(value, defVal = 0) {
-    var _a;
-    return (_a = numberU(value)) !== null && _a !== void 0 ? _a : defVal;
+    return numberU(value) ?? defVal;
 }
 /**
  * Converts value to a number.

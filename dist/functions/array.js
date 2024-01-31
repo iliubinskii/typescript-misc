@@ -1,7 +1,7 @@
 "use strict";
-/* eslint-disable misc/ts-misc/functions/array/prefer-clone -- Ok */
-/* eslint-disable misc/ts-misc/functions/array/prefer-fromIterable -- Ok */
-/* eslint-disable misc/ts-misc/functions/object/prefer-hasOwnProp -- Ok */
+/* eslint-disable misc/typescript-misc/functions/array/prefer-clone -- Ok */
+/* eslint-disable misc/typescript-misc/functions/array/prefer-fromIterable -- Ok */
+/* eslint-disable misc/typescript-misc/functions/object/prefer-hasOwnProp -- Ok */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.unshiftUnique = exports.unshiftOrReplaceBy = exports.unshift = exports.uniqueBy = exports.truncate = exports.toggleBy = exports.third = exports.sort = exports.second = exports.reverse = exports.replaceBy = exports.replace = exports.removeBy = exports.random = exports.pushUnique = exports.pushOrReplaceBy = exports.push = exports.omit = exports.last = exports.intersection = exports.includesBy = exports.get = exports.fromString = exports.fromRange = exports.fromMixed = exports.fromIterable = exports.first = exports.findLastIndex = exports.findBy = exports.drop = exports.clone = exports.chunk = exports.chain = void 0;
 const tslib_1 = require("tslib");
@@ -291,7 +291,7 @@ exports.replaceBy = replaceBy;
  */
 function reverse(arr) {
     const result = clone(arr);
-    // eslint-disable-next-line misc/ts-misc/functions/array/prefer-reverse -- Ok
+    // eslint-disable-next-line misc/typescript-misc/functions/array/prefer-reverse -- Ok
     result.reverse();
     return result;
 }
@@ -316,7 +316,7 @@ exports.second = second;
  */
 function sort(arr, compareFn) {
     const result = clone(arr);
-    // eslint-disable-next-line misc/ts-misc/functions/array/prefer-sort -- Ok
+    // eslint-disable-next-line misc/typescript-misc/functions/array/prefer-sort -- Ok
     result.sort(compareFn);
     return result;
 }
@@ -352,7 +352,7 @@ exports.toggleBy = toggleBy;
  * @param mutableArray - Array.
  */
 function truncate(mutableArray) {
-    // eslint-disable-next-line misc/ts-misc/functions/array/prefer-truncate -- Ok
+    // eslint-disable-next-line misc/typescript-misc/functions/array/prefer-truncate -- Ok
     mutableArray.length = 0;
 }
 exports.truncate = truncate;
@@ -365,7 +365,7 @@ exports.truncate = truncate;
  */
 function uniqueBy(arr, keyOrReduce) {
     const reduce = mixedToReduce(keyOrReduce);
-    // eslint-disable-next-line misc/ts-misc/functions/prefer-readonly-set -- Ok
+    // eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-set -- Ok
     const seen = new Set();
     return arr.filter(element => {
         const reduced = reduce(element);

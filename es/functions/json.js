@@ -1,4 +1,4 @@
-/* eslint-disable misc/ts-misc/functions/json/prefer-json -- Ok */
+/* eslint-disable misc/typescript-misc/functions/json/prefer-json -- Ok */
 /* eslint-disable unicorn/no-null -- Ok */
 import * as a from "./array";
 import * as as from "./inline-assertions";
@@ -15,7 +15,7 @@ export function decode(source) {
         if (is.not.empty(source))
             return JSON.parse(source, reviver);
     }
-    catch (_a) {
+    catch {
         return null;
     }
     return null;

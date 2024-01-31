@@ -1,12 +1,5 @@
-import { assert, fn } from "..";
 import { printDiffOrStringify, stringify } from "jest-matcher-utils";
-import { DateTime } from "../facade-implementations/datetime/date-fns-wrapper/DateTime";
-export const datetimeToBe = (got, expected) => {
-    assert.instanceOf(got, DateTime, "Expecting DateTime instance");
-    const gotTime = got.toTime();
-    const expectedTime = new Date(expected).getTime();
-    return buildEqualsResult(gotTime === expectedTime, "Unexpected date", got.toString(), expected.toString());
-};
+import { fn } from "../functions";
 /**
  * Builds matcher result.
  *

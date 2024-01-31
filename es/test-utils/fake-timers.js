@@ -1,6 +1,6 @@
 import * as _ from "lodash-commonjs-es";
 import * as fakeTimers from "@sinonjs/fake-timers";
-import { a, assert, evaluate, onDemand } from "..";
+import { a, assert, evaluate, onDemand } from "../functions";
 export const clock = onDemand(() => {
     assert.not.empty(_clock, "Fake timer is not installed");
     return _clock;
@@ -12,7 +12,14 @@ export const clock = onDemand(() => {
  */
 export function installFakeTimer(options = {}) {
     assert.empty(_clock, "Fake timer is already installed");
-    _clock = fakeTimers.install(Object.assign({ advanceTimeDelta: 10, loopLimit: 1000, now: Date.now(), shouldAdvanceTime: false, toFake: [] }, options));
+    _clock = fakeTimers.install({
+        advanceTimeDelta: 10,
+        loopLimit: 1000,
+        now: Date.now(),
+        shouldAdvanceTime: false,
+        toFake: [],
+        ...options
+    });
 }
 /**
  * Executes promise or async function.

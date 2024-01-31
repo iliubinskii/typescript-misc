@@ -43,22 +43,22 @@ export const loremIpsumWrapper = {
     number: (from, to, step = 1) => num.floor.step(_.random(from, to), step),
     oneOf: (values) => a.get(values, _.random(0, values.length - 1)),
     paragraph: (minSentences, maxSentences, minWords, maxWords) => loremIpsum({
-        paragraphLowerBound: minSentences !== null && minSentences !== void 0 ? minSentences : moduleConfig.minSentences,
-        paragraphUpperBound: maxSentences !== null && maxSentences !== void 0 ? maxSentences : moduleConfig.maxSentences,
-        sentenceLowerBound: minWords !== null && minWords !== void 0 ? minWords : moduleConfig.minWords,
-        sentenceUpperBound: maxWords !== null && maxWords !== void 0 ? maxWords : moduleConfig.maxWords,
+        paragraphLowerBound: minSentences ?? moduleConfig.minSentences,
+        paragraphUpperBound: maxSentences ?? moduleConfig.maxSentences,
+        sentenceLowerBound: minWords ?? moduleConfig.minWords,
+        sentenceUpperBound: maxWords ?? moduleConfig.maxWords,
         suffix: "\n",
         units: "paragraphs"
     }),
     phrase: (minWords, maxWords) => loremIpsum({
-        sentenceLowerBound: minWords !== null && minWords !== void 0 ? minWords : moduleConfig.minWords,
-        sentenceUpperBound: maxWords !== null && maxWords !== void 0 ? maxWords : moduleConfig.maxWords,
+        sentenceLowerBound: minWords ?? moduleConfig.minWords,
+        sentenceUpperBound: maxWords ?? moduleConfig.maxWords,
         suffix: "\n",
         units: "sentences"
     }).replace(/\.$/u, ""),
     sentence: (minWords, maxWords) => loremIpsum({
-        sentenceLowerBound: minWords !== null && minWords !== void 0 ? minWords : moduleConfig.minWords,
-        sentenceUpperBound: maxWords !== null && maxWords !== void 0 ? maxWords : moduleConfig.maxWords,
+        sentenceLowerBound: minWords ?? moduleConfig.minWords,
+        sentenceUpperBound: maxWords ?? moduleConfig.maxWords,
         suffix: "\n",
         units: "sentences"
     }),

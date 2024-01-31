@@ -78,8 +78,8 @@ exports.removeUndefinedKeys = (0, core_1.defineFn)(
  * @returns New object.
  */
 function clone(obj) {
-    // eslint-disable-next-line misc/ts-misc/functions/object/prefer-clone -- Ok
-    return Object.assign({}, obj);
+    // eslint-disable-next-line misc/typescript-misc/functions/object/prefer-clone -- Ok
+    return { ...obj };
 }
 exports.clone = clone;
 /**
@@ -109,8 +109,7 @@ function filter(obj, predicate) {
 }
 exports.filter = filter;
 function get(obj, key, guard = is.unknown, defVal) {
-    var _a;
-    return as.byGuard((_a = (0, core_1.indexed)(obj)[key]) !== null && _a !== void 0 ? _a : defVal, guard);
+    return as.byGuard((0, core_1.indexed)(obj)[key] ?? defVal, guard);
 }
 exports.get = get;
 /**
@@ -120,7 +119,7 @@ exports.get = get;
  * @returns Object prototype if available, _undefined_ otherwise.
  */
 function getPrototypeOf(obj) {
-    // eslint-disable-next-line misc/ts-misc/functions/object/prefer-getPrototypeOf -- Ok
+    // eslint-disable-next-line misc/typescript-misc/functions/object/prefer-getPrototypeOf -- Ok
     const prototype = Object.getPrototypeOf(obj);
     return is.object(prototype) ? prototype : undefined;
 }
@@ -133,7 +132,7 @@ exports.getPrototypeOf = getPrototypeOf;
  * @returns _True_ if object has property, _false_ otherwise.
  */
 function hasOwnProp(key, obj) {
-    // eslint-disable-next-line misc/ts-misc/functions/object/prefer-hasOwnProp -- Ok
+    // eslint-disable-next-line misc/typescript-misc/functions/object/prefer-hasOwnProp -- Ok
     return Object.prototype.hasOwnProperty.call(obj, key);
 }
 exports.hasOwnProp = hasOwnProp;

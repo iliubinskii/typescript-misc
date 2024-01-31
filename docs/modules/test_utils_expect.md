@@ -17,7 +17,6 @@
 
 - [buildEqualsResult](test_utils_expect.md#buildequalsresult)
 - [buildResult](test_utils_expect.md#buildresult)
-- [datetimeToBe](test_utils_expect.md#datetimetobe)
 
 ## Type Aliases
 
@@ -70,24 +69,3 @@ Builds matcher result.
 [`ExpectResult`](../interfaces/test_utils_expect.ExpectResult.md)
 
 Matcher result.
-
-___
-
-### datetimeToBe
-
-▸ **datetimeToBe**(`got`, `...args`): [`ExpectResult`](../interfaces/test_utils_expect.ExpectResult.md)
-
-Expect function.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `got` | `unknown` | Got. |
-| `...args` | [expected: string] | Arguments. |
-
-#### Returns
-
-[`ExpectResult`](../interfaces/test_utils_expect.ExpectResult.md)
-
-Result.
