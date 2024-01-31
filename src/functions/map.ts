@@ -13,7 +13,7 @@ export function set<K, V>(
   key: K,
   value: V
 ): ReadonlyMap<K, V> {
-  // eslint-disable-next-line misc/ts-misc/functions/prefer-readonly-map -- Ok
+  // eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-map -- Ok
   const result = new Map(map);
 
   result.set(key, value);
@@ -29,7 +29,7 @@ export function set<K, V>(
  * @returns Map with key removed.
  */
 function _delete<K, V>(map: ReadonlyMap<K, V>, key: K): ReadonlyMap<K, V> {
-  // eslint-disable-next-line misc/ts-misc/functions/prefer-readonly-map -- Ok
+  // eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-map -- Ok
   const result = new Map(map);
 
   result.delete(key);

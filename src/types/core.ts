@@ -1,4 +1,4 @@
-/* eslint-disable misc/ts-misc/types/prefer-undefined-shorthand -- Ok */
+/* eslint-disable misc/typescript-misc/types/prefer-undefined-shorthand -- Ok */
 
 export type And<A, B, C = unknown, D = unknown, E = unknown, F = unknown> =
   // @prettier
@@ -7,17 +7,17 @@ export type And<A, B, C = unknown, D = unknown, E = unknown, F = unknown> =
 // eslint-disable-next-line misc/typescript/no-multi-type-tuples -- Ok
 export type Entry<K extends PropertyKey, T> = readonly [K, T];
 
-// eslint-disable-next-line misc/ts-misc/types/prefer-IndexedObject -- Ok
+// eslint-disable-next-line misc/typescript-misc/types/prefer-IndexedObject -- Ok
 export type IndexedObject<T = unknown> = Rec<PropertyKey, T>;
 
 export type IndexedObjects<T = unknown> = ReadonlyArray<IndexedObject<T>>;
 
-// eslint-disable-next-line misc/ts-misc/types/prefer-IndexedRecord -- Ok
+// eslint-disable-next-line misc/typescript-misc/types/prefer-IndexedRecord -- Ok
 export type IndexedRecord<T = unknown> = Rec<string, T>;
 
 export type IndexedRecords<T = unknown> = ReadonlyArray<IndexedRecord<T>>;
 
-// eslint-disable-next-line misc/ts-misc/types/prefer-NumStr -- Ok
+// eslint-disable-next-line misc/typescript-misc/types/prefer-NumStr -- Ok
 export type NumStr = number | string;
 
 export type NumStrE = empty | NumStr;
@@ -50,7 +50,7 @@ export type Recs<K extends PropertyKey, V> = ReadonlyArray<Rec<K, V>>;
 
 export type Writable<T> = { -readonly [K in keyof T]: T[K] };
 
-// eslint-disable-next-line misc/ts-misc/types/prefer-WritableIndexedObject -- Ok
+// eslint-disable-next-line misc/typescript-misc/types/prefer-WritableIndexedObject -- Ok
 export type WritableIndexedObject<T = unknown> = WritableRecord<PropertyKey, T>;
 
 export type WritableIndexedObjects<T = unknown> =

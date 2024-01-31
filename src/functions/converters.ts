@@ -1,5 +1,5 @@
-/* eslint-disable misc/ts-misc/functions/converters/prefer-number -- Ok */
-/* eslint-disable misc/ts-misc/functions/converters/prefer-string -- Ok */
+/* eslint-disable misc/typescript-misc/functions/converters/prefer-number -- Ok */
+/* eslint-disable misc/typescript-misc/functions/converters/prefer-string -- Ok */
 /* eslint-disable unicorn/no-null -- Ok */
 
 import * as is from "./guards";

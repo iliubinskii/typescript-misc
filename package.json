@@ -1,5 +1,5 @@
 {
-  "name": "ts-misc",
+  "name": "typescript-misc",
   "version": "0.1.0",
   "private": false,
   "description": "A collection of utility functions.",
@@ -9,13 +9,13 @@
     "typescript",
     "utility"
   ],
-  "homepage": "https://github.com/iliubinskii/ts-misc",
+  "homepage": "https://github.com/iliubinskii/typescript-misc",
   "bugs": {
-    "url": "https://github.com/iliubinskii/ts-misc/issues"
+    "url": "https://github.com/iliubinskii/typescript-misc/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/iliubinskii/ts-misc.git"
+    "url": "git://github.com/iliubinskii/typescript-misc.git"
   },
   "license": "ISC",
   "author": "Ilia Liubinskii <admin.phpdev@gmail.com> (https://github.com/iliubinskii)",
@@ -78,8 +78,8 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "eslint-plugin-misc": "^2.0.0",
-    "project-chore": "^2.1.0",
+    "eslint-plugin-misc": "^2.1.0",
+    "project-chore": "^2.2.0",
     "types-fix": "^1.0.6"
   },
   "peerDependencies": {

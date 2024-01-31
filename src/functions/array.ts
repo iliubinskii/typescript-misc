@@ -1,6 +1,6 @@
-/* eslint-disable misc/ts-misc/functions/array/prefer-clone -- Ok */
-/* eslint-disable misc/ts-misc/functions/array/prefer-fromIterable -- Ok */
-/* eslint-disable misc/ts-misc/functions/object/prefer-hasOwnProp -- Ok */
+/* eslint-disable misc/typescript-misc/functions/array/prefer-clone -- Ok */
+/* eslint-disable misc/typescript-misc/functions/array/prefer-fromIterable -- Ok */
+/* eslint-disable misc/typescript-misc/functions/object/prefer-hasOwnProp -- Ok */
 
 import * as _ from "lodash-commonjs-es";
 import * as assert from "./assertions";
@@ -394,7 +394,7 @@ export function replaceBy<T extends object>(
 export function reverse<T>(arr: readonly T[]): readonly T[] {
   const result = clone(arr);
 
-  // eslint-disable-next-line misc/ts-misc/functions/array/prefer-reverse -- Ok
+  // eslint-disable-next-line misc/typescript-misc/functions/array/prefer-reverse -- Ok
   result.reverse();
 
   return result;
@@ -424,7 +424,7 @@ export function sort<T>(
 ): readonly T[] {
   const result = clone(arr);
 
-  // eslint-disable-next-line misc/ts-misc/functions/array/prefer-sort -- Ok
+  // eslint-disable-next-line misc/typescript-misc/functions/array/prefer-sort -- Ok
   result.sort(compareFn);
 
   return result;
@@ -465,7 +465,7 @@ export function toggleBy<T extends object>(
  * @param mutableArray - Array.
  */
 export function truncate(mutableArray: Writable<unknowns>): void {
-  // eslint-disable-next-line misc/ts-misc/functions/array/prefer-truncate -- Ok
+  // eslint-disable-next-line misc/typescript-misc/functions/array/prefer-truncate -- Ok
   mutableArray.length = 0;
 }
 
@@ -482,7 +482,7 @@ export function uniqueBy<T extends object>(
 ): readonly T[] {
   const reduce = mixedToReduce(keyOrReduce);
 
-  // eslint-disable-next-line misc/ts-misc/functions/prefer-readonly-set -- Ok
+  // eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-set -- Ok
   const seen = new Set();
 
   return arr.filter(element => {

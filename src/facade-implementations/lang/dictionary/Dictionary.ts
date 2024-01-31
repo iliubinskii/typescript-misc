@@ -117,7 +117,7 @@ export class Dictionary implements lang.Dictionary<lang.Word, lang.Context> {
 
   protected readonly facade: lang.Facade;
 
-  // eslint-disable-next-line misc/ts-misc/functions/prefer-readonly-map -- Ok
+  // eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-map -- Ok
   protected readonly subs = new Map<NumStr, lang.Facade>();
 
   /**
@@ -166,5 +166,5 @@ export class Dictionary implements lang.Dictionary<lang.Word, lang.Context> {
   }
 }
 
-// eslint-disable-next-line misc/ts-misc/functions/prefer-readonly-map -- Ok
+// eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-map -- Ok
 const replacements = new Map<string, string>();

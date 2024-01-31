@@ -1,4 +1,4 @@
-/* eslint-disable misc/ts-misc/types/no-ts-toolbelt -- Ok */
+/* eslint-disable misc/typescript-misc/types/no-ts-toolbelt -- Ok */
 
 import type { And } from "./core";
 import type { Extends } from "ts-toolbelt/out/Any/Extends";

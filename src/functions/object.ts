@@ -162,7 +162,7 @@ export const removeUndefinedKeys = defineFn(
  * @returns New object.
  */
 export function clone<T>(obj: T): Writable<T> {
-  // eslint-disable-next-line misc/ts-misc/functions/object/prefer-clone -- Ok
+  // eslint-disable-next-line misc/typescript-misc/functions/object/prefer-clone -- Ok
   return { ...obj };
 }
 
@@ -235,7 +235,7 @@ export function get(
  * @returns Object prototype if available, _undefined_ otherwise.
  */
 export function getPrototypeOf(obj: object): objectU {
-  // eslint-disable-next-line misc/ts-misc/functions/object/prefer-getPrototypeOf -- Ok
+  // eslint-disable-next-line misc/typescript-misc/functions/object/prefer-getPrototypeOf -- Ok
   const prototype = Object.getPrototypeOf(obj);
 
   return is.object(prototype) ? prototype : undefined;
@@ -249,7 +249,7 @@ export function getPrototypeOf(obj: object): objectU {
  * @returns _True_ if object has property, _false_ otherwise.
  */
 export function hasOwnProp(key: PropertyKey, obj: object): boolean {
-  // eslint-disable-next-line misc/ts-misc/functions/object/prefer-hasOwnProp -- Ok
+  // eslint-disable-next-line misc/typescript-misc/functions/object/prefer-hasOwnProp -- Ok
   return Object.prototype.hasOwnProperty.call(obj, key);
 }
 

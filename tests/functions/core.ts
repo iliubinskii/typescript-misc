@@ -1,7 +1,7 @@
 /* eslint jest/max-expects: [warn, { max: 3 }] -- Ok */
-/* eslint-disable misc/ts-misc/functions/prefer-readonly-map -- Ok */
-/* eslint-disable misc/ts-misc/functions/prefer-readonly-set -- Ok */
 /* eslint-disable misc/typescript/prefer-readonly-property -- Ok */
+/* eslint-disable misc/typescript-misc/functions/prefer-readonly-map -- Ok */
+/* eslint-disable misc/typescript-misc/functions/prefer-readonly-set -- Ok */
 
 import { ReadonlyMap, ReadonlySet, evaluate, freeze, unfreeze } from "@";
 import type { Equals } from "ts-toolbelt/out/Any/Equals";

@@ -9,179 +9,180 @@ module.exports = {
       {
         sources: [
           {
-            _id: "ts-misc/src/facade-implementations/datetime",
-            source: "ts-misc/src/facade-implementations/datetime",
+            _id: "typescript-misc/src/facade-implementations/datetime",
+            source: "typescript-misc/src/facade-implementations/datetime",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/facade-implementations/dump",
-            source: "ts-misc/src/facade-implementations/dump",
+            _id: "typescript-misc/src/facade-implementations/dump",
+            source: "typescript-misc/src/facade-implementations/dump",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/facade-implementations/faker",
-            source: "ts-misc/src/facade-implementations/faker",
+            _id: "typescript-misc/src/facade-implementations/faker",
+            source: "typescript-misc/src/facade-implementations/faker",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/facade-implementations/lang",
-            source: "ts-misc/src/facade-implementations/lang",
+            _id: "typescript-misc/src/facade-implementations/lang",
+            source: "typescript-misc/src/facade-implementations/lang",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/facade-implementations/lang/dictionary",
-            source: "ts-misc/src/facade-implementations/lang/dictionary",
+            _id: "typescript-misc/src/facade-implementations/lang/dictionary",
+            source:
+              "typescript-misc/src/facade-implementations/lang/dictionary",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/array",
+            _id: "typescript-misc/src/functions/array",
             localName: "a",
-            source: "ts-misc/src/functions/array",
+            source: "typescript-misc/src/functions/array",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/assertions",
+            _id: "typescript-misc/src/functions/assertions",
             localName: "assert",
-            source: "ts-misc/src/functions/assertions",
+            source: "typescript-misc/src/functions/assertions",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/converters",
+            _id: "typescript-misc/src/functions/converters",
             localName: "cast",
-            source: "ts-misc/src/functions/converters",
+            source: "typescript-misc/src/functions/converters",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/function",
+            _id: "typescript-misc/src/functions/function",
             localName: "fn",
-            source: "ts-misc/src/functions/function",
+            source: "typescript-misc/src/functions/function",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/guards",
+            _id: "typescript-misc/src/functions/guards",
             localName: "is",
-            source: "ts-misc/src/functions/guards",
+            source: "typescript-misc/src/functions/guards",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/inline-assertions",
+            _id: "typescript-misc/src/functions/inline-assertions",
             localName: "as",
-            source: "ts-misc/src/functions/inline-assertions",
+            source: "typescript-misc/src/functions/inline-assertions",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/json",
-            source: "ts-misc/src/functions/json",
+            _id: "typescript-misc/src/functions/json",
+            source: "typescript-misc/src/functions/json",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/map",
-            source: "ts-misc/src/functions/map",
+            _id: "typescript-misc/src/functions/map",
+            source: "typescript-misc/src/functions/map",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/number",
+            _id: "typescript-misc/src/functions/number",
             localName: "num",
-            source: "ts-misc/src/functions/number",
+            source: "typescript-misc/src/functions/number",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/object",
+            _id: "typescript-misc/src/functions/object",
             localName: "o",
-            source: "ts-misc/src/functions/object",
+            source: "typescript-misc/src/functions/object",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/program-flow",
-            source: "ts-misc/src/functions/program-flow",
+            _id: "typescript-misc/src/functions/program-flow",
+            source: "typescript-misc/src/functions/program-flow",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/reflect",
-            source: "ts-misc/src/functions/reflect",
+            _id: "typescript-misc/src/functions/reflect",
+            source: "typescript-misc/src/functions/reflect",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/regexp",
-            source: "ts-misc/src/functions/regexp",
+            _id: "typescript-misc/src/functions/regexp",
+            source: "typescript-misc/src/functions/regexp",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/set",
-            source: "ts-misc/src/functions/set",
+            _id: "typescript-misc/src/functions/set",
+            source: "typescript-misc/src/functions/set",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/functions/string",
+            _id: "typescript-misc/src/functions/string",
             localName: "s",
-            source: "ts-misc/src/functions/string",
+            source: "typescript-misc/src/functions/string",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/types/function",
+            _id: "typescript-misc/src/types/function",
             localName: "fn",
-            source: "ts-misc/src/types/function",
+            source: "typescript-misc/src/types/function",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/types/function",
+            _id: "typescript-misc/src/types/function",
             localName: "fn",
             source: "type-essentials/src/function",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/types/index.types",
-            source: "ts-misc/src/types/index.types",
+            _id: "typescript-misc/src/types/index.types",
+            source: "typescript-misc/src/types/index.types",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/types/index.types",
+            _id: "typescript-misc/src/types/index.types",
             source: "type-essentials/src/index.types",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/types/index.types.object",
+            _id: "typescript-misc/src/types/index.types.object",
             localName: "object",
-            source: "ts-misc/src/types/index.types.object",
+            source: "typescript-misc/src/types/index.types.object",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/types/index.types.object",
+            _id: "typescript-misc/src/types/index.types.object",
             localName: "object",
             source: "type-essentials/src/index.types.object",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/types/object.keys",
+            _id: "typescript-misc/src/types/object.keys",
             localName: "keys",
-            source: "ts-misc/src/types/object.keys",
+            source: "typescript-misc/src/types/object.keys",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/types/object.keys",
+            _id: "typescript-misc/src/types/object.keys",
             localName: "keys",
             source: "type-essentials/src/object.keys",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/types/object.style",
+            _id: "typescript-misc/src/types/object.style",
             localName: "style",
-            source: "ts-misc/src/types/object.style",
+            source: "typescript-misc/src/types/object.style",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/types/object.style",
+            _id: "typescript-misc/src/types/object.style",
             localName: "style",
             source: "type-essentials/src/object.style",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/types/string",
-            source: "ts-misc/src/types/string",
+            _id: "typescript-misc/src/types/string",
+            source: "typescript-misc/src/types/string",
             wildcard: true
           },
           {
-            _id: "ts-misc/src/types/string",
+            _id: "typescript-misc/src/types/string",
             source: "type-essentials/src/string",
             wildcard: true
           },

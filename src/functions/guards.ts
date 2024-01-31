@@ -1,8 +1,8 @@
-/* eslint-disable misc/ts-misc/functions/array/prefer-clone -- Ok */
-/* eslint-disable misc/ts-misc/functions/array/prefer-fromIterable -- Ok */
-/* eslint-disable misc/ts-misc/functions/object/prefer-entries -- Ok */
-/* eslint-disable misc/ts-misc/functions/object/prefer-hasOwnProp -- Ok */
-/* eslint-disable misc/ts-misc/functions/object/prefer-values -- Ok */
+/* eslint-disable misc/typescript-misc/functions/array/prefer-clone -- Ok */
+/* eslint-disable misc/typescript-misc/functions/array/prefer-fromIterable -- Ok */
+/* eslint-disable misc/typescript-misc/functions/object/prefer-entries -- Ok */
+/* eslint-disable misc/typescript-misc/functions/object/prefer-hasOwnProp -- Ok */
+/* eslint-disable misc/typescript-misc/functions/object/prefer-values -- Ok */
 
 import type {
   IndexedObject,

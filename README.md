@@ -1,8 +1,8 @@
 # Typescript collection
 
-[![Stars](https://img.shields.io/github/stars/iliubinskii/ts-misc)](https://github.com/iliubinskii/ts-misc)
-[![Downloads](https://img.shields.io/npm/dm/ts-misc)](https://www.npmjs.com/package/ts-misc)
-[![Dependencies](https://img.shields.io/librariesio/release/npm/ts-misc)](https://libraries.io/npm/ts-misc)
+[![Stars](https://img.shields.io/github/stars/iliubinskii/typescript-misc)](https://github.com/iliubinskii/typescript-misc)
+[![Downloads](https://img.shields.io/npm/dm/typescript-misc)](https://www.npmjs.com/package/typescript-misc)
+[![Dependencies](https://img.shields.io/librariesio/release/npm/typescript-misc)](https://libraries.io/npm/typescript-misc)
 
 ## Table of contents
 
@@ -17,7 +17,7 @@ Typescript collection.
 ## <a id="installation"></a>Installation
 
 ```sh
-npm install ts-misc
+npm install typescript-misc
 ```
 
 ## <a id="modules"></a>Modules

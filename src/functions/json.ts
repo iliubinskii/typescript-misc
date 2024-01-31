@@ -1,4 +1,4 @@
-/* eslint-disable misc/ts-misc/functions/json/prefer-json -- Ok */
+/* eslint-disable misc/typescript-misc/functions/json/prefer-json -- Ok */
 /* eslint-disable unicorn/no-null -- Ok */
 
 import * as a from "./array";
