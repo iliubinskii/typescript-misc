@@ -127,7 +127,7 @@ module.exports = {
           {
             _id: "typescript-misc/src/types/function",
             localName: "fn",
-            source: "type-essentials/src/function",
+            source: "typescript-misc/src/types/function",
             wildcard: true
           },
           {
@@ -137,7 +137,7 @@ module.exports = {
           },
           {
             _id: "typescript-misc/src/types/index.types",
-            source: "type-essentials/src/index.types",
+            source: "typescript-misc/src/types/index.types",
             wildcard: true
           },
           {
@@ -149,7 +149,7 @@ module.exports = {
           {
             _id: "typescript-misc/src/types/index.types.object",
             localName: "object",
-            source: "type-essentials/src/index.types.object",
+            source: "typescript-misc/src/types/index.types.object",
             wildcard: true
           },
           {
@@ -161,7 +161,7 @@ module.exports = {
           {
             _id: "typescript-misc/src/types/object.keys",
             localName: "keys",
-            source: "type-essentials/src/object.keys",
+            source: "typescript-misc/src/types/object.keys",
             wildcard: true
           },
           {
@@ -173,7 +173,7 @@ module.exports = {
           {
             _id: "typescript-misc/src/types/object.style",
             localName: "style",
-            source: "type-essentials/src/object.style",
+            source: "typescript-misc/src/types/object.style",
             wildcard: true
           },
           {
@@ -183,7 +183,7 @@ module.exports = {
           },
           {
             _id: "typescript-misc/src/types/string",
-            source: "type-essentials/src/string",
+            source: "typescript-misc/src/types/string",
             wildcard: true
           },
           ...consistentImport.sources
