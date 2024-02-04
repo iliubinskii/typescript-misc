@@ -85,14 +85,6 @@ export namespace datetime {
      */
     readonly isSameDay: (date: DateTime) => boolean;
     /**
-     * Compares two dates up to day.
-     *
-     * @param date - Date.
-     * @returns _True_ if dates are equal, _false_ otherwise.
-     * @deprecated
-     */
-    readonly isSameDayOfMonth: (date: DateTime) => boolean;
-    /**
      * Compares two dates up to hours.
      *
      * @param date - Date.
@@ -197,92 +189,6 @@ export namespace datetime {
      * @returns New instance.
      */
     readonly setDayOfWeekLocale: (day: number) => DateTime;
-    /**
-     * Sets date to the end of day.
-     *
-     * @returns New instance.
-     */
-    readonly setEndOfDay: () => DateTime;
-    /**
-     * Sets date to the end of hour.
-     *
-     * @returns New instance.
-     */
-    readonly setEndOfHour: () => DateTime;
-    /**
-     * Sets date to the end of minute.
-     *
-     * @returns New instance.
-     */
-    readonly setEndOfMinute: () => DateTime;
-    /**
-     * Sets date to the end of month.
-     *
-     * @returns New instance.
-     */
-    readonly setEndOfMonth: () => DateTime;
-    /**
-     * Sets date to the end of previous day.
-     *
-     * @returns New instance.
-     */
-    readonly setEndOfPrevDay: () => DateTime;
-    /**
-     * Sets date to the end of previous hour.
-     *
-     * @returns New instance.
-     */
-    readonly setEndOfPrevHour: () => DateTime;
-    /**
-     * Sets date to the end of previous minute.
-     *
-     * @returns New instance.
-     */
-    readonly setEndOfPrevMinute: () => DateTime;
-    /**
-     * Sets date to the end of previous month.
-     *
-     * @returns New instance.
-     */
-    readonly setEndOfPrevMonth: () => DateTime;
-    /**
-     * Sets date to the end of previous week.
-     *
-     * @param weekStartsOn - Start of week (Sunday = 0, Monday = 1).
-     * @returns New instance.
-     */
-    readonly setEndOfPrevWeek: (weekStartsOn: 0 | 1) => DateTime;
-    /**
-     * Sets date to the end of previous week.
-     *
-     * @returns New instance.
-     */
-    readonly setEndOfPrevWeekLocale: () => DateTime;
-    /**
-     * Sets date to the end of previous year.
-     *
-     * @returns New instance.
-     */
-    readonly setEndOfPrevYear: () => DateTime;
-    /**
-     * Sets date to the end of week.
-     *
-     * @param weekStartsOn - Start of week (Sunday = 0, Monday = 1).
-     * @returns New instance.
-     */
-    readonly setEndOfWeek: (weekStartsOn: 0 | 1) => DateTime;
-    /**
-     * Sets date to the end of week.
-     *
-     * @returns New instance.
-     */
-    readonly setEndOfWeekLocale: () => DateTime;
-    /**
-     * Sets date to the end of year.
-     *
-     * @returns New instance.
-     */
-    readonly setEndOfYear: () => DateTime;
     /**
      * Sets hours.
      *

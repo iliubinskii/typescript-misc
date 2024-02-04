@@ -134,10 +134,6 @@ export class DateTime implements datetime.DateTime {
     return isSameDay(this.value, date.toDate());
   }
 
-  public isSameDayOfMonth(date: datetime.DateTime): boolean {
-    return isSameDay(this.value, date.toDate());
-  }
-
   public isSameHour(date: datetime.DateTime): boolean {
     return isSameHour(this.value, date.toDate());
   }
@@ -205,64 +201,6 @@ export class DateTime implements datetime.DateTime {
     const weekStartsOn = this.options.firstDayOfWeek;
 
     return this.create(setDay(this.value, day, { weekStartsOn }));
-  }
-
-  public setEndOfDay(): datetime.DateTime {
-    return this.isStartOfDay() ? this : this.setStartOfNextDay();
-  }
-
-  public setEndOfHour(): datetime.DateTime {
-    return this.isStartOfHour() ? this : this.setStartOfNextHour();
-  }
-
-  public setEndOfMinute(): datetime.DateTime {
-    return this.isStartOfMinute() ? this : this.setStartOfNextMinute();
-  }
-
-  public setEndOfMonth(): datetime.DateTime {
-    return this.isStartOfMonth() ? this : this.setStartOfNextMonth();
-  }
-
-  public setEndOfPrevDay(): datetime.DateTime {
-    return this.setEndOfDay().sub(1, TimeUnit.day);
-  }
-
-  public setEndOfPrevHour(): datetime.DateTime {
-    return this.setEndOfHour().sub(1, TimeUnit.hour);
-  }
-
-  public setEndOfPrevMinute(): datetime.DateTime {
-    return this.setEndOfMinute().sub(1, TimeUnit.minute);
-  }
-
-  public setEndOfPrevMonth(): datetime.DateTime {
-    return this.setEndOfMonth().sub(1, TimeUnit.month);
-  }
-
-  public setEndOfPrevWeek(weekStartsOn: 0 | 1): datetime.DateTime {
-    return this.setEndOfWeek(weekStartsOn).sub(1, TimeUnit.week);
-  }
-
-  public setEndOfPrevWeekLocale(): datetime.DateTime {
-    return this.setEndOfWeekLocale().sub(1, TimeUnit.week);
-  }
-
-  public setEndOfPrevYear(): datetime.DateTime {
-    return this.setEndOfYear().sub(1, TimeUnit.year);
-  }
-
-  public setEndOfWeek(weekStartsOn: 0 | 1): datetime.DateTime {
-    return this.isStartOfWeek(weekStartsOn)
-      ? this
-      : this.setStartOfNextWeek(weekStartsOn);
-  }
-
-  public setEndOfWeekLocale(): datetime.DateTime {
-    return this.isStartOfWeekLocale() ? this : this.setStartOfNextWeekLocale();
-  }
-
-  public setEndOfYear(): datetime.DateTime {
-    return this.isStartOfYear() ? this : this.setStartOfNextYear();
   }
 
   public setHours(hours: number): datetime.DateTime {
