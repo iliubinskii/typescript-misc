@@ -93,9 +93,6 @@ class DateTime {
     isSameDay(date) {
         return (0, date_fns_1.isSameDay)(this.value, date.toDate());
     }
-    isSameDayOfMonth(date) {
-        return (0, date_fns_1.isSameDay)(this.value, date.toDate());
-    }
     isSameHour(date) {
         return (0, date_fns_1.isSameHour)(this.value, date.toDate());
     }
@@ -144,50 +141,6 @@ class DateTime {
     setDayOfWeekLocale(day) {
         const weekStartsOn = this.options.firstDayOfWeek;
         return this.create((0, date_fns_1.setDay)(this.value, day, { weekStartsOn }));
-    }
-    setEndOfDay() {
-        return this.isStartOfDay() ? this : this.setStartOfNextDay();
-    }
-    setEndOfHour() {
-        return this.isStartOfHour() ? this : this.setStartOfNextHour();
-    }
-    setEndOfMinute() {
-        return this.isStartOfMinute() ? this : this.setStartOfNextMinute();
-    }
-    setEndOfMonth() {
-        return this.isStartOfMonth() ? this : this.setStartOfNextMonth();
-    }
-    setEndOfPrevDay() {
-        return this.setEndOfDay().sub(1, facades_1.TimeUnit.day);
-    }
-    setEndOfPrevHour() {
-        return this.setEndOfHour().sub(1, facades_1.TimeUnit.hour);
-    }
-    setEndOfPrevMinute() {
-        return this.setEndOfMinute().sub(1, facades_1.TimeUnit.minute);
-    }
-    setEndOfPrevMonth() {
-        return this.setEndOfMonth().sub(1, facades_1.TimeUnit.month);
-    }
-    setEndOfPrevWeek(weekStartsOn) {
-        return this.setEndOfWeek(weekStartsOn).sub(1, facades_1.TimeUnit.week);
-    }
-    setEndOfPrevWeekLocale() {
-        return this.setEndOfWeekLocale().sub(1, facades_1.TimeUnit.week);
-    }
-    setEndOfPrevYear() {
-        return this.setEndOfYear().sub(1, facades_1.TimeUnit.year);
-    }
-    setEndOfWeek(weekStartsOn) {
-        return this.isStartOfWeek(weekStartsOn)
-            ? this
-            : this.setStartOfNextWeek(weekStartsOn);
-    }
-    setEndOfWeekLocale() {
-        return this.isStartOfWeekLocale() ? this : this.setStartOfNextWeekLocale();
-    }
-    setEndOfYear() {
-        return this.isStartOfYear() ? this : this.setStartOfNextYear();
     }
     setHours(hours) {
         return this.create((0, date_fns_1.setHours)(this.value, hours));

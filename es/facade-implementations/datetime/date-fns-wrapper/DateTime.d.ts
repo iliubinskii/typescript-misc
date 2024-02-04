@@ -21,7 +21,6 @@ export declare class DateTime implements datetime.DateTime {
     format(format: string): string;
     hours(): number;
     isSameDay(date: datetime.DateTime): boolean;
-    isSameDayOfMonth(date: datetime.DateTime): boolean;
     isSameHour(date: datetime.DateTime): boolean;
     isSameMinute(date: datetime.DateTime): boolean;
     isSameMonth(date: datetime.DateTime): boolean;
@@ -38,20 +37,6 @@ export declare class DateTime implements datetime.DateTime {
     setDayOfMonth(day: number): datetime.DateTime;
     setDayOfWeek(day: number, weekStartsOn: FirstDayOfWeek): datetime.DateTime;
     setDayOfWeekLocale(day: number): datetime.DateTime;
-    setEndOfDay(): datetime.DateTime;
-    setEndOfHour(): datetime.DateTime;
-    setEndOfMinute(): datetime.DateTime;
-    setEndOfMonth(): datetime.DateTime;
-    setEndOfPrevDay(): datetime.DateTime;
-    setEndOfPrevHour(): datetime.DateTime;
-    setEndOfPrevMinute(): datetime.DateTime;
-    setEndOfPrevMonth(): datetime.DateTime;
-    setEndOfPrevWeek(weekStartsOn: 0 | 1): datetime.DateTime;
-    setEndOfPrevWeekLocale(): datetime.DateTime;
-    setEndOfPrevYear(): datetime.DateTime;
-    setEndOfWeek(weekStartsOn: 0 | 1): datetime.DateTime;
-    setEndOfWeekLocale(): datetime.DateTime;
-    setEndOfYear(): datetime.DateTime;
     setHours(hours: number): datetime.DateTime;
     setMinutes(minutes: number): datetime.DateTime;
     setMonth(month: number): datetime.DateTime;
