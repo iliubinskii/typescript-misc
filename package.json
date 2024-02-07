@@ -77,7 +77,7 @@
   "devDependencies": {
     "eslint-plugin-misc": "^2.1.0",
     "project-chore": "^2.2.0",
-    "types-fix": "^1.0.6"
+    "types-fix": "^1.0.7"
   },
   "peerDependencies": {
     "@jest/expect-utils": ">=29",
