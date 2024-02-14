@@ -7,7 +7,7 @@
     "__global.facades.lang.Context",
     "__global.facades.lang.Word"
   ],
-  "name": "Utility functions",
+  "name": "Typescript library",
   "out": "docs",
   "tsconfig": "tsconfig-typedoc.json"
 }
