@@ -4,7 +4,6 @@ import type { lang } from "../../../facades";
 export declare class Dictionary implements lang.Dictionary<lang.Word, lang.Context> {
     /**
      * Creates dictionary.
-     *
      * @param this - No this.
      * @param definitions - Language definitions.
      * @param context - Context.
@@ -20,14 +19,13 @@ export declare class Dictionary implements lang.Dictionary<lang.Word, lang.Conte
     plain(this: void, str: string): lang.Plain;
     plural(count: number): lang.Facade;
     with(search: string, replace: NumStr): lang.Facade;
-    protected readonly _context: lang.Context | undefined;
+    protected readonly _context?: lang.Context | undefined;
     protected readonly count: number;
     protected readonly definitions: Definitions;
     protected readonly facade: lang.Facade;
     protected readonly subs: Map<NumStr, lang.Facade>;
     /**
      * Creates class instance.
-     *
      * @param definitions - Language definitions.
      * @param context - Context.
      * @param count - Count for plural form.
@@ -35,7 +33,6 @@ export declare class Dictionary implements lang.Dictionary<lang.Word, lang.Conte
     protected constructor(definitions: Definitions, context?: lang.Context, count?: number);
     /**
      * Reduces count for plural form.
-     *
      * @param count - Count.
      * @returns Reduced count.
      */

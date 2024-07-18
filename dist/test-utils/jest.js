@@ -1,13 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.jestSetup = exports.jestReset = void 0;
-const tslib_1 = require("tslib");
-require("jest-extended");
 const facade_implementations_1 = require("../facade-implementations");
 const facades_1 = require("../facades");
 const functions_1 = require("../functions");
 const jest_internal_1 = require("./jest.internal");
-const all_1 = tslib_1.__importDefault(require("jest-extended/all"));
 exports.jestReset = (0, functions_1.defineFn)(
 /**
  * Jest reset.
@@ -26,7 +23,6 @@ exports.jestReset = (0, functions_1.defineFn)(
 }, {
     /**
      * Jest reset.
-     *
      * @param definitions - Language definitions.
      */
     dictionary: (definitions) => {
@@ -38,15 +34,22 @@ exports.jestSetup = (0, functions_1.defineFn)(
  * Jest setup.
  */
 () => {
-    expect.extend(all_1.default);
     expect.extend(jest_internal_1.matchers);
     jest.spyOn(console, "error").mockImplementation(errorMock);
     jest.spyOn(console, "warn").mockImplementation(warnMock);
     (0, exports.jestReset)();
+    /**
+     * Mock console error.
+     * @param args - Arguments.
+     */
     function errorMock(...args) {
         (0, jest_internal_1.error)(...args);
         throw new Error("Console error");
     }
+    /**
+     * Mock console warn.
+     * @param args - Arguments.
+     */
     function warnMock(...args) {
         (0, jest_internal_1.warn)(...args);
         throw new Error("Console warn");
@@ -54,7 +57,6 @@ exports.jestSetup = (0, functions_1.defineFn)(
 }, {
     /**
      * Jest setup.
-     *
      * @param definitions - Language definitions.
      */
     dictionary: (definitions) => {

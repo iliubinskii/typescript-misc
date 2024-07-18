@@ -1,5 +1,4 @@
 "use strict";
-/* eslint-disable misc/max-identifier-blocks -- Ok */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DateTime = void 0;
 const date_fns_1 = require("date-fns");
@@ -9,23 +8,10 @@ const functions_1 = require("../../../functions");
 class DateTime {
     /**
      * Creates class instance.
-     *
      * @param date - Date.
      * @param options - Options.
      */
     constructor(date, options) {
-        Object.defineProperty(this, "options", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "value", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         if (date instanceof Date)
             this.value = date;
         else if (date instanceof DateTime)
@@ -37,6 +23,11 @@ class DateTime {
         else
             this.value = new Date();
         this.options = options;
+        /**
+         * Parses string.
+         * @param str - String.
+         * @returns Date.
+         */
         function parseString(str) {
             const now = Date.now();
             for (const formatString of core_1.formatStrings) {
@@ -76,14 +67,14 @@ class DateTime {
     format(format) {
         format = this.options.pm
             ? format
-                .replace(/H{4}/gu, "hh")
-                .replace(/H{3}/gu, "h")
-                .replace(/A/gu, "a")
+                .replaceAll(/H{4}/gu, "hh")
+                .replaceAll(/H{3}/gu, "h")
+                .replaceAll("A", "a")
                 .trim()
             : format
-                .replace(/H{4}/gu, "HH")
-                .replace(/H{3}/gu, "H")
-                .replace(/A/gu, "")
+                .replaceAll(/H{4}/gu, "HH")
+                .replaceAll(/H{3}/gu, "H")
+                .replaceAll("A", "")
                 .trim();
         return (0, date_fns_1.format)(this.value, format, { locale: this.options.locale });
     }
@@ -220,9 +211,10 @@ class DateTime {
     year() {
         return (0, date_fns_1.getYear)(this.value);
     }
+    options;
+    value;
     /**
      * Creates DateTime object with the same options.
-     *
      * @param date - Date.
      * @returns DateTime object.
      */
@@ -233,7 +225,6 @@ class DateTime {
 exports.DateTime = DateTime;
 /**
  * Creates date-fns duration.
- *
  * @param amount - Amount.
  * @param unit - Unit.
  * @returns Duration.
@@ -242,28 +233,34 @@ function getDuration(amount, unit) {
     const result = {};
     switch (unit) {
         case facades_1.TimeUnit.minute:
-        case facades_1.TimeUnit.minutes:
+        case facades_1.TimeUnit.minutes: {
             result.minutes = amount;
             break;
+        }
         case facades_1.TimeUnit.hour:
-        case facades_1.TimeUnit.hours:
+        case facades_1.TimeUnit.hours: {
             result.hours = amount;
             break;
+        }
         case facades_1.TimeUnit.day:
-        case facades_1.TimeUnit.days:
+        case facades_1.TimeUnit.days: {
             result.days = amount;
             break;
+        }
         case facades_1.TimeUnit.week:
-        case facades_1.TimeUnit.weeks:
+        case facades_1.TimeUnit.weeks: {
             result.weeks = amount;
             break;
+        }
         case facades_1.TimeUnit.month:
-        case facades_1.TimeUnit.months:
+        case facades_1.TimeUnit.months: {
             result.months = amount;
             break;
+        }
         case facades_1.TimeUnit.year:
-        case facades_1.TimeUnit.years:
+        case facades_1.TimeUnit.years: {
             result.years = amount;
+        }
     }
     return result;
 }

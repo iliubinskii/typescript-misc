@@ -16,20 +16,17 @@ import { ReadonlySet, defineFn, indexed } from "./core";
 
 /**
  * Typed version of Object.assign.
- *
  * @param target - Target.
  * @param sources - Sources.
  * @returns Target.
  */
 export const assign: <T>(
   target: Writable<T>,
-  // eslint-disable-next-line misc/typescript/prefer-array-type-alias -- Ok
   ...sources: ReadonlyArray<Readonly<Partial<T>>>
 ) => T = Object.assign;
 
 /**
  * Typed version of Object.defineProperty.
- *
  * @param obj - Object.
  * @param key - Key.
  * @param descriptor - Descriptor.
@@ -43,28 +40,21 @@ export const defineProperty: <T, K extends keyof T = keyof T>(
 export const entries: {
   /**
    * Typed version of Object.entries.
-   *
    * @param obj - Object.
    * @returns Object entries.
    */
-  // eslint-disable-next-line misc/typescript/prefer-array-type-alias -- Ok
   <K extends string, V>(obj: PartialRecord<K, V>): ReadonlyArray<Entry<K, V>>;
   /**
    * Typed version of Object.entries.
-   *
    * @param obj - Object.
    * @returns Object entries.
    */
-  <T>(
-    obj: T
-  ): // eslint-disable-next-line misc/typescript/prefer-array-type-alias -- Ok
-  ReadonlyArray<Entry<string & keyof T, T[NumStr & keyof T]>>;
+  <T>(obj: T): ReadonlyArray<Entry<string & keyof T, T[NumStr & keyof T]>>;
 } = Object.entries;
 
 export const fromEntries = defineFn(
   /**
    * Creates object from entries.
-   *
    * @param entries - Entries.
    * @returns Object.
    */
@@ -81,7 +71,6 @@ export const fromEntries = defineFn(
   {
     /**
      * Creates object from entries.
-     *
      * @param entries - Entries.
      * @returns Object.
      */
@@ -101,43 +90,36 @@ export const fromEntries = defineFn(
 export const keys: {
   /**
    * Typed version of Object.keys.
-   *
    * @param obj - Object.
    * @returns Object keys.
    */
   <K extends string, V>(obj: PartialRecord<K, V>): readonly K[];
   /**
    * Typed version of Object.keys.
-   *
    * @param obj - Object.
    * @returns Object keys.
    */
-  // eslint-disable-next-line misc/typescript/prefer-array-type-alias -- Ok
   <T>(obj: T): ReadonlyArray<string & keyof T>;
 } = Object.keys;
 
 export const values: {
   /**
    * Typed version of Object.values.
-   *
    * @param obj - Object.
    * @returns Object values.
    */
   <K extends string, V>(obj: PartialRecord<K, V>): readonly V[];
   /**
    * Typed version of Object.values.
-   *
    * @param obj - Object.
    * @returns Object values.
    */
-  // eslint-disable-next-line misc/typescript/prefer-array-type-alias -- Ok
   <T>(obj: T): ReadonlyArray<T[NumStr & keyof T]>;
 } = Object.values;
 
 export const removeUndefinedKeys = defineFn(
   /**
    * Removes undefined keys.
-   *
    * @param obj - Object.
    * @returns New object with undefined keys removed.
    */
@@ -146,7 +128,6 @@ export const removeUndefinedKeys = defineFn(
   {
     /**
      * Removes undefined keys.
-     *
      * @param obj - Object.
      * @returns New object with undefined keys removed.
      */
@@ -157,18 +138,15 @@ export const removeUndefinedKeys = defineFn(
 
 /**
  * Clones object.
- *
  * @param obj - Object.
  * @returns New object.
  */
 export function clone<T>(obj: T): Writable<T> {
-  // eslint-disable-next-line misc/typescript-misc/functions/object/prefer-clone -- Ok
   return { ...obj };
 }
 
 /**
  * Checks if every object property satisfies condition.
- *
  * @param obj - Object.
  * @param predicate - Predicate.
  * @returns _True_ if every object property satisfies condition, _false_ otherwise.
@@ -179,7 +157,6 @@ export function every<T>(obj: T, predicate: Predicate<T>): boolean {
 
 /**
  * Picks object entries by predicate.
- *
  * @param obj - Object.
  * @param predicate - Predicate.
  * @returns New object.
@@ -195,7 +172,6 @@ export function filter<T>(obj: T, predicate: Predicate<T>): Partial<T> {
 
 /**
  * Returns object property.
- *
  * @param obj - Object.
  * @param key - Key.
  * @returns Object property.
@@ -204,7 +180,6 @@ export function get(obj: object, key: PropertyKey): unknown;
 
 /**
  * Returns object property.
- *
  * @param obj - Object.
  * @param key - Key.
  * @param guard - Guard for type T.
@@ -219,6 +194,15 @@ export function get<T>(
   defVal?: T
 ): T;
 
+/**
+ * Returns object property.
+ * @param obj - Object.
+ * @param key - Key.
+ * @param guard - Guard for type T.
+ * @param defVal - Default value.
+ * @returns Object property if its type is T.
+ * @throws AssertionError otherwise.
+ */
 export function get(
   obj: object,
   key: PropertyKey,
@@ -230,32 +214,27 @@ export function get(
 
 /**
  * Returns object prototype.
- *
  * @param obj - Object.
  * @returns Object prototype if available, _undefined_ otherwise.
  */
 export function getPrototypeOf(obj: object): objectU {
-  // eslint-disable-next-line misc/typescript-misc/functions/object/prefer-getPrototypeOf -- Ok
-  const prototype = Object.getPrototypeOf(obj);
+  const prototype = Object.getPrototypeOf(obj) as unknown;
 
   return is.object(prototype) ? prototype : undefined;
 }
 
 /**
  * Checks if object has property.
- *
  * @param key - Key.
  * @param obj - Object.
  * @returns _True_ if object has property, _false_ otherwise.
  */
 export function hasOwnProp(key: PropertyKey, obj: object): boolean {
-  // eslint-disable-next-line misc/typescript-misc/functions/object/prefer-hasOwnProp -- Ok
   return Object.prototype.hasOwnProperty.call(obj, key);
 }
 
 /**
  * Applies callback to each property.
- *
  * @param obj - Object.
  * @param callback - Callback.
  * @returns New object.
@@ -271,7 +250,6 @@ export function map<K extends string, V, R>(
 
 /**
  * Omit object entries by predicate.
- *
  * @param obj - Object.
  * @param predicate - Predicate.
  * @returns New object.
@@ -289,7 +267,6 @@ export function omit<T>(obj: T, predicate: Predicate<T>): Partial<T> {
 
 /**
  * Removes keys from object.
- *
  * @param obj - Object.
  * @param exclude - Keys to omit.
  * @returns New object.
@@ -301,7 +278,6 @@ export function omitKeys<
 
 /**
  * Removes keys from object.
- *
  * @param obj - Object.
  * @param exclude - Keys to omit.
  * @returns New object.
@@ -311,6 +287,12 @@ export function omitKeys<T, K extends string & keyof T>(
   ...exclude: readonly K[]
 ): types.object.Omit<T, K>;
 
+/**
+ * Removes keys from object.
+ * @param obj - Object.
+ * @param exclude - Keys to omit.
+ * @returns New object.
+ */
 export function omitKeys<T, K extends string & keyof T>(
   obj: T,
   ...exclude: readonly K[]
@@ -324,7 +306,6 @@ export function omitKeys<T, K extends string & keyof T>(
 
 /**
  * Adds prefix to object keys.
- *
  * @param obj - Object.
  * @param prefix - Prefix.
  * @returns Object with prefixed keys.
@@ -344,7 +325,6 @@ export function prefixKeys<T, P extends string>(
 
 /**
  * Sets object property.
- *
  * @param obj - Object.
  * @param key - Key.
  * @param value - Value.
@@ -355,7 +335,6 @@ export function set(obj: object, key: PropertyKey, value: unknown): void {
 
 /**
  * Returns the number of enumerable properties.
- *
  * @param obj - Object.
  * @returns The number of enumerable properties.
  */
@@ -365,7 +344,6 @@ export function size(obj: object): number {
 
 /**
  * Checks if some object property satisfies condition.
- *
  * @param obj - Object.
  * @param predicate - Predicate.
  * @returns _True_ if some object property satisfies condition, _false_ otherwise.
@@ -376,7 +354,6 @@ export function some<T>(obj: T, predicate: Predicate<T>): boolean {
 
 /**
  * Sorts object.
- *
  * @param obj - Object.
  * @param compareFn - Comparison function.
  * @returns New object.
@@ -388,13 +365,18 @@ export function sort<K extends string, V>(
 
 /**
  * Sorts object.
- *
  * @param obj - Object.
  * @param compareFn - Comparison function.
  * @returns New object.
  */
 export function sort<T>(obj: T, compareFn?: CompareFn<T>): T;
 
+/**
+ * Sorts object.
+ * @param obj - Object.
+ * @param compareFn - Comparison function.
+ * @returns New object.
+ */
 export function sort<K extends string, V>(
   obj: Rec<K, V>,
   compareFn?: CompareFn<Rec<K, V>>
@@ -413,7 +395,6 @@ export function sort<K extends string, V>(
 export interface CompareFn<T> {
   /**
    * Compares two object entries.
-   *
    * @param value1 - Value 1.
    * @param value2 - Value 2.
    * @param key1 - Key 1.
@@ -429,30 +410,27 @@ export interface CompareFn<T> {
 
 export interface Descriptor<T, K extends keyof T = keyof T>
   extends PropertyDescriptor {
-  readonly configurable?: boolean;
-  readonly enumerable?: boolean;
   /**
    * Property getter.
-   *
    * @param this - This argument.
    * @returns Value.
    */
+  // eslint-disable-next-line misc/consistent-optional-props -- Ok
   readonly get?: (this: T) => T[K];
   /**
    * Property setter.
-   *
    * @param this - This argument.
    * @param value - New value.
    */
+  // eslint-disable-next-line misc/consistent-optional-props -- Ok
   readonly set?: (this: T, value: T[K]) => void;
+  // eslint-disable-next-line misc/consistent-optional-props -- Ok
   readonly value?: T[K];
-  readonly writable?: boolean;
 }
 
 export interface Predicate<T> {
   /**
    * Checks object entry.
-   *
    * @param value - Value.
    * @param key - Key.
    * @returns _True_ if object entry passes check, _false_ otherwise.

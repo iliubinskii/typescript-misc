@@ -7,12 +7,10 @@ import type { Equals } from "ts-toolbelt/out/Any/Equals";
 interface TestInterface {
   readonly r: number;
   readonly ro?: number;
-  // eslint-disable-next-line spellcheck/spell-checker -- Ok
   readonly rou?: numberU;
   readonly ru: numberU;
   w: number;
   wo?: number;
-  // eslint-disable-next-line spellcheck/spell-checker -- Ok
   wou?: numberU;
   wu: numberU;
 }
@@ -26,14 +24,12 @@ test("Optional", () => {
     readonly r: number;
   } & {
     readonly ro?: number;
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     readonly rou?: number;
     readonly ru?: number;
   } & {
     w: number;
   } & {
     wo?: number;
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     wou?: number;
     wu?: number;
   };
@@ -50,14 +46,12 @@ test("OptionalUndefined", () => {
     readonly r: number;
   } & {
     readonly ro?: numberU;
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     readonly rou?: numberU;
     readonly ru?: numberU;
   } & {
     w: number;
   } & {
     wo?: numberU;
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     wou?: numberU;
     wu?: numberU;
   };
@@ -74,14 +68,12 @@ test("Undefined", () => {
     readonly r: number;
   } & {
     readonly ro: numberU;
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     readonly rou: numberU;
     readonly ru: numberU;
   } & {
     w: number;
   } & {
     wo: numberU;
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     wou: numberU;
     wu: numberU;
   };

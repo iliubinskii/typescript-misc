@@ -12,7 +12,6 @@ export var ProxyHandlerAction;
 })(ProxyHandlerAction || (ProxyHandlerAction = {}));
 /**
  * Self-binds all methods.
- *
  * @param obj - Object.
  * @returns Proxy.
  */
@@ -26,7 +25,6 @@ export function classToInterface(obj) {
 }
 /**
  * Creates facade.
- *
  * @param name - Facade name.
  * @param extension - Facade extension.
  * @returns Facade.
@@ -49,6 +47,11 @@ export function createFacade(name, extension) {
         set: (_target, key, value) => reflect.set(target(key), key, value)
     }));
     return proxy;
+    /**
+     * Returns target object.
+     * @param key - Key.
+     * @returns Target object.
+     */
     function target(key) {
         if (is.not.empty(key) && key in ownMethods)
             return ownMethods;
@@ -57,10 +60,10 @@ export function createFacade(name, extension) {
         try {
             throw new Error("Get stack trace");
         }
-        catch (e) {
-            if (e instanceof Error &&
-                is.not.empty(e.stack) &&
-                e.stack.includes("isLikelyComponentType"))
+        catch (err) {
+            if (err instanceof Error &&
+                is.not.empty(err.stack) &&
+                err.stack.includes("isLikelyComponentType"))
                 return ownMethods;
         }
         throw new Error(is.not.empty(key)
@@ -70,7 +73,6 @@ export function createFacade(name, extension) {
 }
 /**
  * Returns an object that throws an error on any attempted accessed.
- *
  * @returns An object.
  */
 export function neverDemand() {
@@ -80,13 +82,12 @@ export function neverDemand() {
 }
 /**
  * Generates resource on demand.
- *
  * @param generator - Resource generator.
  * @returns Resource.
  */
 export function onDemand(generator) {
     let _obj;
-    const proxy = new Proxy({}, wrapProxyHandler("onDemand", ProxyHandlerAction.throw, {
+    return new Proxy({}, wrapProxyHandler("onDemand", ProxyHandlerAction.throw, {
         get: (_target, key) => reflect.get(obj(), key),
         getOwnPropertyDescriptor: (_target, key) => reflect.getOwnPropertyDescriptor(obj(), key),
         has: (_target, key) => reflect.has(obj(), key),
@@ -97,15 +98,17 @@ export function onDemand(generator) {
             return true;
         }
     }));
-    return proxy;
+    /**
+     * Returns object.
+     * @returns Object.
+     */
     function obj() {
-        _obj ?? (_obj = generator());
+        _obj ??= generator();
         return _obj;
     }
 }
 /**
  * Creates safe access interface for an object.
- *
  * @param obj - Object.
  * @param guards - Guards.
  * @param readonlyKeys - Readonly keys.
@@ -143,18 +146,15 @@ export function safeAccess(obj, guards, readonlyKeys = []) {
 }
 /**
  * Delays program execution.
- *
  * @param timeout - Timeout (ms).
  */
 export async function wait(timeout) {
-    // eslint-disable-next-line promise/avoid-new -- Ok
     await new Promise(resolve => {
         setTimeout(resolve, timeout);
     });
 }
 /**
  * Adds missing methods to proxy handler.
- *
  * @param id - ID.
  * @param action - Action for missing methods.
  * @param handler - Handler.
@@ -162,7 +162,7 @@ export async function wait(timeout) {
  */
 export function wrapProxyHandler(id, action, handler) {
     switch (action) {
-        case ProxyHandlerAction.doDefault:
+        case ProxyHandlerAction.doDefault: {
             return typedef({
                 apply: (target, thisArg, args) => reflect.apply(as.callable(target), thisArg, args),
                 construct: (target, args, newTarget) => as.object(reflect.construct(as.constructor(target), args, as.constructor(newTarget))),
@@ -179,7 +179,8 @@ export function wrapProxyHandler(id, action, handler) {
                 setPrototypeOf: (target, proto) => reflect.setPrototypeOf(target, proto),
                 ...handler
             });
-        case ProxyHandlerAction.throw:
+        }
+        case ProxyHandlerAction.throw: {
             return typedef({
                 apply: () => {
                     throw new Error(`Not implemented: ${id}.apply`);
@@ -222,6 +223,7 @@ export function wrapProxyHandler(id, action, handler) {
                 },
                 ...handler
             });
+        }
     }
 }
 //# sourceMappingURL=helpers.js.map

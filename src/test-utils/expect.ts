@@ -5,7 +5,6 @@ import { fn } from "../functions";
 
 /**
  * Builds matcher result.
- *
  * @param pass - Pass.
  * @param message - Message.
  * @param got - Got.
@@ -25,6 +24,10 @@ export function buildEqualsResult(
     pass
   };
 
+  /**
+   * Builds failure message.
+   * @returns Failure message.
+   */
   function factory(): string {
     const info = pass
       ? stringify(expected)
@@ -36,7 +39,6 @@ export function buildEqualsResult(
 
 /**
  * Builds matcher result.
- *
  * @param pass - Pass.
  * @param expectSuccess - Expect success message.
  * @param expectFailure - Expect failure message.
@@ -53,7 +55,6 @@ export function buildResult(
 export interface ExpectFromMatcher<K extends keyof Matchers> {
   /**
    * Expect function.
-   *
    * @param got - Got.
    * @param args - Arguments.
    * @returns Result.
@@ -71,7 +72,6 @@ export interface ExpectFromMatcher<K extends keyof Matchers> {
 export interface ExpectResult {
   /**
    * Returns failure message.
-   *
    * @returns Failure message.
    */
   readonly message: () => string;

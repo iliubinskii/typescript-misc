@@ -1,7 +1,6 @@
+/* eslint-disable import/no-internal-modules -- Ok */
 import { assert, is } from "../functions";
-import { DateTime
-// eslint-disable-next-line misc/no-relative-parent-import -- Ok
- } from "../facade-implementations/datetime/date-fns-wrapper/DateTime";
+import { DateTime } from "../facade-implementations/datetime/date-fns-wrapper/DateTime";
 import { buildEqualsResult } from "./expect";
 import { equals } from "@jest/expect-utils";
 // eslint-disable-next-line no-console -- Ok
@@ -22,9 +21,9 @@ export const matchers = {
             assert.toBeFalse(expectedToThrow, "Expecting function not to throw");
             return buildEqualsResult(equals(result, expected), "Unexpected function execution result", result, expected);
         }
-        catch (e) {
+        catch (err) {
             assert.toBeTrue(expectedToThrow, "Expecting function to throw");
-            return buildEqualsResult(equals(e, expected), "Unexpected function execution result", e, expected);
+            return buildEqualsResult(equals(err, expected), "Unexpected function execution result", err, expected);
         }
     },
     executionTimeToBe: async (got, expected, precision = 10) => {
@@ -48,9 +47,9 @@ export const matchers = {
             assert.toBeFalse(expectedToThrow, "Expecting promise not to throw");
             return buildEqualsResult(equals(result, expected), "Unexpected promise execution result", result, expected);
         }
-        catch (e) {
+        catch (err) {
             assert.toBeTrue(expectedToThrow, "Expecting promise to throw");
-            return buildEqualsResult(equals(e, expected), "Unexpected promise execution result", e, expected);
+            return buildEqualsResult(equals(err, expected), "Unexpected promise execution result", err, expected);
         }
     },
     toBeSameAs: (got, expected) => {
@@ -60,7 +59,6 @@ export const matchers = {
 };
 /**
  * Checks that value type is Mock.
- *
  * @param value - Value.
  * @returns _True_ if value type is Mock, _false_ otherwise.
  */

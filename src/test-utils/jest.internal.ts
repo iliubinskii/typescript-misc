@@ -1,9 +1,8 @@
+/* eslint-disable import/no-internal-modules -- Ok */
+
 import type { Writable, types, unknowns } from "../types";
 import { assert, is } from "../functions";
-import {
-  DateTime
-  // eslint-disable-next-line misc/no-relative-parent-import -- Ok
-} from "../facade-implementations/datetime/date-fns-wrapper/DateTime";
+import { DateTime } from "../facade-implementations/datetime/date-fns-wrapper/DateTime";
 import type { ExpectFromMatcher } from "./expect";
 import { buildEqualsResult } from "./expect";
 import { equals } from "@jest/expect-utils";
@@ -50,13 +49,13 @@ export const matchers: {
         result,
         expected
       );
-    } catch (e) {
+    } catch (err) {
       assert.toBeTrue(expectedToThrow, "Expecting function to throw");
 
       return buildEqualsResult(
-        equals(e, expected),
+        equals(err, expected),
         "Unexpected function execution result",
-        e,
+        err,
         expected
       );
     }
@@ -108,13 +107,13 @@ export const matchers: {
         result,
         expected
       );
-    } catch (e) {
+    } catch (err) {
       assert.toBeTrue(expectedToThrow, "Expecting promise to throw");
 
       return buildEqualsResult(
-        equals(e, expected),
+        equals(err, expected),
         "Unexpected promise execution result",
-        e,
+        err,
         expected
       );
     }
@@ -140,7 +139,6 @@ export interface ExecutionResult {
 
 /**
  * Checks that value type is Mock.
- *
  * @param value - Value.
  * @returns _True_ if value type is Mock, _false_ otherwise.
  */

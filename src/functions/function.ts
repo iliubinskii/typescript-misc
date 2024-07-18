@@ -10,7 +10,6 @@ export const never: types.fn.Callable = () => {
 
 /**
  * Identity function.
- *
  * @param value - Value.
  * @returns Value.
  */
@@ -20,27 +19,30 @@ export function identity<T>(value: T): T {
 
 /**
  * Noop function.
- *
  * @param _args - Arguments.
  * @returns _False_.
  */
-export function noopFalse(..._args: unknowns): false {
+export function noopFalse(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- Ok
+  ..._args: unknowns
+): false {
   return false;
 }
 
 /**
  * Noop function.
- *
  * @param _args - Arguments.
  * @returns _True_.
  */
-export function noopTrue(..._args: unknowns): true {
+export function noopTrue(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- Ok
+  ..._args: unknowns
+): true {
   return true;
 }
 
 /**
  * Applies callbacks to a value.
- *
  * @param value - Value.
  * @param callback1 - Callback 1.
  * @param callback2 - Callback 2.
@@ -54,7 +56,6 @@ export function pipe<V, A, R>(
 
 /**
  * Applies callbacks to a value.
- *
  * @param value - Value.
  * @param callback1 - Callback 1.
  * @param callback2 - Callback 2.
@@ -68,6 +69,12 @@ export function pipe<V, A, B, R>(
   callback3: PipeCallback<B, R>
 ): R;
 
+/**
+ * Applies callbacks to a value.
+ * @param value - Value.
+ * @param callbacks - Callbacks.
+ * @returns The value returned by callback sequence.
+ */
 export function pipe(value: unknown, ...callbacks: PipeCallbacks): unknown {
   let result = value;
 
@@ -78,7 +85,6 @@ export function pipe(value: unknown, ...callbacks: PipeCallbacks): unknown {
 
 /**
  * Gets value from generator.
- *
  * @param mixed - Value or generator.
  * @returns Factory function.
  */
@@ -88,7 +94,6 @@ export function valueFromGenerator<T>(mixed: T | ValueGenerator<T>): T {
 
 /**
  * Creates generator from value.
- *
  * @param value - Value.
  * @returns Generator.
  */
@@ -99,7 +104,6 @@ export function valueToGenerator<T>(value: T): ValueGenerator<T> {
 export interface PipeCallback<V = unknown, R = unknown> {
   /**
    * Pipe callback.
-   *
    * @param value - Value.
    * @returns Result.
    */

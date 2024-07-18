@@ -4,7 +4,6 @@ export { _false as false, _null as null, _true as true, _undefined as undefined 
 export declare const array: InlineAssertion<baseUnknowns> & Readonly<{
     /**
      * Asserts that value type is T[].
-     *
      * @param value - Value.
      * @param guard - Guard for type T.
      * @returns Value if value type is T[].
@@ -23,7 +22,6 @@ export declare const empty: InlineAssertion<baseEmpty>;
 export declare const indexedObject: InlineAssertion<IndexedObject> & Readonly<{
     /**
      * Asserts that value type is IndexedObject\<T\>.
-     *
      * @param value - Value.
      * @param guard - Guard for type T.
      * @returns Value if value type is IndexedObject\<T\>.
@@ -36,7 +34,6 @@ export declare const indexedObjectsU: InlineAssertion<readonly IndexedObject[] |
 export declare const map: InlineAssertion<ReadonlyMap<unknown, unknown>> & Readonly<{
     /**
      * Asserts that value type is Map\<K, V\>.
-     *
      * @param value - Value.
      * @param keyGuard - Key guard.
      * @param valueGuard - Value guard.
@@ -68,7 +65,6 @@ export declare const propertyKeysU: InlineAssertion<PropertyKey | undefined>;
 export declare const set: InlineAssertion<ReadonlySet<unknown>> & Readonly<{
     /**
      * Asserts that value type is Set\<T\>.
-     *
      * @param value - Value.
      * @param guard - Guard for type T.
      * @returns Value if value type is Set\<T\>.
@@ -111,7 +107,6 @@ export declare const not: {
 };
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param guard - Guard for type T.
  * @returns Value if value type is T.
@@ -120,7 +115,6 @@ export declare const not: {
 export declare function byGuard<T>(value: unknown, guard: is.Guard<T>): T;
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @returns Value if value type is T.
  * @throws Error otherwise.
@@ -128,7 +122,6 @@ export declare function byGuard<T>(value: unknown, guard: is.Guard<T>): T;
 export declare function callable<T extends types.fn.Callable>(value: unknown): T;
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @returns Value if value type is T.
  * @throws Error otherwise.
@@ -136,7 +129,6 @@ export declare function callable<T extends types.fn.Callable>(value: unknown): T
 export declare function constructor<T extends types.fn.Constructor>(value: unknown): T;
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param en - Validation object.
  * @returns Value if value type is T.
@@ -145,7 +137,6 @@ export declare function constructor<T extends types.fn.Constructor>(value: unkno
 export declare function enumeration<T extends string>(value: unknown, en: IndexedRecord<T>): T;
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param ctor - Constructor.
  * @returns Value if value type is T.
@@ -154,7 +145,6 @@ export declare function enumeration<T extends string>(value: unknown, en: Indexe
 export declare function instanceOf<T>(value: unknown, ctor: types.fn.Constructor<T>): T;
 /**
  * Asserts that value type is T[].
- *
  * @param value - Value.
  * @param ctor - Constructor.
  * @returns Value if value type is T[].
@@ -164,7 +154,6 @@ export declare function instancesOf<T>(value: unknown, ctor: types.fn.Constructo
 export interface ExclusionInlineAssertion<T> {
     /**
      * Asserts value type.
-     *
      * @param value - Value.
      * @returns Value if its type is not T.
      * @throws Error otherwise.
@@ -174,7 +163,6 @@ export interface ExclusionInlineAssertion<T> {
 export interface InlineAssertion<T> {
     /**
      * Asserts value type.
-     *
      * @param value - Value.
      * @returns Value if its type is T.
      * @throws Error otherwise.

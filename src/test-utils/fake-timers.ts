@@ -1,7 +1,7 @@
 import * as _ from "lodash-commonjs-es";
 import * as fakeTimers from "@sinonjs/fake-timers";
 import { a, assert, evaluate, onDemand } from "../functions";
-import type { types } from "../types";
+import type { booleanU, types } from "../types";
 
 export const clock = onDemand((): fakeTimers.Clock => {
   assert.not.empty(_clock, "Fake timer is not installed");
@@ -11,7 +11,6 @@ export const clock = onDemand((): fakeTimers.Clock => {
 
 /**
  * Installs fake timer.
- *
  * @param options - Options.
  */
 export function installFakeTimer(options: Options = {}): void {
@@ -28,7 +27,6 @@ export function installFakeTimer(options: Options = {}): void {
 
 /**
  * Executes promise or async function.
- *
  * @param mixed - Promise or async function.
  * @returns The result of callback execution.
  */
@@ -59,7 +57,7 @@ export function setRandomSystemTime(): void {
 }
 
 export interface Options {
-  readonly shouldAdvanceTime?: boolean;
+  readonly shouldAdvanceTime?: booleanU;
 }
 
 let _clock: fakeTimers.Clock | undefined;

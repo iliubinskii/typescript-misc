@@ -1,7 +1,6 @@
 export { _delete as delete };
 /**
  * Adds value.
- *
  * @param set - Set.
  * @param value - Value.
  * @returns Set with value added.
@@ -9,7 +8,6 @@ export { _delete as delete };
 export declare function add<T>(set: ReadonlySet<T>, value: T): ReadonlySet<T>;
 /**
  * Removes value.
- *
  * @param set - Set.
  * @param value - Value.
  * @returns Set with value removed.

@@ -1,5 +1,3 @@
-/* eslint-disable misc/max-identifier-blocks -- Ok */
-
 import type { FirstDayOfWeek, Options } from "./core";
 import {
   add,
@@ -47,7 +45,6 @@ import { is } from "../../../functions";
 export class DateTime implements datetime.DateTime {
   /**
    * Creates class instance.
-   *
    * @param date - Date.
    * @param options - Options.
    */
@@ -63,6 +60,11 @@ export class DateTime implements datetime.DateTime {
 
     this.options = options;
 
+    /**
+     * Parses string.
+     * @param str - String.
+     * @returns Date.
+     */
     function parseString(str: string): Date {
       const now = Date.now();
 
@@ -113,14 +115,14 @@ export class DateTime implements datetime.DateTime {
   public format(format: string): string {
     format = this.options.pm
       ? format
-          .replace(/H{4}/gu, "hh")
-          .replace(/H{3}/gu, "h")
-          .replace(/A/gu, "a")
+          .replaceAll(/H{4}/gu, "hh")
+          .replaceAll(/H{3}/gu, "h")
+          .replaceAll("A", "a")
           .trim()
       : format
-          .replace(/H{4}/gu, "HH")
-          .replace(/H{3}/gu, "H")
-          .replace(/A/gu, "")
+          .replaceAll(/H{4}/gu, "HH")
+          .replaceAll(/H{3}/gu, "H")
+          .replaceAll("A", "")
           .trim();
 
     return formatDate(this.value, format, { locale: this.options.locale });
@@ -319,7 +321,6 @@ export class DateTime implements datetime.DateTime {
 
   /**
    * Creates DateTime object with the same options.
-   *
    * @param date - Date.
    * @returns DateTime object.
    */
@@ -332,7 +333,6 @@ export class DateTime implements datetime.DateTime {
 
 /**
  * Creates date-fns duration.
- *
  * @param amount - Amount.
  * @param unit - Unit.
  * @returns Duration.
@@ -342,38 +342,44 @@ function getDuration(amount: number, unit: TimeUnit): Duration {
 
   switch (unit) {
     case TimeUnit.minute:
-    case TimeUnit.minutes:
+    case TimeUnit.minutes: {
       result.minutes = amount;
 
       break;
+    }
 
     case TimeUnit.hour:
-    case TimeUnit.hours:
+    case TimeUnit.hours: {
       result.hours = amount;
 
       break;
+    }
 
     case TimeUnit.day:
-    case TimeUnit.days:
+    case TimeUnit.days: {
       result.days = amount;
 
       break;
+    }
 
     case TimeUnit.week:
-    case TimeUnit.weeks:
+    case TimeUnit.weeks: {
       result.weeks = amount;
 
       break;
+    }
 
     case TimeUnit.month:
-    case TimeUnit.months:
+    case TimeUnit.months: {
       result.months = amount;
 
       break;
+    }
 
     case TimeUnit.year:
-    case TimeUnit.years:
+    case TimeUnit.years: {
       result.years = amount;
+    }
   }
 
   return result;

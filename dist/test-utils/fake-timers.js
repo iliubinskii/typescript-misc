@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setRandomSystemTime = exports.run = exports.installFakeTimer = exports.clock = void 0;
+exports.clock = void 0;
+exports.installFakeTimer = installFakeTimer;
+exports.run = run;
+exports.setRandomSystemTime = setRandomSystemTime;
 const tslib_1 = require("tslib");
 const _ = tslib_1.__importStar(require("lodash-commonjs-es"));
 const fakeTimers = tslib_1.__importStar(require("@sinonjs/fake-timers"));
@@ -11,7 +14,6 @@ exports.clock = (0, functions_1.onDemand)(() => {
 });
 /**
  * Installs fake timer.
- *
  * @param options - Options.
  */
 function installFakeTimer(options = {}) {
@@ -25,10 +27,8 @@ function installFakeTimer(options = {}) {
         ...options
     });
 }
-exports.installFakeTimer = installFakeTimer;
 /**
  * Executes promise or async function.
- *
  * @param mixed - Promise or async function.
  * @returns The result of callback execution.
  */
@@ -36,7 +36,6 @@ async function run(mixed) {
     const result = await Promise.all([(0, functions_1.evaluate)(mixed), exports.clock.runAllAsync()]);
     return result[0];
 }
-exports.run = run;
 /**
  * Sets random system time.
  */
@@ -52,6 +51,5 @@ function setRandomSystemTime() {
         return date;
     }));
 }
-exports.setRandomSystemTime = setRandomSystemTime;
 let _clock;
 //# sourceMappingURL=fake-timers.js.map

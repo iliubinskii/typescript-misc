@@ -11,7 +11,6 @@ import type { lang } from "../../../../facades";
 export const pluralReduce = defineFn<PluralReduce, PluralReduceInternational>(
   /**
    * Reduces count for plural form.
-   *
    * @param count - Count.
    * @returns Reduced count.
    */
@@ -23,7 +22,6 @@ export const pluralReduce = defineFn<PluralReduce, PluralReduceInternational>(
   {
     /**
      * Reduces count for plural form.
-     *
      * @param count - Count.
      * @returns Reduced count.
      */
@@ -48,7 +46,6 @@ export const pluralReduce = defineFn<PluralReduce, PluralReduceInternational>(
 export interface PluralReduce {
   /**
    * Reduces count for plural form.
-   *
    * @param count - Count.
    * @returns Reduced count.
    */
@@ -62,9 +59,7 @@ export interface PluralReduceInternational {
 export type RawDefinition =
   | RawDefinitions
   | string
-  // eslint-disable-next-line misc/typescript/no-multi-type-tuples -- Ok
   | readonly [NumStr, RawDefinitions, PartialRecord<lang.Context, NumStr>]
-  // eslint-disable-next-line misc/typescript/no-multi-type-tuples -- Ok
   | readonly [NumStr, RawDefinitions];
 
 export interface RawDefinitions {
@@ -80,7 +75,7 @@ export interface RawLanguage {
 export type Rules = readonly strings[];
 
 export interface WordInfo {
-  readonly context?: lang.Context;
+  readonly context?: lang.Context | undefined;
   readonly count: number;
   readonly forms: strings;
   readonly replacements: ReadonlyMap<string, string>;

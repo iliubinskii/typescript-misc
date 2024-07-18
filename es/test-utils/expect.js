@@ -2,7 +2,6 @@ import { printDiffOrStringify, stringify } from "jest-matcher-utils";
 import { fn } from "../functions";
 /**
  * Builds matcher result.
- *
  * @param pass - Pass.
  * @param message - Message.
  * @param got - Got.
@@ -15,6 +14,10 @@ export function buildEqualsResult(pass, message, got, expected, immediate = fals
         message: immediate ? fn.valueToGenerator(factory()) : factory,
         pass
     };
+    /**
+     * Builds failure message.
+     * @returns Failure message.
+     */
     function factory() {
         const info = pass
             ? stringify(expected)
@@ -24,7 +27,6 @@ export function buildEqualsResult(pass, message, got, expected, immediate = fals
 }
 /**
  * Builds matcher result.
- *
  * @param pass - Pass.
  * @param expectSuccess - Expect success message.
  * @param expectFailure - Expect failure message.

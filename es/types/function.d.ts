@@ -2,7 +2,6 @@ import type { unknowns } from "./core";
 export interface Async<R, A extends unknowns = readonly []> {
     /**
      * Async function.
-     *
      * @param args - Arguments.
      * @returns Promise.
      */
@@ -15,7 +14,6 @@ export type CallSignature<T> = T extends (...args: infer A) => infer R ? (...arg
 export interface Callable<T = unknown> {
     /**
      * Function.
-     *
      * @param args - Arguments.
      * @returns Result.
      */
@@ -25,7 +23,6 @@ export type ConstructSignature<T> = T extends new (...args: infer A) => infer I 
 export interface Constructor<T = unknown> {
     /**
      * Constructor.
-     *
      * @param args - Arguments.
      * @returns Result.
      */
@@ -35,7 +32,6 @@ export type Promises<T> = ReadonlyArray<Promise<T>>;
 export interface Sync<R, A extends unknowns = readonly []> {
     /**
      * Function.
-     *
      * @param args - Arguments.
      * @returns Result.
      */

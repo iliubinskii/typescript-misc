@@ -4,7 +4,6 @@ export declare namespace faker {
     interface Facade {
         /**
          * Generates random boolean.
-         *
          * @param trueWeight - Weight of the _true_ value.
          * @param falseWeight - Weight of the _false_ value.
          * @returns Random boolean.
@@ -12,7 +11,6 @@ export declare namespace faker {
         readonly boolean: (trueWeight?: number, falseWeight?: number) => boolean;
         /**
          * Generates random date.
-         *
          * @param from - Min date.
          * @param to - Max date.
          * @param step - Step.
@@ -22,7 +20,6 @@ export declare namespace faker {
         readonly date: (from: TimeInterval | string, to: TimeInterval | string, step?: number, unit?: TimeUnit) => string;
         /**
          * Generates random number.
-         *
          * @param from - Min value.
          * @param to - Max value.
          * @param step - Step.
@@ -31,14 +28,12 @@ export declare namespace faker {
         readonly number: (from: number, to: number, step?: number) => number;
         /**
          * Returns random element from an array.
-         *
          * @param values - Values.
          * @returns Random element.
          */
         readonly oneOf: <T>(values: readonly T[]) => T;
         /**
          * Generates random paragraph.
-         *
          * @param minSentences - Min sentences.
          * @param maxSentences - Max sentences.
          * @param minWords - Min words.
@@ -48,7 +43,6 @@ export declare namespace faker {
         readonly paragraph: (minSentences?: number, maxSentences?: number, minWords?: number, maxWords?: number) => string;
         /**
          * Generates random phrase.
-         *
          * @param minWords - Min words.
          * @param maxWords - Max words.
          * @returns Random phrase.
@@ -56,7 +50,6 @@ export declare namespace faker {
         readonly phrase: (minWords?: number, maxWords?: number) => string;
         /**
          * Generates random sentence.
-         *
          * @param minWords - Min words.
          * @param maxWords - Max words.
          * @returns Random sentence.
@@ -64,7 +57,6 @@ export declare namespace faker {
         readonly sentence: (minWords?: number, maxWords?: number) => string;
         /**
          * Generates random word.
-         *
          * @returns Random word.
          */
         readonly word: () => string;

@@ -1,7 +1,6 @@
 import * as _ from "lodash-commonjs-es";
 /**
  * Adds flag to regular expression.
- *
  * @param re - Regular expression.
  * @param flags - Flags.
  * @returns New regular expression.
@@ -13,7 +12,6 @@ export function addFlags(re, flags) {
 }
 /**
  * Finds all matches.
- *
  * @param str - String.
  * @param re - Regular expression.
  * @returns Matches.

@@ -2,7 +2,6 @@ import type { Extends } from "ts-toolbelt/out/Any/Extends";
 import type { If } from "ts-toolbelt/out/Any/If";
 /**
  * Builds matcher result.
- *
  * @param pass - Pass.
  * @param message - Message.
  * @param got - Got.
@@ -13,7 +12,6 @@ import type { If } from "ts-toolbelt/out/Any/If";
 export declare function buildEqualsResult(pass: boolean, message: string, got: unknown, expected: unknown, immediate?: boolean): ExpectResult;
 /**
  * Builds matcher result.
- *
  * @param pass - Pass.
  * @param expectSuccess - Expect success message.
  * @param expectFailure - Expect failure message.
@@ -23,7 +21,6 @@ export declare function buildResult(pass: boolean, expectSuccess: string, expect
 export interface ExpectFromMatcher<K extends keyof Matchers> {
     /**
      * Expect function.
-     *
      * @param got - Got.
      * @param args - Arguments.
      * @returns Result.
@@ -33,7 +30,6 @@ export interface ExpectFromMatcher<K extends keyof Matchers> {
 export interface ExpectResult {
     /**
      * Returns failure message.
-     *
      * @returns Failure message.
      */
     readonly message: () => string;

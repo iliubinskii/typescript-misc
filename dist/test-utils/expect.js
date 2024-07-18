@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.buildResult = exports.buildEqualsResult = void 0;
+exports.buildEqualsResult = buildEqualsResult;
+exports.buildResult = buildResult;
 const jest_matcher_utils_1 = require("jest-matcher-utils");
 const functions_1 = require("../functions");
 /**
  * Builds matcher result.
- *
  * @param pass - Pass.
  * @param message - Message.
  * @param got - Got.
@@ -18,6 +18,10 @@ function buildEqualsResult(pass, message, got, expected, immediate = false) {
         message: immediate ? functions_1.fn.valueToGenerator(factory()) : factory,
         pass
     };
+    /**
+     * Builds failure message.
+     * @returns Failure message.
+     */
     function factory() {
         const info = pass
             ? (0, jest_matcher_utils_1.stringify)(expected)
@@ -25,10 +29,8 @@ function buildEqualsResult(pass, message, got, expected, immediate = false) {
         return `${message}:\n${info}`;
     }
 }
-exports.buildEqualsResult = buildEqualsResult;
 /**
  * Builds matcher result.
- *
  * @param pass - Pass.
  * @param expectSuccess - Expect success message.
  * @param expectFailure - Expect failure message.
@@ -37,5 +39,4 @@ exports.buildEqualsResult = buildEqualsResult;
 function buildResult(pass, expectSuccess, expectFailure) {
     return { message: () => (pass ? expectFailure : expectSuccess), pass };
 }
-exports.buildResult = buildResult;
 //# sourceMappingURL=expect.js.map

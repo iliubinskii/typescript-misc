@@ -24,28 +24,34 @@ export const loremIpsumWrapper: faker.Facade & loremIpsumWrapper.Configurable =
       const step2 = evaluate(() => {
         switch (unit) {
           case TimeUnit.day:
-          case TimeUnit.days:
+          case TimeUnit.days: {
             return step * 24 * 3600 * 1000;
+          }
 
           case TimeUnit.hour:
-          case TimeUnit.hours:
+          case TimeUnit.hours: {
             return step * 3600 * 1000;
+          }
 
           case TimeUnit.minute:
-          case TimeUnit.minutes:
+          case TimeUnit.minutes: {
             return step * 60 * 1000;
+          }
 
           case TimeUnit.month:
-          case TimeUnit.months:
+          case TimeUnit.months: {
             return step * 30 * 24 * 3600 * 1000;
+          }
 
           case TimeUnit.week:
-          case TimeUnit.weeks:
+          case TimeUnit.weeks: {
             return step * 7 * 24 * 3600 * 1000;
+          }
 
           case TimeUnit.year:
-          case TimeUnit.years:
+          case TimeUnit.years: {
             return step * 365 * 24 * 3600 * 1000;
+          }
         }
       });
 
@@ -89,18 +95,15 @@ export const loremIpsumWrapper: faker.Facade & loremIpsumWrapper.Configurable =
     word: () => loremIpsum({ suffix: "\n", units: "words" })
   };
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare -- Ok
 export namespace loremIpsumWrapper {
   export interface Configurable {
     /**
      * Configures plugin.
-     *
      * @param config - Plugin configuration.
      */
     readonly configure: (config: PartialConfiguration) => void;
     /**
      * Returns plugin configuration.
-     *
      * @returns Plugin configuration.
      */
     readonly getConfiguration: () => Configuration;

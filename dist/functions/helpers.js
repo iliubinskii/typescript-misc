@@ -1,6 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.wrapProxyHandler = exports.wait = exports.safeAccess = exports.onDemand = exports.neverDemand = exports.createFacade = exports.classToInterface = exports.ProxyHandlerAction = void 0;
+exports.ProxyHandlerAction = void 0;
+exports.classToInterface = classToInterface;
+exports.createFacade = createFacade;
+exports.neverDemand = neverDemand;
+exports.onDemand = onDemand;
+exports.safeAccess = safeAccess;
+exports.wait = wait;
+exports.wrapProxyHandler = wrapProxyHandler;
 const tslib_1 = require("tslib");
 const as = tslib_1.__importStar(require("./inline-assertions"));
 const cast = tslib_1.__importStar(require("./converters"));
@@ -16,7 +23,6 @@ var ProxyHandlerAction;
 })(ProxyHandlerAction || (exports.ProxyHandlerAction = ProxyHandlerAction = {}));
 /**
  * Self-binds all methods.
- *
  * @param obj - Object.
  * @returns Proxy.
  */
@@ -28,10 +34,8 @@ function classToInterface(obj) {
         }
     }));
 }
-exports.classToInterface = classToInterface;
 /**
  * Creates facade.
- *
  * @param name - Facade name.
  * @param extension - Facade extension.
  * @returns Facade.
@@ -54,6 +58,11 @@ function createFacade(name, extension) {
         set: (_target, key, value) => reflect.set(target(key), key, value)
     }));
     return proxy;
+    /**
+     * Returns target object.
+     * @param key - Key.
+     * @returns Target object.
+     */
     function target(key) {
         if (is.not.empty(key) && key in ownMethods)
             return ownMethods;
@@ -62,10 +71,10 @@ function createFacade(name, extension) {
         try {
             throw new Error("Get stack trace");
         }
-        catch (e) {
-            if (e instanceof Error &&
-                is.not.empty(e.stack) &&
-                e.stack.includes("isLikelyComponentType"))
+        catch (err) {
+            if (err instanceof Error &&
+                is.not.empty(err.stack) &&
+                err.stack.includes("isLikelyComponentType"))
                 return ownMethods;
         }
         throw new Error(is.not.empty(key)
@@ -73,10 +82,8 @@ function createFacade(name, extension) {
             : `Missing facade implementation: ${name}`);
     }
 }
-exports.createFacade = createFacade;
 /**
  * Returns an object that throws an error on any attempted accessed.
- *
  * @returns An object.
  */
 function neverDemand() {
@@ -84,16 +91,14 @@ function neverDemand() {
         throw new Error("This object should never be demanded");
     });
 }
-exports.neverDemand = neverDemand;
 /**
  * Generates resource on demand.
- *
  * @param generator - Resource generator.
  * @returns Resource.
  */
 function onDemand(generator) {
     let _obj;
-    const proxy = new Proxy({}, wrapProxyHandler("onDemand", ProxyHandlerAction.throw, {
+    return new Proxy({}, wrapProxyHandler("onDemand", ProxyHandlerAction.throw, {
         get: (_target, key) => reflect.get(obj(), key),
         getOwnPropertyDescriptor: (_target, key) => reflect.getOwnPropertyDescriptor(obj(), key),
         has: (_target, key) => reflect.has(obj(), key),
@@ -104,16 +109,17 @@ function onDemand(generator) {
             return true;
         }
     }));
-    return proxy;
+    /**
+     * Returns object.
+     * @returns Object.
+     */
     function obj() {
-        _obj ?? (_obj = generator());
+        _obj ??= generator();
         return _obj;
     }
 }
-exports.onDemand = onDemand;
 /**
  * Creates safe access interface for an object.
- *
  * @param obj - Object.
  * @param guards - Guards.
  * @param readonlyKeys - Readonly keys.
@@ -149,22 +155,17 @@ function safeAccess(obj, guards, readonlyKeys = []) {
         }
     }));
 }
-exports.safeAccess = safeAccess;
 /**
  * Delays program execution.
- *
  * @param timeout - Timeout (ms).
  */
 async function wait(timeout) {
-    // eslint-disable-next-line promise/avoid-new -- Ok
     await new Promise(resolve => {
         setTimeout(resolve, timeout);
     });
 }
-exports.wait = wait;
 /**
  * Adds missing methods to proxy handler.
- *
  * @param id - ID.
  * @param action - Action for missing methods.
  * @param handler - Handler.
@@ -172,7 +173,7 @@ exports.wait = wait;
  */
 function wrapProxyHandler(id, action, handler) {
     switch (action) {
-        case ProxyHandlerAction.doDefault:
+        case ProxyHandlerAction.doDefault: {
             return (0, core_1.typedef)({
                 apply: (target, thisArg, args) => reflect.apply(as.callable(target), thisArg, args),
                 construct: (target, args, newTarget) => as.object(reflect.construct(as.constructor(target), args, as.constructor(newTarget))),
@@ -189,7 +190,8 @@ function wrapProxyHandler(id, action, handler) {
                 setPrototypeOf: (target, proto) => reflect.setPrototypeOf(target, proto),
                 ...handler
             });
-        case ProxyHandlerAction.throw:
+        }
+        case ProxyHandlerAction.throw: {
             return (0, core_1.typedef)({
                 apply: () => {
                     throw new Error(`Not implemented: ${id}.apply`);
@@ -232,7 +234,7 @@ function wrapProxyHandler(id, action, handler) {
                 },
                 ...handler
             });
+        }
     }
 }
-exports.wrapProxyHandler = wrapProxyHandler;
 //# sourceMappingURL=helpers.js.map

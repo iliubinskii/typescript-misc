@@ -1,11 +1,8 @@
-/* eslint-disable misc/typescript-misc/functions/converters/prefer-number -- Ok */
-/* eslint-disable misc/typescript-misc/functions/converters/prefer-string -- Ok */
 /* eslint-disable unicorn/no-null -- Ok */
 import * as is from "./guards";
 export const not = {
     /**
      * Converts value to not empty.
-     *
      * @param value - Value.
      * @param defVal - Default value.
      * @returns Value if it is not empty, defVal otherwise.
@@ -14,7 +11,6 @@ export const not = {
 };
 /**
  * Unifies empty values.
- *
  * @param value - Values.
  * @returns Unified value.
  */
@@ -23,7 +19,6 @@ export function emptyToNull(value) {
 }
 /**
  * Unifies empty values.
- *
  * @param value - Values.
  * @returns Unified value.
  */
@@ -32,7 +27,6 @@ export function emptyToUndefined(value) {
 }
 /**
  * Converts value to a number.
- *
  * @param value - Value.
  * @param defVal - Default value.
  * @returns Converted value, defVal on failure.
@@ -42,29 +36,30 @@ export function number(value, defVal = 0) {
 }
 /**
  * Converts value to a number.
- *
  * @param value - Value.
  * @returns Converted value, _undefined_ on failure.
  */
 export function numberU(value) {
     switch (typeof value) {
-        case "boolean":
+        case "boolean": {
             return Number(value);
-        case "number":
+        }
+        case "number": {
             return value;
+        }
         case "string": {
             if (value === "" || value === "\n" || value === "\r\n")
                 return undefined;
             const result = Number(value);
             return Number.isNaN(result) ? undefined : result;
         }
-        default:
+        default: {
             return undefined;
+        }
     }
 }
 /**
  * Converts value to a string.
- *
  * @param value - Value.
  * @returns Converted value.
  */
@@ -73,7 +68,6 @@ export function string(value) {
 }
 /**
  * Converts value to type stringU.
- *
  * @param value - Value.
  * @returns Converted value.
  */

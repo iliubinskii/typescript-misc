@@ -21,23 +21,29 @@ exports.loremIpsumWrapper = {
         const step2 = (0, functions_1.evaluate)(() => {
             switch (unit) {
                 case facades_1.TimeUnit.day:
-                case facades_1.TimeUnit.days:
+                case facades_1.TimeUnit.days: {
                     return step * 24 * 3600 * 1000;
+                }
                 case facades_1.TimeUnit.hour:
-                case facades_1.TimeUnit.hours:
+                case facades_1.TimeUnit.hours: {
                     return step * 3600 * 1000;
+                }
                 case facades_1.TimeUnit.minute:
-                case facades_1.TimeUnit.minutes:
+                case facades_1.TimeUnit.minutes: {
                     return step * 60 * 1000;
+                }
                 case facades_1.TimeUnit.month:
-                case facades_1.TimeUnit.months:
+                case facades_1.TimeUnit.months: {
                     return step * 30 * 24 * 3600 * 1000;
+                }
                 case facades_1.TimeUnit.week:
-                case facades_1.TimeUnit.weeks:
+                case facades_1.TimeUnit.weeks: {
                     return step * 7 * 24 * 3600 * 1000;
+                }
                 case facades_1.TimeUnit.year:
-                case facades_1.TimeUnit.years:
+                case facades_1.TimeUnit.years: {
                     return step * 365 * 24 * 3600 * 1000;
+                }
             }
         });
         const time = functions_1.num.floor.step(_.random(from2, to2), step2);

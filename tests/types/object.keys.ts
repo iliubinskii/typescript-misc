@@ -1,5 +1,4 @@
 /* eslint-disable misc/consistent-optional-props -- Ok */
-/* eslint-disable misc/typescript/prefer-enum -- Ok */
 /* eslint-disable misc/typescript/prefer-readonly-property -- Ok */
 
 import type { numberU, types } from "@";
@@ -8,12 +7,10 @@ import type { Equals } from "ts-toolbelt/out/Any/Equals";
 interface TestInterface {
   readonly r: number;
   readonly ro?: number;
-  // eslint-disable-next-line spellcheck/spell-checker -- Ok
   readonly rou?: numberU;
   readonly ru: numberU;
   w: number;
   wo?: number;
-  // eslint-disable-next-line spellcheck/spell-checker -- Ok
   wou?: numberU;
   wu: numberU;
 }
@@ -43,7 +40,6 @@ test("ReadonlyUndefined", () => {
 
   expect(value).toBe(1);
 
-  // eslint-disable-next-line spellcheck/spell-checker -- Ok
   type Expected = "ro" | "rou" | "ru";
 
   type To = types.object.keys.ReadonlyUndefined<TestInterface>;
@@ -54,7 +50,6 @@ test("Undefined", () => {
 
   expect(value).toBe(1);
 
-  // eslint-disable-next-line spellcheck/spell-checker -- Ok
   type Expected = "ro" | "rou" | "ru" | "wo" | "wou" | "wu";
 
   type To = types.object.keys.Undefined<TestInterface>;
@@ -75,7 +70,6 @@ test("WritableUndefined", () => {
 
   expect(value).toBe(1);
 
-  // eslint-disable-next-line spellcheck/spell-checker -- Ok
   type Expected = "wo" | "wou" | "wu";
 
   type To = types.object.keys.WritableUndefined<TestInterface>;

@@ -1,6 +1,3 @@
-/* eslint jest/max-expects: [warn, { max: 2 }] -- Ok */
-/* eslint-disable misc/consistent-import -- Ok */
-/* eslint-disable misc/no-at-sign-internal-import -- Ok */
 /* eslint-disable no-console -- Ok */
 
 import * as internal from "@/test-utils/jest.internal";

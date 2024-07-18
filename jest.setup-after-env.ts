@@ -1,3 +1,5 @@
+/* eslint-disable import/no-internal-modules -- Ok */
+
 import * as testUtils from "./src/test-utils";
 import { dictionary } from "./src";
 

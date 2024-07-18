@@ -21,7 +21,6 @@ export {
 export const array = defineFn(factory(is.array), {
   /**
    * Asserts that value type is T[].
-   *
    * @param value - Value.
    * @param guard - Guard for type T.
    * @returns Value if value type is T[].
@@ -53,7 +52,6 @@ export const empty = factory(is.empty);
 export const indexedObject = defineFn(factory(is.indexedObject), {
   /**
    * Asserts that value type is IndexedObject\<T\>.
-   *
    * @param value - Value.
    * @param guard - Guard for type T.
    * @returns Value if value type is IndexedObject\<T\>.
@@ -73,7 +71,6 @@ export const indexedObjectsU = factory(is.indexedObjectsU);
 export const map = defineFn(factory(is.map), {
   /**
    * Asserts that value type is Map\<K, V\>.
-   *
    * @param value - Value.
    * @param keyGuard - Key guard.
    * @param valueGuard - Value guard.
@@ -134,7 +131,6 @@ export const propertyKeysU = factory(is.propertyKeyU);
 export const set = defineFn(factory(is.set), {
   /**
    * Asserts that value type is Set\<T\>.
-   *
    * @param value - Value.
    * @param guard - Guard for type T.
    * @returns Value if value type is Set\<T\>.
@@ -197,7 +193,6 @@ export const not = {
 
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param guard - Guard for type T.
  * @returns Value if value type is T.
@@ -211,7 +206,6 @@ export function byGuard<T>(value: unknown, guard: is.Guard<T>): T {
 
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @returns Value if value type is T.
  * @throws Error otherwise.
@@ -224,7 +218,6 @@ export function callable<T extends types.fn.Callable>(value: unknown): T {
 
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @returns Value if value type is T.
  * @throws Error otherwise.
@@ -237,7 +230,6 @@ export function constructor<T extends types.fn.Constructor>(value: unknown): T {
 
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param en - Validation object.
  * @returns Value if value type is T.
@@ -254,7 +246,6 @@ export function enumeration<T extends string>(
 
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param ctor - Constructor.
  * @returns Value if value type is T.
@@ -271,7 +262,6 @@ export function instanceOf<T>(
 
 /**
  * Asserts that value type is T[].
- *
  * @param value - Value.
  * @param ctor - Constructor.
  * @returns Value if value type is T[].
@@ -289,7 +279,6 @@ export function instancesOf<T>(
 export interface ExclusionInlineAssertion<T> {
   /**
    * Asserts value type.
-   *
    * @param value - Value.
    * @returns Value if its type is not T.
    * @throws Error otherwise.
@@ -300,7 +289,6 @@ export interface ExclusionInlineAssertion<T> {
 export interface InlineAssertion<T> {
   /**
    * Asserts value type.
-   *
    * @param value - Value.
    * @returns Value if its type is T.
    * @throws Error otherwise.
@@ -318,14 +306,12 @@ const _undefined = factory(is.undefined);
 
 /**
  * Creates inline assertion.
- *
  * @param guard - Guard for type T.
  * @returns Inline assertion for type T.
  */
 function factory<T>(guard: is.Guard<T>): InlineAssertion<T> {
   /**
    * Asserts that value has expected type.
-   *
    * @param value - Value.
    * @returns Value if value has expected type.
    * @throws Error otherwise.
@@ -339,7 +325,6 @@ function factory<T>(guard: is.Guard<T>): InlineAssertion<T> {
 
 /**
  * Creates inline assertion.
- *
  * @param guard - Guard for type not T.
  * @returns Inline assertion for type not T.
  */
@@ -348,7 +333,6 @@ function notFactory<T>(
 ): ExclusionInlineAssertion<T> {
   /**
    * Asserts that value has expected type.
-   *
    * @param value - Value.
    * @returns Value if value has expected type.
    * @throws Error otherwise.

@@ -2,7 +2,6 @@ import { ProxyHandlerAction, assert, cast, evaluate, reflect, s, wrapProxyHandle
 export class Dictionary {
     /**
      * Creates dictionary.
-     *
      * @param this - No this.
      * @param definitions - Language definitions.
      * @param context - Context.
@@ -12,6 +11,7 @@ export class Dictionary {
     static create(definitions, context, count) {
         return new Dictionary(definitions, context, count).facade;
     }
+    keys;
     context(context) {
         if (context === this._context)
             return this.facade;
@@ -62,65 +62,34 @@ export class Dictionary {
     }
     with(search, replace) {
         switch (typeof replace) {
-            case "number":
+            case "number": {
                 replacements.set(search.toUpperCase(), cast.string(replace));
                 replacements.set(search.toLowerCase(), cast.string(replace));
                 replacements.set(s.ucFirst(search), cast.string(replace));
                 replacements.set(s.lcFirst(search), cast.string(replace));
                 break;
-            case "string":
+            }
+            case "string": {
                 replacements.set(search.toUpperCase(), replace.toUpperCase());
                 replacements.set(search.toLowerCase(), replace.toLowerCase());
                 replacements.set(s.ucFirst(search), s.ucFirst(replace));
                 replacements.set(s.lcFirst(search), s.lcFirst(replace));
+            }
         }
         return this.facade;
     }
+    _context;
+    count;
+    definitions;
+    facade;
+    subs = new Map();
     /**
      * Creates class instance.
-     *
      * @param definitions - Language definitions.
      * @param context - Context.
      * @param count - Count for plural form.
      */
     constructor(definitions, context, count = 1) {
-        Object.defineProperty(this, "keys", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "_context", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "count", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "definitions", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "facade", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        // eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-map -- Ok
-        Object.defineProperty(this, "subs", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: new Map()
-        });
         const facade = evaluate(() => {
             const handler = wrapProxyHandler("Dictionary", ProxyHandlerAction.doDefault, {
                 get: (target, key) => {
@@ -138,7 +107,6 @@ export class Dictionary {
     }
     /**
      * Reduces count for plural form.
-     *
      * @param count - Count.
      * @returns Reduced count.
      */
@@ -146,6 +114,5 @@ export class Dictionary {
         return this.definitions.pluralReduce(count);
     }
 }
-// eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-map -- Ok
 const replacements = new Map();
 //# sourceMappingURL=Dictionary.js.map

@@ -1,4 +1,3 @@
-/* eslint-disable misc/typescript-misc/functions/json/prefer-json -- Ok */
 /* eslint-disable unicorn/no-null -- Ok */
 
 import * as a from "./array";
@@ -9,7 +8,6 @@ import type { stringE } from "../types";
 
 /**
  * Decodes JSON string.
- *
  * @param source - JSON string.
  * @returns Decoded value.
  */
@@ -25,7 +23,6 @@ export function decode(source: stringE): unknown {
 
 /**
  * Encodes to JSON string.
- *
  * @param source - Value to encode.
  * @returns JSON string.
  */
@@ -35,7 +32,6 @@ export function encode(source: unknown): string {
 
 /**
  * Compares two values as JSON strings.
- *
  * @param x - Value 1.
  * @param y - Value 2.
  * @returns _True_ if two values are equal, _false_ otherwise.
@@ -46,7 +42,6 @@ export function eq(x: unknown, y: unknown): boolean {
 
 /**
  * Compares two values as JSON strings.
- *
  * @param x - Value 1.
  * @param y - Value 2.
  * @returns _True_ if two values are not equal, _false_ otherwise.
@@ -56,9 +51,7 @@ export function neq(x: unknown, y: unknown): boolean {
 }
 
 enum Type {
-  // eslint-disable-next-line misc/consistent-enum-members, spellcheck/spell-checker -- Ok
   map = "map-5702-3c89-3feb-75d4",
-  // eslint-disable-next-line misc/consistent-enum-members, spellcheck/spell-checker -- Ok
   set = "set-41ef-10c9-ae1f-15e8"
 }
 
@@ -75,7 +68,6 @@ const isCustomData = is.object.factory<CustomData>(
 
 /**
  * JSON replacer.
- *
  * @param _key - Key.
  * @param value - Value.
  * @returns New value.
@@ -85,14 +77,12 @@ function replacer(_key: unknown, value: unknown): unknown {
 
   if (is.map(value))
     return {
-      // eslint-disable-next-line spellcheck/spell-checker -- Ok
       type: "map-5702-3c89-3feb-75d4",
       value: a.fromIterable(value)
     };
 
   if (is.set(value))
     return {
-      // eslint-disable-next-line spellcheck/spell-checker -- Ok
       type: "set-41ef-10c9-ae1f-15e8",
       value: a.fromIterable(value)
     };
@@ -102,7 +92,6 @@ function replacer(_key: unknown, value: unknown): unknown {
 
 /**
  * JSON reviver.
- *
  * @param _key - Key.
  * @param value - Value.
  * @returns New value.
@@ -112,11 +101,13 @@ function reviver(_key: unknown, value: unknown): unknown {
 
   if (isCustomData(value))
     switch (value.type) {
-      case Type.map:
+      case Type.map: {
         return new ReadonlyMap(as.byGuard(value.value, isEntries));
+      }
 
-      case Type.set:
+      case Type.set: {
         return new ReadonlySet(as.byGuard(value.value, is.array));
+      }
     }
 
   return value;

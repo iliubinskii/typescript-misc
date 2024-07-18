@@ -1,12 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.dateFnsWrapper = void 0;
+exports.dateFnsWrapper = dateFnsWrapper;
 const core_1 = require("./core");
 const date_fns_1 = require("date-fns");
 const DateTime_1 = require("./DateTime");
 /**
  * Implements datetime facade.
- *
  * @param options - Options.
  * @returns Datetime facade implementation.
  */
@@ -23,5 +22,4 @@ function dateFnsWrapper(options) {
         }
     };
 }
-exports.dateFnsWrapper = dateFnsWrapper;
 //# sourceMappingURL=index.js.map

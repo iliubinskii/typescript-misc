@@ -15,7 +15,6 @@ import { defineFn } from "./core";
 export const not: {
   /**
    * Asserts that value type is not empty.
-   *
    * @param value - Value.
    * @param error - Error.
    * @returns Void.
@@ -33,14 +32,12 @@ export const not: {
 export const array: {
   /**
    * Asserts that value is an array.
-   *
    * @param value - Value.
    * @param error - Error.
    */
   (value: unknown, error: ErrorArg): asserts value is unknowns;
   /**
    * Asserts that value type is T[].
-   *
    * @param value - Value.
    * @param guard - Guard for type T.
    * @param error - Error.
@@ -65,14 +62,12 @@ export const array: {
 export const indexedObject: {
   /**
    * Asserts that value type is IndexedObject.
-   *
    * @param value - Value.
    * @param error - Error.
    */
   (value: unknown, error: ErrorArg): asserts value is IndexedObject;
   /**
    * Asserts that value type is IndexedObject\<T\>.
-   *
    * @param value - Value.
    * @param guard - Guard for type T.
    * @param error - Error.
@@ -97,7 +92,6 @@ export const indexedObject: {
 export const map: {
   /**
    * Asserts that value type is Map.
-   *
    * @param value - Value.
    * @param error - Error.
    */
@@ -107,7 +101,6 @@ export const map: {
   ): asserts value is ReadonlyMap<unknown, unknown>;
   /**
    * Asserts that value type is Map\<K, V\>.
-   *
    * @param value - Value.
    * @param keyGuard - Key guard.
    * @param valueGuard - Value guard.
@@ -139,14 +132,12 @@ export const map: {
 export const set: {
   /**
    * Asserts that value type is Set.
-   *
    * @param value - Value.
    * @param error - Error.
    */
   (value: unknown, error: ErrorArg): asserts value is ReadonlySet<unknown>;
   /**
    * Asserts that value type is Set\<T\>.
-   *
    * @param value - Value.
    * @param guard - Guard for type T.
    * @param error - Error.
@@ -170,7 +161,6 @@ export const set: {
 
 /**
  * Asserts that value is a boolean.
- *
  * @param value - Value.
  * @param error - Error.
  */
@@ -183,7 +173,6 @@ export function boolean(
 
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param guard - Guard for type T.
  * @param error - Error.
@@ -200,7 +189,6 @@ export function byGuard<T>(
 
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param error - Error.
  */
@@ -213,7 +201,6 @@ export function callable<T extends types.fn.Callable>(
 
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param error - Error.
  */
@@ -226,7 +213,6 @@ export function constructor<T extends types.fn.Constructor>(
 
 /**
  * Asserts that value type is empty.
- *
  * @param value - Value.
  * @param error - Error.
  */
@@ -239,7 +225,6 @@ export function empty(
 
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param en - Validation object.
  * @param error - Error.
@@ -254,7 +239,6 @@ export function enumeration<T extends string>(
 
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param ctor - Constructor.
  * @param error - Error.
@@ -269,7 +253,6 @@ export function instanceOf<T>(
 
 /**
  * Asserts that value type is T[].
- *
  * @param value - Value.
  * @param ctor - Constructor.
  * @param error - Error.
@@ -284,7 +267,6 @@ export function instancesOf<T>(
 
 /**
  * Asserts that value type is NumStr.
- *
  * @param value - Value.
  * @param error - Error.
  */
@@ -297,7 +279,6 @@ export function numStr(
 
 /**
  * Asserts that value is a number.
- *
  * @param value - Value.
  * @param error - Error.
  */
@@ -310,7 +291,6 @@ export function number(
 
 /**
  * Asserts that value is an object.
- *
  * @param value - Value.
  * @param error - Error.
  */
@@ -323,7 +303,6 @@ export function object(
 
 /**
  * Asserts that value type is PropertyKey.
- *
  * @param value - Value.
  * @param error - Error.
  */
@@ -336,7 +315,6 @@ export function propertyKey(
 
 /**
  * Asserts that value is a string.
- *
  * @param value - Value.
  * @param error - Error.
  */
@@ -349,7 +327,6 @@ export function string(
 
 /**
  * Asserts that value is a string.
- *
  * @param value - Value.
  * @param error - Error.
  */
@@ -362,7 +339,6 @@ export function stringU(
 
 /**
  * Asserts that value is a symbol.
- *
  * @param value - Value.
  * @param error - Error.
  */
@@ -375,7 +351,6 @@ export function symbol(
 
 /**
  * Asserts value to be _false_.
- *
  * @param value - Value.
  * @param error - Error.
  */
@@ -388,7 +363,6 @@ export function toBeFalse(
 
 /**
  * Asserts value to be _true_.
- *
  * @param value - Value.
  * @param error - Error.
  */
@@ -401,7 +375,6 @@ export function toBeTrue(
 
 /**
  * Wraps error.
- *
  * @param e - Error.
  * @returns Wrapped error.
  */
@@ -413,17 +386,18 @@ export type ErrorArg = ErrorArgFn | string;
 
 /**
  * Builds error.
- *
  * @param error - Error.
  * @returns Error.
  */
 function toError(error?: ErrorArg): unknown {
   switch (typeof error) {
-    case "function":
+    case "function": {
       return error();
+    }
 
     case "string":
-    case "undefined":
+    case "undefined": {
       return new AssertionError(error);
+    }
   }
 }

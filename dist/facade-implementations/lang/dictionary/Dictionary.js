@@ -5,7 +5,6 @@ const functions_1 = require("../../../functions");
 class Dictionary {
     /**
      * Creates dictionary.
-     *
      * @param this - No this.
      * @param definitions - Language definitions.
      * @param context - Context.
@@ -15,6 +14,7 @@ class Dictionary {
     static create(definitions, context, count) {
         return new Dictionary(definitions, context, count).facade;
     }
+    keys;
     context(context) {
         if (context === this._context)
             return this.facade;
@@ -65,65 +65,34 @@ class Dictionary {
     }
     with(search, replace) {
         switch (typeof replace) {
-            case "number":
+            case "number": {
                 replacements.set(search.toUpperCase(), functions_1.cast.string(replace));
                 replacements.set(search.toLowerCase(), functions_1.cast.string(replace));
                 replacements.set(functions_1.s.ucFirst(search), functions_1.cast.string(replace));
                 replacements.set(functions_1.s.lcFirst(search), functions_1.cast.string(replace));
                 break;
-            case "string":
+            }
+            case "string": {
                 replacements.set(search.toUpperCase(), replace.toUpperCase());
                 replacements.set(search.toLowerCase(), replace.toLowerCase());
                 replacements.set(functions_1.s.ucFirst(search), functions_1.s.ucFirst(replace));
                 replacements.set(functions_1.s.lcFirst(search), functions_1.s.lcFirst(replace));
+            }
         }
         return this.facade;
     }
+    _context;
+    count;
+    definitions;
+    facade;
+    subs = new Map();
     /**
      * Creates class instance.
-     *
      * @param definitions - Language definitions.
      * @param context - Context.
      * @param count - Count for plural form.
      */
     constructor(definitions, context, count = 1) {
-        Object.defineProperty(this, "keys", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "_context", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "count", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "definitions", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "facade", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        // eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-map -- Ok
-        Object.defineProperty(this, "subs", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: new Map()
-        });
         const facade = (0, functions_1.evaluate)(() => {
             const handler = (0, functions_1.wrapProxyHandler)("Dictionary", functions_1.ProxyHandlerAction.doDefault, {
                 get: (target, key) => {
@@ -141,7 +110,6 @@ class Dictionary {
     }
     /**
      * Reduces count for plural form.
-     *
      * @param count - Count.
      * @returns Reduced count.
      */
@@ -150,6 +118,5 @@ class Dictionary {
     }
 }
 exports.Dictionary = Dictionary;
-// eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-map -- Ok
 const replacements = new Map();
 //# sourceMappingURL=Dictionary.js.map

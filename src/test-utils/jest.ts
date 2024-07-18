@@ -1,4 +1,3 @@
-import "jest-extended";
 import type { Writable, unknowns } from "../types";
 import {
   dateFnsWrapper,
@@ -10,21 +9,18 @@ import { datetime, dump, faker, lang } from "../facades";
 import { defineFn, typedef } from "../functions";
 import { error, matchers, warn } from "./jest.internal";
 import type { Calls } from "./jest.internal";
-import jestExtendedMatchers from "jest-extended/all";
 
 declare global {
   namespace jest {
     interface Matchers<R> {
       /**
        * Checks that datetime equals expected value.
-       *
        * @param expected - Expected value.
        * @returns Result object.
        */
       readonly datetimeToBe: (expected: string) => R;
       /**
        * Checks function execution result.
-       *
        * @param expected - Function execution result.
        * @param expectedToThrow - Whether function is expected to throw error.
        * @returns Result.
@@ -35,7 +31,6 @@ declare global {
       ) => R;
       /**
        * Checks that async function executes within expected time.
-       *
        * @param expected - Expected time (ms).
        * @param precision - Precision (ms).
        * @returns Result.
@@ -46,14 +41,12 @@ declare global {
       ) => Promise<R>;
       /**
        * Checks that mock calls are equal to expected value.
-       *
        * @param expected - Expected calls.
        * @returns Result.
        */
       readonly mockCallsToBe: (...expected: Writable<Calls>) => R;
       /**
        * Checks promise execution result.
-       *
        * @param expected - Promise execution result.
        * @param expectedToThrow - Whether promise is expected to throw error.
        * @returns Result.
@@ -64,7 +57,6 @@ declare global {
       ) => Promise<R>;
       /**
        * Checks that two objects are identical.
-       *
        * @param expected - Object.
        * @returns Result.
        */
@@ -94,7 +86,6 @@ export const jestReset = defineFn(
   {
     /**
      * Jest reset.
-     *
      * @param definitions - Language definitions.
      */
     dictionary: (definitions: dictionary.Definitions): void => {
@@ -108,18 +99,25 @@ export const jestSetup = defineFn(
    * Jest setup.
    */
   (): void => {
-    expect.extend(jestExtendedMatchers);
     expect.extend(matchers);
     jest.spyOn(console, "error").mockImplementation(errorMock);
     jest.spyOn(console, "warn").mockImplementation(warnMock);
     jestReset();
 
+    /**
+     * Mock console error.
+     * @param args - Arguments.
+     */
     function errorMock(...args: unknowns): void {
       error(...args);
 
       throw new Error("Console error");
     }
 
+    /**
+     * Mock console warn.
+     * @param args - Arguments.
+     */
     function warnMock(...args: unknowns): void {
       warn(...args);
 
@@ -129,7 +127,6 @@ export const jestSetup = defineFn(
   {
     /**
      * Jest setup.
-     *
      * @param definitions - Language definitions.
      */
     dictionary: (definitions: dictionary.Definitions): void => {

@@ -3,7 +3,6 @@ import { isValid, parse } from "date-fns";
 import { DateTime } from "./DateTime";
 /**
  * Implements datetime facade.
- *
  * @param options - Options.
  * @returns Datetime facade implementation.
  */

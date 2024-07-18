@@ -1,5 +1,3 @@
-/* eslint-disable misc/typescript-misc/types/no-ts-toolbelt -- Ok */
-
 import type { And } from "./core";
 import type { Extends } from "ts-toolbelt/out/Any/Extends";
 import type { FilterKeys as Filter } from "ts-toolbelt/out/Object/FilterKeys";
@@ -7,21 +5,9 @@ import type { If } from "ts-toolbelt/out/Any/If";
 import type { Match } from "ts-toolbelt/out/Any/_Internal";
 import type { OptionalKeys as Optional } from "ts-toolbelt/out/Object/OptionalKeys";
 import type { PickGroupsOption } from "./object.keys.internal";
-import type {
-  // eslint-disable-next-line misc/no-shadow -- Ok
-  ReadonlyKeys as Readonly
-} from "ts-toolbelt/out/Object/ReadonlyKeys";
-import type {
-  // eslint-disable-next-line misc/no-shadow -- Ok
-  RequiredKeys as Required
-} from "ts-toolbelt/out/Object/RequiredKeys";
+import type { ReadonlyKeys as Readonly } from "ts-toolbelt/out/Object/ReadonlyKeys";
+import type { RequiredKeys as Required } from "ts-toolbelt/out/Object/RequiredKeys";
 import type { WritableKeys as Writable } from "ts-toolbelt/out/Object/WritableKeys";
-
-export type { FilterKeys as Filter } from "ts-toolbelt/out/Object/FilterKeys";
-export type { OptionalKeys as Optional } from "ts-toolbelt/out/Object/OptionalKeys";
-export type { ReadonlyKeys as Readonly } from "ts-toolbelt/out/Object/ReadonlyKeys";
-export type { RequiredKeys as Required } from "ts-toolbelt/out/Object/RequiredKeys";
-export type { WritableKeys as Writable } from "ts-toolbelt/out/Object/WritableKeys";
 
 export type Defined<T extends object> = Filter<T, undefined, "<-extends">;
 
@@ -55,3 +41,9 @@ export type WritableDefined<T extends object> =
 export type WritableUndefined<T extends object> =
   // @prettier
   PickGroups<T, "undefined" | "writable">;
+
+export type { FilterKeys as Filter } from "ts-toolbelt/out/Object/FilterKeys";
+export type { OptionalKeys as Optional } from "ts-toolbelt/out/Object/OptionalKeys";
+export type { ReadonlyKeys as Readonly } from "ts-toolbelt/out/Object/ReadonlyKeys";
+export type { RequiredKeys as Required } from "ts-toolbelt/out/Object/RequiredKeys";
+export type { WritableKeys as Writable } from "ts-toolbelt/out/Object/WritableKeys";

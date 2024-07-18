@@ -5,7 +5,6 @@ import type { numbers } from "../types";
 export const ceil = defineFn(
   /**
    * Ceils number to a given precision.
-   *
    * @param value - Value.
    * @param precision - The number of digits to keep.
    * @returns Ceiled value.
@@ -18,7 +17,6 @@ export const ceil = defineFn(
   {
     /**
      * Rounds number up to a given precision.
-     *
      * @param value - Value.
      * @param step - Step.
      * @param from - From.
@@ -32,7 +30,6 @@ export const ceil = defineFn(
 export const floor = defineFn(
   /**
    * Rounds number down to a given precision.
-   *
    * @param value - Value.
    * @param precision - The number of digits to keep.
    * @returns Rounded value.
@@ -45,7 +42,6 @@ export const floor = defineFn(
   {
     /**
      * Floors number.
-     *
      * @param value - Value.
      * @param step - Step.
      * @param from - From.
@@ -59,7 +55,6 @@ export const floor = defineFn(
 export const round = defineFn(
   /**
    * Rounds number to a given precision.
-   *
    * @param value - Value.
    * @param precision - The number of digits to keep.
    * @returns Rounded value.
@@ -72,7 +67,6 @@ export const round = defineFn(
   {
     /**
      * Rounds number.
-     *
      * @param value - Value.
      * @param step - Step.
      * @param from - From.
@@ -85,7 +79,6 @@ export const round = defineFn(
 
 /**
  * Averages values.
- *
  * @param values - Values.
  * @returns The average.
  */
@@ -97,7 +90,6 @@ export function average(...values: numbers): number {
 
 /**
  * Limits value to be within [min, max] range.
- *
  * @param value - Value.
  * @param min - Min.
  * @param max - Max.
@@ -109,7 +101,6 @@ export function limit(value: number, min: number, max: number): number {
 
 /**
  * Calculates root-mean-square deviation.
- *
  * @param values - Values.
  * @returns Root-mean-square deviation.
  */
@@ -123,7 +114,6 @@ export function rootMeanSquareDeviation(...values: numbers): number {
 
 /**
  * Sums values.
- *
  * @param values - Values.
  * @returns The sum.
  */

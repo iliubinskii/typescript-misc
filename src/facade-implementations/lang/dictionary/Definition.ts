@@ -7,7 +7,6 @@ import type { lang } from "../../../facades";
 export class Definition {
   /**
    * Creates class instance.
-   *
    * @param raw - Raw definition.
    * @param id - ID.
    */
@@ -15,7 +14,7 @@ export class Definition {
     this.id = id;
 
     switch (typeof raw) {
-      case "object":
+      case "object": {
         if (is.array(raw)) {
           this.subs = o.map(raw[1], (value, key) => new Definition(value, key));
           this.sub = as.not.empty(this.subs[raw[0]]);
@@ -29,9 +28,11 @@ export class Definition {
         }
 
         break;
+      }
 
-      case "string":
+      case "string": {
         this.value = raw;
+      }
     }
 
     const reRef = /<([^\s.:<>{}]+):([^\s.:<>{}]+)>/u;
@@ -56,7 +57,6 @@ export class Definition {
 
   /**
    * Returns word based on context, count, and replacements.
-   *
    * @param owner - Parent object.
    * @param context - Context.
    * @param count - Count for plural form.
@@ -102,7 +102,7 @@ export class Definition {
     if (this.sub)
       return this.sub.get(owner, context, count, replacements, forms);
 
-    let word: WordInfo = o.removeUndefinedKeys({
+    let word = o.removeUndefinedKeys<WordInfo>({
       context,
       count,
       forms,
@@ -145,7 +145,7 @@ export class Definition {
 
   protected readonly rulesWordSecondary: Rules;
 
-  protected readonly sub: Definition | undefined;
+  protected readonly sub?: Definition | undefined;
 
   protected readonly subs: IndexedRecord<Definition> = {};
 
@@ -154,7 +154,6 @@ export class Definition {
 
 /**
  * Applies rules to the word.
- *
  * @param word - Word.
  * @param rule - Rule.
  * @param owner - Parent object.
@@ -193,7 +192,6 @@ function applyRuleRef(
 
 /**
  * Applies rules to the word.
- *
  * @param word - Word.
  * @param rule - Rule.
  * @param owner - Parent object.
@@ -226,7 +224,6 @@ function applyRuleRefDependent(
 
 /**
  * Applies rules to the word.
- *
  * @param word - Word.
  * @param rule - Rule.
  * @param owner - Parent object.
@@ -255,7 +252,6 @@ function applyRuleRefSecondary(
 
 /**
  * Applies rules to the word.
- *
  * @param word - Word.
  * @param rule - Rule.
  * @returns Modified word.
@@ -275,7 +271,6 @@ function applyRuleVal(word: WordInfo, rule: strings): WordInfo {
 
 /**
  * Applies rules to the word.
- *
  * @param word - Word.
  * @param rule - Rule.
  * @param owner - Parent object.
@@ -304,7 +299,6 @@ function applyRuleWordDependent(
 
 /**
  * Applies rules to the word.
- *
  * @param word - Word.
  * @param rule - Rule.
  * @param owner - Parent object.

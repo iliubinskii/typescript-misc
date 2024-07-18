@@ -1,7 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.unknown = exports.symbolsU = exports.symbols = exports.symbolU = exports.symbol = exports.stringsU = exports.strings = exports.stringU = exports.string = exports.setsU = exports.sets = exports.setU = exports.set = exports.propertyKeysU = exports.propertyKeys = exports.propertyKeyU = exports.propertyKey = exports.objectsU = exports.objects = exports.objectU = exports.object = exports.numbersU = exports.numbers = exports.numberU = exports.number = exports.numStrsU = exports.numStrs = exports.numStrU = exports.numStr = exports.never = exports.mapsU = exports.maps = exports.mapU = exports.map = exports.indexedObjectsU = exports.indexedObjects = exports.indexedObject = exports.empty = exports.booleansU = exports.booleans = exports.booleanU = exports.boolean = exports.arraysU = exports.arrays = exports.arrayU = exports.array = exports.undefined = exports.true = exports.null = exports.false = void 0;
-exports.instancesOf = exports.instanceOf = exports.enumeration = exports.constructor = exports.callable = exports.byGuard = exports.not = exports.unknownsU = exports.unknowns = void 0;
+exports.not = exports.unknownsU = exports.unknowns = void 0;
+exports.byGuard = byGuard;
+exports.callable = callable;
+exports.constructor = constructor;
+exports.enumeration = enumeration;
+exports.instanceOf = instanceOf;
+exports.instancesOf = instancesOf;
 const tslib_1 = require("tslib");
 const is = tslib_1.__importStar(require("./guards"));
 const errors_1 = require("./errors");
@@ -9,7 +15,6 @@ const core_1 = require("./core");
 exports.array = (0, core_1.defineFn)(factory(is.array), {
     /**
      * Asserts that value type is T[].
-     *
      * @param value - Value.
      * @param guard - Guard for type T.
      * @returns Value if value type is T[].
@@ -32,7 +37,6 @@ exports.empty = factory(is.empty);
 exports.indexedObject = (0, core_1.defineFn)(factory(is.indexedObject), {
     /**
      * Asserts that value type is IndexedObject\<T\>.
-     *
      * @param value - Value.
      * @param guard - Guard for type T.
      * @returns Value if value type is IndexedObject\<T\>.
@@ -49,7 +53,6 @@ exports.indexedObjectsU = factory(is.indexedObjectsU);
 exports.map = (0, core_1.defineFn)(factory(is.map), {
     /**
      * Asserts that value type is Map\<K, V\>.
-     *
      * @param value - Value.
      * @param keyGuard - Key guard.
      * @param valueGuard - Value guard.
@@ -85,7 +88,6 @@ exports.propertyKeysU = factory(is.propertyKeyU);
 exports.set = (0, core_1.defineFn)(factory(is.set), {
     /**
      * Asserts that value type is Set\<T\>.
-     *
      * @param value - Value.
      * @param guard - Guard for type T.
      * @returns Value if value type is Set\<T\>.
@@ -132,7 +134,6 @@ exports.not = {
 };
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param guard - Guard for type T.
  * @returns Value if value type is T.
@@ -143,10 +144,8 @@ function byGuard(value, guard) {
         return value;
     throw new errors_1.AssertionError();
 }
-exports.byGuard = byGuard;
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @returns Value if value type is T.
  * @throws Error otherwise.
@@ -156,10 +155,8 @@ function callable(value) {
         return value;
     throw new errors_1.AssertionError();
 }
-exports.callable = callable;
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @returns Value if value type is T.
  * @throws Error otherwise.
@@ -169,10 +166,8 @@ function constructor(value) {
         return value;
     throw new errors_1.AssertionError();
 }
-exports.constructor = constructor;
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param en - Validation object.
  * @returns Value if value type is T.
@@ -183,10 +178,8 @@ function enumeration(value, en) {
         return value;
     throw new errors_1.AssertionError();
 }
-exports.enumeration = enumeration;
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param ctor - Constructor.
  * @returns Value if value type is T.
@@ -197,10 +190,8 @@ function instanceOf(value, ctor) {
         return value;
     throw new errors_1.AssertionError();
 }
-exports.instanceOf = instanceOf;
 /**
  * Asserts that value type is T[].
- *
  * @param value - Value.
  * @param ctor - Constructor.
  * @returns Value if value type is T[].
@@ -211,7 +202,6 @@ function instancesOf(value, ctor) {
         return value;
     throw new errors_1.AssertionError();
 }
-exports.instancesOf = instancesOf;
 const _false = factory(is.false);
 exports.false = _false;
 const _null = factory(is.null);
@@ -222,14 +212,12 @@ const _undefined = factory(is.undefined);
 exports.undefined = _undefined;
 /**
  * Creates inline assertion.
- *
  * @param guard - Guard for type T.
  * @returns Inline assertion for type T.
  */
 function factory(guard) {
     /**
      * Asserts that value has expected type.
-     *
      * @param value - Value.
      * @returns Value if value has expected type.
      * @throws Error otherwise.
@@ -242,14 +230,12 @@ function factory(guard) {
 }
 /**
  * Creates inline assertion.
- *
  * @param guard - Guard for type not T.
  * @returns Inline assertion for type not T.
  */
 function notFactory(guard) {
     /**
      * Asserts that value has expected type.
-     *
      * @param value - Value.
      * @returns Value if value has expected type.
      * @throws Error otherwise.

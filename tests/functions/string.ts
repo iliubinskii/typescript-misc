@@ -16,9 +16,9 @@ test.each([
 });
 
 test("escapeRegExpSpecialChars", () => {
-  const str = "$()*+.?[\\]^{|}-";
+  const str = String.raw`$()*+.?[\]^{|}-`;
 
-  const expected = "\\$\\(\\)\\*\\+\\.\\?\\[\\\\\\]\\^\\{\\|\\}\\x2d";
+  const expected = String.raw`\$\(\)\*\+\.\?\[\\\]\^\{\|\}\x2d`;
 
   expect(s.escapeRegExpSpecialChars(str)).toBe(expected);
 });
@@ -49,16 +49,19 @@ test.each([
   expect(s.multiline(str)).toBe(expected);
 });
 
-test.each(["a", "/a", "\\a", "//a", "\\\\a"])("path.addLeadingSlash", path => {
-  expect(s.path.addLeadingSlash(path)).toBe("/a");
-});
+test.each(["a", "/a", String.raw`\a`, "//a", String.raw`\\a`])(
+  "path.addLeadingSlash",
+  path => {
+    expect(s.path.addLeadingSlash(path)).toBe("/a");
+  }
+);
 
 test.each(["a", "a/", "a\\", "a//", "a\\\\"])("path.addTrailingSlash", path => {
   expect(s.path.addTrailingSlash(path)).toBe("a/");
 });
 
 test.each([
-  { expected: "a/b/c", str: "a//b\\\\c" },
+  { expected: "a/b/c", str: String.raw`a//b\\c` },
   { expected: "/a/b/c/", str: "//a//b\\\\c\\\\" }
 ])("path.canonicalize", ({ expected, str }) => {
   expect(s.path.canonicalize(str)).toBe(expected);
@@ -66,21 +69,21 @@ test.each([
 
 test.each([
   { parts: ["a", "b/", "c", "/d/", "/e"] },
-  { parts: ["a", "b\\", "c", "\\d\\", "\\e"] },
+  { parts: ["a", "b\\", "c", "\\d\\", String.raw`\e`] },
   { parts: ["a", "b//", "c", "//d//", "//e"] },
-  { parts: ["a", "b\\\\", "c", "\\\\d\\\\", "\\\\e"] }
+  { parts: ["a", "b\\\\", "c", "\\\\d\\\\", String.raw`\\e`] }
 ])("path.join", ({ parts }) => {
   expect(s.path.join(...parts)).toBe("a/b/c/d/e");
 });
 
-test.each(["a/", "/a/", "\\a//", "//a\\", "\\\\a\\\\"])(
+test.each(["a/", "/a/", String.raw`\a//`, "//a\\", "\\\\a\\\\"])(
   "path.removeLeadingSlash",
   path => {
     expect(s.path.removeLeadingSlash(path)).toBe("a/");
   }
 );
 
-test.each(["/a", "/a/", "//a\\", "\\a//", "\\\\a\\\\"])(
+test.each(["/a", "/a/", "//a\\", String.raw`\a//`, "\\\\a\\\\"])(
   "path.removeTrailingSlash",
   path => {
     expect(s.path.removeTrailingSlash(path)).toBe("/a");

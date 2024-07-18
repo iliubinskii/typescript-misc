@@ -5,7 +5,6 @@ import type { datetime } from "../../../facades";
 export declare class DateTime implements datetime.DateTime {
     /**
      * Creates class instance.
-     *
      * @param date - Date.
      * @param options - Options.
      */
@@ -65,7 +64,6 @@ export declare class DateTime implements datetime.DateTime {
     protected readonly value: Date;
     /**
      * Creates DateTime object with the same options.
-     *
      * @param date - Date.
      * @returns DateTime object.
      */

@@ -4,7 +4,6 @@ export declare const pluralReduce: PluralReduce & Readonly<PluralReduceInternati
 export interface PluralReduce {
     /**
      * Reduces count for plural form.
-     *
      * @param count - Count.
      * @returns Reduced count.
      */
@@ -24,7 +23,7 @@ export interface RawLanguage {
 }
 export type Rules = readonly strings[];
 export interface WordInfo {
-    readonly context?: lang.Context;
+    readonly context?: lang.Context | undefined;
     readonly count: number;
     readonly forms: strings;
     readonly replacements: ReadonlyMap<string, string>;

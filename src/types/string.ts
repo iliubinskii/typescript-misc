@@ -1,6 +1,5 @@
 export type AddPrefix<T extends string, P extends string> = `${P}${T}`;
 
-// eslint-disable-next-line misc/typescript/prefer-enum  -- Ok
 export type LowercaseLetter =
   | "a"
   | "b"
@@ -34,7 +33,6 @@ export type RemovePrefix<
   P extends string
 > = T extends `${P}${infer R}` ? R : never;
 
-// eslint-disable-next-line misc/typescript/prefer-enum  -- Ok
 export type UppercaseLetter =
   | "A"
   | "B"

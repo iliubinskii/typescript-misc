@@ -14,7 +14,6 @@ import type { lang } from "../../../facades";
 export class Dictionary implements lang.Dictionary<lang.Word, lang.Context> {
   /**
    * Creates dictionary.
-   *
    * @param this - No this.
    * @param definitions - Language definitions.
    * @param context - Context.
@@ -91,25 +90,27 @@ export class Dictionary implements lang.Dictionary<lang.Word, lang.Context> {
 
   public with(search: string, replace: NumStr): lang.Facade {
     switch (typeof replace) {
-      case "number":
+      case "number": {
         replacements.set(search.toUpperCase(), cast.string(replace));
         replacements.set(search.toLowerCase(), cast.string(replace));
         replacements.set(s.ucFirst(search), cast.string(replace));
         replacements.set(s.lcFirst(search), cast.string(replace));
 
         break;
+      }
 
-      case "string":
+      case "string": {
         replacements.set(search.toUpperCase(), replace.toUpperCase());
         replacements.set(search.toLowerCase(), replace.toLowerCase());
         replacements.set(s.ucFirst(search), s.ucFirst(replace));
         replacements.set(s.lcFirst(search), s.lcFirst(replace));
+      }
     }
 
     return this.facade;
   }
 
-  protected readonly _context: lang.Context | undefined;
+  protected readonly _context?: lang.Context | undefined;
 
   protected readonly count: number;
 
@@ -117,12 +118,10 @@ export class Dictionary implements lang.Dictionary<lang.Word, lang.Context> {
 
   protected readonly facade: lang.Facade;
 
-  // eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-map -- Ok
   protected readonly subs = new Map<NumStr, lang.Facade>();
 
   /**
    * Creates class instance.
-   *
    * @param definitions - Language definitions.
    * @param context - Context.
    * @param count - Count for plural form.
@@ -157,7 +156,6 @@ export class Dictionary implements lang.Dictionary<lang.Word, lang.Context> {
 
   /**
    * Reduces count for plural form.
-   *
    * @param count - Count.
    * @returns Reduced count.
    */
@@ -166,5 +164,4 @@ export class Dictionary implements lang.Dictionary<lang.Word, lang.Context> {
   }
 }
 
-// eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-map -- Ok
 const replacements = new Map<string, string>();

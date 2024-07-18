@@ -1,5 +1,3 @@
-/* eslint-disable misc/typescript/prefer-enum -- Ok */
-
 import type { Equals } from "ts-toolbelt/out/Any/Equals";
 import type { types } from "@";
 

@@ -9,22 +9,18 @@ test.each([
   { expected: { a: 1 }, source: '{"a":1}' },
   {
     expected: new ReadonlyMap([[1, "a"]]),
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     source: '{"type":"map-5702-3c89-3feb-75d4","value":[[1,"a"]]}'
   },
   {
     expected: new ReadonlyMap([["a", 1]]),
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     source: '{"type":"map-5702-3c89-3feb-75d4","value":[["a",1]]}'
   },
   {
     expected: new ReadonlySet([1, "a"]),
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     source: '{"type":"set-41ef-10c9-ae1f-15e8","value":[1,"a"]}'
   },
   {
     expected: new ReadonlySet(["a", 1]),
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     source: '{"type":"set-41ef-10c9-ae1f-15e8","value":["a",1]}'
   }
 ])("decode", ({ expected, source }) => {
@@ -38,22 +34,18 @@ test.each([
   { expected: "[null]", source: [undefined] },
   { expected: '{"a":1}', source: { a: 1 } },
   {
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     expected: '{"type":"map-5702-3c89-3feb-75d4","value":[[1,"a"]]}',
     source: new ReadonlyMap([[1, "a"]])
   },
   {
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     expected: '{"type":"map-5702-3c89-3feb-75d4","value":[["a",1]]}',
     source: new ReadonlyMap([["a", 1]])
   },
   {
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     expected: '{"type":"set-41ef-10c9-ae1f-15e8","value":[1,"a"]}',
     source: new ReadonlySet([1, "a"])
   },
   {
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     expected: '{"type":"set-41ef-10c9-ae1f-15e8","value":["a",1]}',
     source: new ReadonlySet(["a", 1])
   }

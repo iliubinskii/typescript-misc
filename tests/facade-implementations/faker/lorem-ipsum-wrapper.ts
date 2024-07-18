@@ -1,6 +1,4 @@
-/* eslint jest/max-expects: [warn, { max: 2 }] -- Ok */
-
-import type { TimeInterval, unknowns } from "@";
+import type { TimeInterval, numberU, unknowns } from "@";
 import {
   TimeUnit,
   evaluate,
@@ -104,9 +102,9 @@ test.each(
 
     interface Case {
       readonly from: TimeInterval | string;
-      readonly step?: number;
+      readonly step?: numberU;
       readonly to: TimeInterval | string;
-      readonly unit?: TimeUnit;
+      readonly unit?: TimeUnit | undefined;
     }
 
     type Cases = readonly Case[];

@@ -1,5 +1,3 @@
-/* eslint-disable misc/only-export-name -- Ok */
-
 import type * as keys from "./object.keys";
 
 declare global {

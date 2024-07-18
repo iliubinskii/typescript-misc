@@ -1,7 +1,12 @@
 {
-  "extends": [
-    "project-chore/typedoc/recommended"
-  ],
+  "cleanOutputDir": true,
+  "disableSources": true,
+  "entryFileName": "index.md",
+  "entryPointStrategy": "expand",
+  "exclude": ["**/*.test.ts", "**/*.test.tsx"],
+  "excludeExternals": true,
+  "externalPattern": ["**/node_modules/**"],
+  "githubPages": false,
   "intentionallyNotExported": [
     "__global.configurable.LocaleName",
     "__global.facades.lang.Context",
@@ -9,5 +14,10 @@
   ],
   "name": "Typescript library",
   "out": "docs",
-  "tsconfig": "tsconfig-typedoc.json"
+  "treatWarningsAsErrors": true,
+  "tsconfig": "tsconfig-typedoc.json",
+  "validation": {
+    "invalidLink": true,
+    "notExported": true
+  }
 }

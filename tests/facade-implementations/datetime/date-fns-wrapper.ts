@@ -1,6 +1,3 @@
-/* eslint jest/max-expects: [warn, { max: 3 }] -- Ok */
-/* eslint-disable misc/no-at-sign-internal-import -- Ok */
-
 import * as testUtils from "@/test-utils";
 import type { NumStr, datetime } from "@";
 import { TimeUnit, dateFnsWrapper as dateFns } from "@";

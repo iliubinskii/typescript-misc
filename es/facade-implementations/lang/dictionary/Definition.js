@@ -2,80 +2,13 @@ import { a, as, assert, is, o, regexp } from "../../../functions";
 export class Definition {
     /**
      * Creates class instance.
-     *
      * @param raw - Raw definition.
      * @param id - ID.
      */
     constructor(raw, id) {
-        Object.defineProperty(this, "contexts", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: {}
-        });
-        Object.defineProperty(this, "id", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "rulesRef", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "rulesRefDependent", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "rulesRefSecondary", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "rulesVal", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "rulesWordDependent", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "rulesWordSecondary", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "sub", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "subs", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: {}
-        });
-        Object.defineProperty(this, "value", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         this.id = id;
         switch (typeof raw) {
-            case "object":
+            case "object": {
                 if (is.array(raw)) {
                     this.subs = o.map(raw[1], (value, key) => new Definition(value, key));
                     this.sub = as.not.empty(this.subs[raw[0]]);
@@ -89,8 +22,10 @@ export class Definition {
                     this.value = this.sub.value;
                 }
                 break;
-            case "string":
+            }
+            case "string": {
                 this.value = raw;
+            }
         }
         const reRef = /<([^\s.:<>{}]+):([^\s.:<>{}]+)>/u;
         const reRefDependent = /<([^\s.:<>{}]+)>/u;
@@ -107,7 +42,6 @@ export class Definition {
     }
     /**
      * Returns word based on context, count, and replacements.
-     *
      * @param owner - Parent object.
      * @param context - Context.
      * @param count - Count for plural form.
@@ -160,10 +94,20 @@ export class Definition {
             word = applyRuleWordSecondary(word, rule, owner);
         return word;
     }
+    contexts = {};
+    id;
+    rulesRef;
+    rulesRefDependent;
+    rulesRefSecondary;
+    rulesVal;
+    rulesWordDependent;
+    rulesWordSecondary;
+    sub;
+    subs = {};
+    value;
 }
 /**
  * Applies rules to the word.
- *
  * @param word - Word.
  * @param rule - Rule.
  * @param owner - Parent object.
@@ -185,7 +129,6 @@ function applyRuleRef(word, rule, owner) {
 }
 /**
  * Applies rules to the word.
- *
  * @param word - Word.
  * @param rule - Rule.
  * @param owner - Parent object.
@@ -202,7 +145,6 @@ function applyRuleRefDependent(word, rule, owner) {
 }
 /**
  * Applies rules to the word.
- *
  * @param word - Word.
  * @param rule - Rule.
  * @param owner - Parent object.
@@ -220,7 +162,6 @@ function applyRuleRefSecondary(word, rule, owner) {
 }
 /**
  * Applies rules to the word.
- *
  * @param word - Word.
  * @param rule - Rule.
  * @returns Modified word.
@@ -235,7 +176,6 @@ function applyRuleVal(word, rule) {
 }
 /**
  * Applies rules to the word.
- *
  * @param word - Word.
  * @param rule - Rule.
  * @param owner - Parent object.
@@ -250,7 +190,6 @@ function applyRuleWordDependent(word, rule, owner) {
 }
 /**
  * Applies rules to the word.
- *
  * @param word - Word.
  * @param rule - Rule.
  * @param owner - Parent object.

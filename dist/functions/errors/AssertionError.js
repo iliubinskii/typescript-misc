@@ -2,19 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AssertionError = void 0;
 class AssertionError extends Error {
+    name = "AssertionError";
     /**
      * Creates class instance.
-     *
      * @param message - Message.
      */
     constructor(message = "Assertion failed") {
         super(message);
-        Object.defineProperty(this, "name", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: "AssertionError"
-        });
     }
 }
 exports.AssertionError = AssertionError;

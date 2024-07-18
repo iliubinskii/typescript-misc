@@ -3,13 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TimeUnit = exports.RelativeDate = exports.PromiseType = exports.HttpMethod = exports.HttpHeader = void 0;
 var HttpHeader;
 (function (HttpHeader) {
-    // eslint-disable-next-line misc/consistent-enum-members -- Ok
     HttpHeader["accept"] = "Accept";
-    // eslint-disable-next-line misc/consistent-enum-members -- Ok
     HttpHeader["acceptLanguage"] = "Accept-Language";
-    // eslint-disable-next-line misc/consistent-enum-members -- Ok
     HttpHeader["authorization"] = "Authorization";
-    // eslint-disable-next-line misc/consistent-enum-members -- Ok
     HttpHeader["contentType"] = "Content-Type";
 })(HttpHeader || (exports.HttpHeader = HttpHeader = {}));
 var HttpMethod;

@@ -14,7 +14,6 @@ export enum ProxyHandlerAction {
 
 /**
  * Self-binds all methods.
- *
  * @param obj - Object.
  * @returns Proxy.
  */
@@ -35,7 +34,6 @@ export function classToInterface<T extends object>(
 
 /**
  * Creates facade.
- *
  * @param name - Facade name.
  * @param extension - Facade extension.
  * @returns Facade.
@@ -70,6 +68,11 @@ export function createFacade<I extends object, E = unknown>(
 
   return proxy as Facade<I, E>;
 
+  /**
+   * Returns target object.
+   * @param key - Key.
+   * @returns Target object.
+   */
   function target(key?: PropertyKey): object {
     if (is.not.empty(key) && key in ownMethods) return ownMethods;
 
@@ -77,11 +80,11 @@ export function createFacade<I extends object, E = unknown>(
 
     try {
       throw new Error("Get stack trace");
-    } catch (e) {
+    } catch (err) {
       if (
-        e instanceof Error &&
-        is.not.empty(e.stack) &&
-        e.stack.includes("isLikelyComponentType")
+        err instanceof Error &&
+        is.not.empty(err.stack) &&
+        err.stack.includes("isLikelyComponentType")
       )
         return ownMethods;
     }
@@ -96,7 +99,6 @@ export function createFacade<I extends object, E = unknown>(
 
 /**
  * Returns an object that throws an error on any attempted accessed.
- *
  * @returns An object.
  */
 export function neverDemand<T extends object>(): T {
@@ -107,14 +109,13 @@ export function neverDemand<T extends object>(): T {
 
 /**
  * Generates resource on demand.
- *
  * @param generator - Resource generator.
  * @returns Resource.
  */
 export function onDemand<T extends object>(generator: () => T): T {
   let _obj: T | undefined;
 
-  const proxy = new Proxy(
+  return new Proxy(
     {} as T,
     wrapProxyHandler("onDemand", ProxyHandlerAction.throw, {
       get: (_target, key) => reflect.get(obj(), key),
@@ -131,8 +132,10 @@ export function onDemand<T extends object>(generator: () => T): T {
     })
   );
 
-  return proxy;
-
+  /**
+   * Returns object.
+   * @returns Object.
+   */
   function obj(): object {
     _obj ??= generator();
 
@@ -142,7 +145,6 @@ export function onDemand<T extends object>(generator: () => T): T {
 
 /**
  * Creates safe access interface for an object.
- *
  * @param obj - Object.
  * @param guards - Guards.
  * @param readonlyKeys - Readonly keys.
@@ -199,11 +201,9 @@ export function safeAccess<
 
 /**
  * Delays program execution.
- *
  * @param timeout - Timeout (ms).
  */
 export async function wait(timeout: number): Promise<void> {
-  // eslint-disable-next-line promise/avoid-new -- Ok
   await new Promise<void>(resolve => {
     setTimeout(resolve, timeout);
   });
@@ -211,7 +211,6 @@ export async function wait(timeout: number): Promise<void> {
 
 /**
  * Adds missing methods to proxy handler.
- *
  * @param id - ID.
  * @param action - Action for missing methods.
  * @param handler - Handler.
@@ -223,7 +222,7 @@ export function wrapProxyHandler<T extends object>(
   handler: Readonly<ProxyHandler<T>>
 ): ProxyHandler<T> {
   switch (action) {
-    case ProxyHandlerAction.doDefault:
+    case ProxyHandlerAction.doDefault: {
       return typedef<ProxyHandler<T>>({
         apply: (target, thisArg, args: unknowns) =>
           reflect.apply(as.callable(target), thisArg, args),
@@ -251,8 +250,9 @@ export function wrapProxyHandler<T extends object>(
           reflect.setPrototypeOf(target, proto),
         ...handler
       });
+    }
 
-    case ProxyHandlerAction.throw:
+    case ProxyHandlerAction.throw: {
       return typedef<ProxyHandler<T>>({
         apply: () => {
           throw new Error(`Not implemented: ${id}.apply`);
@@ -295,6 +295,7 @@ export function wrapProxyHandler<T extends object>(
         },
         ...handler
       });
+    }
   }
 }
 
@@ -305,7 +306,6 @@ export type Facade<I, E = unknown> = E & FacadeOwnMethods<I> & I;
 export interface FacadeOwnMethods<I> {
   /**
    * Sets implementation.
-   *
    * @param implementation - Implementation.
    */
   readonly setImplementation: (implementation: I) => void;

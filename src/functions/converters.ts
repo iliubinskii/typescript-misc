@@ -1,5 +1,3 @@
-/* eslint-disable misc/typescript-misc/functions/converters/prefer-number -- Ok */
-/* eslint-disable misc/typescript-misc/functions/converters/prefer-string -- Ok */
 /* eslint-disable unicorn/no-null -- Ok */
 
 import * as is from "./guards";
@@ -12,7 +10,6 @@ import type {
 export const not = {
   /**
    * Converts value to not empty.
-   *
    * @param value - Value.
    * @param defVal - Default value.
    * @returns Value if it is not empty, defVal otherwise.
@@ -23,7 +20,6 @@ export const not = {
 
 /**
  * Unifies empty values.
- *
  * @param value - Values.
  * @returns Unified value.
  */
@@ -33,7 +29,6 @@ export function emptyToNull<T>(value: empty | T): T | null {
 
 /**
  * Unifies empty values.
- *
  * @param value - Values.
  * @returns Unified value.
  */
@@ -43,7 +38,6 @@ export function emptyToUndefined<T>(value: empty | T): T | undefined {
 
 /**
  * Converts value to a number.
- *
  * @param value - Value.
  * @param defVal - Default value.
  * @returns Converted value, defVal on failure.
@@ -54,17 +48,18 @@ export function number(value: unknown, defVal = 0): number {
 
 /**
  * Converts value to a number.
- *
  * @param value - Value.
  * @returns Converted value, _undefined_ on failure.
  */
 export function numberU(value: unknown): baseNumberU {
   switch (typeof value) {
-    case "boolean":
+    case "boolean": {
       return Number(value);
+    }
 
-    case "number":
+    case "number": {
       return value;
+    }
 
     case "string": {
       if (value === "" || value === "\n" || value === "\r\n") return undefined;
@@ -74,14 +69,14 @@ export function numberU(value: unknown): baseNumberU {
       return Number.isNaN(result) ? undefined : result;
     }
 
-    default:
+    default: {
       return undefined;
+    }
   }
 }
 
 /**
  * Converts value to a string.
- *
  * @param value - Value.
  * @returns Converted value.
  */
@@ -91,7 +86,6 @@ export function string(value: unknown): string {
 
 /**
  * Converts value to type stringU.
- *
  * @param value - Value.
  * @returns Converted value.
  */

@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.matchAll = exports.addFlags = void 0;
+exports.addFlags = addFlags;
+exports.matchAll = matchAll;
 const tslib_1 = require("tslib");
 const _ = tslib_1.__importStar(require("lodash-commonjs-es"));
 /**
  * Adds flag to regular expression.
- *
  * @param re - Regular expression.
  * @param flags - Flags.
  * @returns New regular expression.
@@ -15,10 +15,8 @@ function addFlags(re, flags) {
     // eslint-disable-next-line security/detect-non-literal-regexp -- Ok
     return flags === re.flags ? re : new RegExp(re, flags);
 }
-exports.addFlags = addFlags;
 /**
  * Finds all matches.
- *
  * @param str - String.
  * @param re - Regular expression.
  * @returns Matches.
@@ -33,5 +31,4 @@ function matchAll(str, re) {
     }
     return result;
 }
-exports.matchAll = matchAll;
 //# sourceMappingURL=regexp.js.map

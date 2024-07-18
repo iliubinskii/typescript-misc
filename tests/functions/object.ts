@@ -1,5 +1,3 @@
-/* eslint jest/max-expects: [warn, { max: 2 }] -- Ok */
-
 import { AssertionError, fn, is, o } from "@";
 
 class TestClass {}

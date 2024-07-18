@@ -1,5 +1,3 @@
-/* eslint jest/max-expects: [warn, { max: 2 }] -- Ok */
-
 import { AssertionError, ReadonlySet, a } from "@";
 import type { Writable, numbers } from "@";
 

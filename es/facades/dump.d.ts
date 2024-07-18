@@ -3,7 +3,6 @@ export declare namespace dump {
     interface Facade {
         /**
          * Dumps value to string.
-         *
          * @param value - Value.
          * @returns String.
          */

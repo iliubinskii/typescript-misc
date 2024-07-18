@@ -1,6 +1,3 @@
-/* eslint jest/max-expects: [warn, { max: 2 }] -- Ok */
-/* eslint-disable misc/no-at-sign-internal-import -- Ok */
-
 import { matchers } from "@/test-utils/jest.internal";
 
 test.each([

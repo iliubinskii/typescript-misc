@@ -1,12 +1,8 @@
 export var HttpHeader;
 (function (HttpHeader) {
-    // eslint-disable-next-line misc/consistent-enum-members -- Ok
     HttpHeader["accept"] = "Accept";
-    // eslint-disable-next-line misc/consistent-enum-members -- Ok
     HttpHeader["acceptLanguage"] = "Accept-Language";
-    // eslint-disable-next-line misc/consistent-enum-members -- Ok
     HttpHeader["authorization"] = "Authorization";
-    // eslint-disable-next-line misc/consistent-enum-members -- Ok
     HttpHeader["contentType"] = "Content-Type";
 })(HttpHeader || (HttpHeader = {}));
 export var HttpMethod;

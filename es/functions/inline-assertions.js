@@ -5,7 +5,6 @@ export { _false as false, _null as null, _true as true, _undefined as undefined 
 export const array = defineFn(factory(is.array), {
     /**
      * Asserts that value type is T[].
-     *
      * @param value - Value.
      * @param guard - Guard for type T.
      * @returns Value if value type is T[].
@@ -28,7 +27,6 @@ export const empty = factory(is.empty);
 export const indexedObject = defineFn(factory(is.indexedObject), {
     /**
      * Asserts that value type is IndexedObject\<T\>.
-     *
      * @param value - Value.
      * @param guard - Guard for type T.
      * @returns Value if value type is IndexedObject\<T\>.
@@ -45,7 +43,6 @@ export const indexedObjectsU = factory(is.indexedObjectsU);
 export const map = defineFn(factory(is.map), {
     /**
      * Asserts that value type is Map\<K, V\>.
-     *
      * @param value - Value.
      * @param keyGuard - Key guard.
      * @param valueGuard - Value guard.
@@ -81,7 +78,6 @@ export const propertyKeysU = factory(is.propertyKeyU);
 export const set = defineFn(factory(is.set), {
     /**
      * Asserts that value type is Set\<T\>.
-     *
      * @param value - Value.
      * @param guard - Guard for type T.
      * @returns Value if value type is Set\<T\>.
@@ -128,7 +124,6 @@ export const not = {
 };
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param guard - Guard for type T.
  * @returns Value if value type is T.
@@ -141,7 +136,6 @@ export function byGuard(value, guard) {
 }
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @returns Value if value type is T.
  * @throws Error otherwise.
@@ -153,7 +147,6 @@ export function callable(value) {
 }
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @returns Value if value type is T.
  * @throws Error otherwise.
@@ -165,7 +158,6 @@ export function constructor(value) {
 }
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param en - Validation object.
  * @returns Value if value type is T.
@@ -178,7 +170,6 @@ export function enumeration(value, en) {
 }
 /**
  * Asserts that value type is T.
- *
  * @param value - Value.
  * @param ctor - Constructor.
  * @returns Value if value type is T.
@@ -191,7 +182,6 @@ export function instanceOf(value, ctor) {
 }
 /**
  * Asserts that value type is T[].
- *
  * @param value - Value.
  * @param ctor - Constructor.
  * @returns Value if value type is T[].
@@ -208,14 +198,12 @@ const _true = factory(is.true);
 const _undefined = factory(is.undefined);
 /**
  * Creates inline assertion.
- *
  * @param guard - Guard for type T.
  * @returns Inline assertion for type T.
  */
 function factory(guard) {
     /**
      * Asserts that value has expected type.
-     *
      * @param value - Value.
      * @returns Value if value has expected type.
      * @throws Error otherwise.
@@ -228,14 +216,12 @@ function factory(guard) {
 }
 /**
  * Creates inline assertion.
- *
  * @param guard - Guard for type not T.
  * @returns Inline assertion for type not T.
  */
 function notFactory(guard) {
     /**
      * Asserts that value has expected type.
-     *
      * @param value - Value.
      * @returns Value if value has expected type.
      * @throws Error otherwise.

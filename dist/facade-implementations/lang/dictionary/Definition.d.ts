@@ -5,14 +5,12 @@ import type { lang } from "../../../facades";
 export declare class Definition {
     /**
      * Creates class instance.
-     *
      * @param raw - Raw definition.
      * @param id - ID.
      */
     constructor(raw: RawDefinition, id: NumStr);
     /**
      * Returns word based on context, count, and replacements.
-     *
      * @param owner - Parent object.
      * @param context - Context.
      * @param count - Count for plural form.
@@ -29,7 +27,7 @@ export declare class Definition {
     protected readonly rulesVal: Rules;
     protected readonly rulesWordDependent: Rules;
     protected readonly rulesWordSecondary: Rules;
-    protected readonly sub: Definition | undefined;
+    protected readonly sub?: Definition | undefined;
     protected readonly subs: IndexedRecord<Definition>;
     protected readonly value: string;
 }

@@ -5,7 +5,6 @@ import type { types } from "../types";
 
 /**
  * Typed version of Reflect.apply.
- *
  * @param target - Target function.
  * @param thisArg - This argument.
  * @param args - Arguments.
@@ -19,7 +18,6 @@ export const apply: (
 
 /**
  * Typed version of Reflect.construct.
- *
  * @param target - Target function.
  * @param args - Arguments.
  * @param newTarget - New target function.
@@ -53,7 +51,6 @@ export const setPrototypeOf = Reflect.setPrototypeOf;
 
 /**
  * Typed version of Reflect.defineMetadata.
- *
  * @param metadataKey - Metadata key.
  * @param metadataValue - Metadata value.
  * @param target - Target object.
@@ -68,7 +65,6 @@ export function defineMetadata(
 
 /**
  * Typed version of Reflect.defineMetadata.
- *
  * @param metadataKey - Metadata key.
  * @param metadataValue - Metadata value.
  * @param target - Target object.
@@ -85,7 +81,6 @@ export function defineMetadataKey(
 
 /**
  * Typed version of Reflect.get.
- *
  * @param target - Target object.
  * @param key - Property key.
  * @returns Property value.
@@ -94,7 +89,6 @@ export function get(target: object, key: PropertyKey): unknown;
 
 /**
  * Typed version of Reflect.get.
- *
  * @param target - Target object.
  * @param key - Property key.
  * @param guard - Guard for type T.
@@ -109,6 +103,14 @@ export function get<T>(
   defVal?: T
 ): T;
 
+/**
+ * Typed version of Reflect.get.
+ * @param target - Target object.
+ * @param key - Property key.
+ * @param guard - Guard for type T.
+ * @param defVal - Default value.
+ * @returns Property value if its type is T.
+ */
 export function get(
   target: object,
   key: PropertyKey,
@@ -120,7 +122,6 @@ export function get(
 
 /**
  * Typed version of Reflect.getMetadata.
- *
  * @param metadataKey - Metadata key.
  * @param target - Target object.
  * @returns Metadata value.
@@ -129,7 +130,6 @@ export function getMetadata(metadataKey: MetadataKey, target: object): unknown;
 
 /**
  * Typed version of Reflect.getMetadata.
- *
  * @param metadataKey - Metadata key.
  * @param target - Target object.
  * @param guard - Guard for type T.
@@ -144,6 +144,14 @@ export function getMetadata<T>(
   defVal?: T
 ): T;
 
+/**
+ * Typed version of Reflect.getMetadata.
+ * @param metadataKey - Metadata key.
+ * @param target - Target object.
+ * @param guard - Guard for type T.
+ * @param defVal - Default value.
+ * @returns Metadata value if its type is T.
+ */
 export function getMetadata(
   metadataKey: MetadataKey,
   target: object,
@@ -155,7 +163,6 @@ export function getMetadata(
 
 /**
  * Typed version of Reflect.getMetadata.
- *
  * @param metadataKey - Metadata key.
  * @param target - Target object.
  * @param key - Property key.
@@ -169,7 +176,6 @@ export function getMetadataKey(
 
 /**
  * Typed version of Reflect.getMetadata.
- *
  * @param metadataKey - Metadata key.
  * @param target - Target object.
  * @param key - Property key.
@@ -186,6 +192,16 @@ export function getMetadataKey<T>(
   defVal?: T
 ): T;
 
+/**
+ * Typed version of Reflect.getMetadata.
+ * @param metadataKey - Metadata key.
+ * @param target - Target object.
+ * @param key - Property key.
+ * @param guard - Guard for type T.
+ * @param defVal - Default value.
+ * @returns Metadata value if its type is T.
+ * @throws AssertionError otherwise.
+ */
 export function getMetadataKey(
   metadataKey: MetadataKey,
   target: object,
@@ -201,7 +217,6 @@ export function getMetadataKey(
 
 /**
  * Typed version of Reflect.getOwnMetadata.
- *
  * @param metadataKey - Metadata key.
  * @param target - Target object.
  * @returns Metadata value.
@@ -213,7 +228,6 @@ export function getOwnMetadata(
 
 /**
  * Typed version of Reflect.getOwnMetadata.
- *
  * @param metadataKey - Metadata key.
  * @param target - Target object.
  * @param guard - Guard for type T.
@@ -228,6 +242,15 @@ export function getOwnMetadata<T>(
   defVal?: T
 ): T;
 
+/**
+ * Typed version of Reflect.getOwnMetadata.
+ * @param metadataKey - Metadata key.
+ * @param target - Target object.
+ * @param guard - Guard for type T.
+ * @param defVal - Default value.
+ * @returns Metadata value if its type is T.
+ * @throws AssertionError otherwise.
+ */
 export function getOwnMetadata(
   metadataKey: MetadataKey,
   target: object,
@@ -242,7 +265,6 @@ export function getOwnMetadata(
 
 /**
  * Typed version of Reflect.getOwnMetadata.
- *
  * @param metadataKey - Metadata key.
  * @param target - Target object.
  * @param key - Property key.
@@ -256,7 +278,6 @@ export function getOwnMetadataKey(
 
 /**
  * Typed version of Reflect.getOwnMetadata.
- *
  * @param metadataKey - Metadata key.
  * @param target - Target object.
  * @param key - Property key.
@@ -273,6 +294,16 @@ export function getOwnMetadataKey<T>(
   defVal?: T
 ): T;
 
+/**
+ * Typed version of Reflect.getOwnMetadata.
+ * @param metadataKey - Metadata key.
+ * @param target - Target object.
+ * @param key - Property key.
+ * @param guard - Guard for type T.
+ * @param defVal - Default value.
+ * @returns Metadata value if its type is T.
+ * @throws AssertionError otherwise.
+ */
 export function getOwnMetadataKey(
   metadataKey: MetadataKey,
   target: object,
@@ -288,7 +319,6 @@ export function getOwnMetadataKey(
 
 /**
  * Typed version of Reflect.hasMetadata.
- *
  * @param metadataKey - Metadata key.
  * @param target - Target object.
  * @returns _True_ if key exists, _false_ otherwise.
@@ -299,7 +329,6 @@ export function hasMetadata(metadataKey: MetadataKey, target: object): boolean {
 
 /**
  * Typed version of Reflect.hasMetadata.
- *
  * @param metadataKey - Metadata key.
  * @param target - Target object.
  * @param key - Property key.
@@ -315,7 +344,6 @@ export function hasMetadataKey(
 
 /**
  * Typed version of Reflect.hasOwnMetadata.
- *
  * @param metadataKey - Metadata key.
  * @param target - Target object.
  * @returns _True_ if key exists, _false_ otherwise.
@@ -329,7 +357,6 @@ export function hasOwnMetadata(
 
 /**
  * Typed version of Reflect.hasOwnMetadata.
- *
  * @param metadataKey - Metadata key.
  * @param target - Target object.
  * @param key - Property key.

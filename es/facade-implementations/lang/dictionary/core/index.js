@@ -2,7 +2,6 @@ import { defineFn } from "../../../../functions";
 export const pluralReduce = defineFn(
 /**
  * Reduces count for plural form.
- *
  * @param count - Count.
  * @returns Reduced count.
  */
@@ -12,7 +11,6 @@ export const pluralReduce = defineFn(
 }, {
     /**
      * Reduces count for plural form.
-     *
      * @param count - Count.
      * @returns Reduced count.
      */

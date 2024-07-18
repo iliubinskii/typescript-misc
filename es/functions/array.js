@@ -1,13 +1,9 @@
-/* eslint-disable misc/typescript-misc/functions/array/prefer-clone -- Ok */
-/* eslint-disable misc/typescript-misc/functions/array/prefer-fromIterable -- Ok */
-/* eslint-disable misc/typescript-misc/functions/object/prefer-hasOwnProp -- Ok */
 import * as _ from "lodash-commonjs-es";
 import * as assert from "./assertions";
 import * as is from "./guards";
 import { indexed } from "./core";
 /**
  * Creates array of pairs ([x, y, z] =\> [[x, y], [y, z]]).
- *
  * @param arr - Array.
  * @returns Array of pairs.
  */
@@ -22,22 +18,24 @@ export function chain(arr) {
 }
 /**
  * Creates an array of chunks.
- *
  * @param arr - Array.
  * @param size - Chunk size.
  * @returns Array of chunks.
  */
-// eslint-disable-next-line etc/no-internal -- Postponed
 export function chunk(arr, size) {
     return _.chunk(arr, size);
 }
+/**
+ * Clones array.
+ * @param arr - Array.
+ * @returns New array.
+ */
 // eslint-disable-next-line misc/typescript/prefer-readonly-array -- Ok
 export function clone(arr) {
     return [...arr];
 }
 /**
  * Removes element at given index.
- *
  * @param arr - Array.
  * @param index - Index to be removed.
  * @returns New array with one element removed.
@@ -48,7 +46,6 @@ export function drop(arr, index) {
 }
 /**
  * Finds element matching value.
- *
  * @param arr - Array.
  * @param value - Value.
  * @param keyOrReduce - Comparison key or reduce function.
@@ -61,7 +58,6 @@ export function findBy(arr, value, keyOrReduce) {
 }
 /**
  * Finds last index.
- *
  * @param arr - Array.
  * @param predicate - Predicate.
  * @returns Last matching index.
@@ -72,7 +68,6 @@ export function findLastIndex(arr, predicate) {
 }
 /**
  * Returns the first element from an array.
- *
  * @param arr - Array.
  * @returns The first element if available.
  * @throws Error otherwise.
@@ -82,7 +77,6 @@ export function first(arr) {
 }
 /**
  * Creates array from iterable.
- *
  * @param iterable - Iterable.
  * @returns Array.
  */
@@ -91,7 +85,6 @@ export function fromIterable(iterable) {
 }
 /**
  * Creates array from mixed source.
- *
  * @param value - Value.
  * @returns Value if it is an array, tuple containing value otherwise.
  */
@@ -100,7 +93,6 @@ export function fromMixed(value) {
 }
 /**
  * Creates array of numbers.
- *
  * @param from - Lower limit (inclusive).
  * @param to - Upper limit (inclusive).
  * @param step - Step.
@@ -114,7 +106,6 @@ export function fromRange(from, to, step = 1) {
 }
 /**
  * Creates array from string.
- *
  * @param str - String.
  * @returns Array.
  */
@@ -123,7 +114,6 @@ export function fromString(str) {
 }
 /**
  * Returns element at given index.
- *
  * @param arr - Array.
  * @param index - Index.
  * @returns Element if available.
@@ -135,7 +125,6 @@ export function get(arr, index) {
 }
 /**
  * Checks if array contains element matching value.
- *
  * @param arr - Array.
  * @param value - Value.
  * @param keyOrReduce - Comparison key or reduce function.
@@ -148,17 +137,14 @@ export function includesBy(arr, value, keyOrReduce) {
 }
 /**
  * Creates an array of shared values.
- *
  * @param arrays - Arrays.
  * @returns Array of shared values.
  */
-// eslint-disable-next-line etc/no-internal -- Postponed
 export function intersection(...arrays) {
     return _.intersection(...arrays);
 }
 /**
  * Returns the last element from an array.
- *
  * @param arr - Array.
  * @returns The last element if available.
  * @throws Error otherwise.
@@ -168,7 +154,6 @@ export function last(arr) {
 }
 /**
  * Omit object entries by predicate.
- *
  * @param arr - Array.
  * @param predicate - Predicate.
  * @returns New object.
@@ -178,7 +163,6 @@ export function omit(arr, predicate) {
 }
 /**
  * Adds element to the end of an array.
- *
  * @param arr - Array.
  * @param value - Value.
  * @returns New array with one element added.
@@ -188,7 +172,6 @@ export function push(arr, value) {
 }
 /**
  * Replaces elements matching value if found, pushes value otherwise.
- *
  * @param arr - Array.
  * @param value - Value.
  * @param keyOrReduce - Comparison key or reduce function.
@@ -201,7 +184,6 @@ export function pushOrReplaceBy(arr, value, keyOrReduce) {
 }
 /**
  * Adds element to the end of an array if it does already not exist.
- *
  * @param arr - Array.
  * @param value - Value.
  * @returns New array with one element added.
@@ -211,7 +193,6 @@ export function pushUnique(arr, value) {
 }
 /**
  * Picks random element from an array.
- *
  * @param arr - Array.
  * @returns Random element.
  */
@@ -220,7 +201,6 @@ export function random(arr) {
 }
 /**
  * Removes elements matching value.
- *
  * @param arr - Array.
  * @param value - Value.
  * @param keyOrReduce - Comparison key or reduce function.
@@ -233,7 +213,6 @@ export function removeBy(arr, value, keyOrReduce) {
 }
 /**
  * Replaces element at given index.
- *
  * @param arr - Array.
  * @param index - Index.
  * @param value - Value.
@@ -245,7 +224,6 @@ export function replace(arr, index, value) {
 }
 /**
  * Replaces elements matching value.
- *
  * @param arr - Array.
  * @param value - Value.
  * @param keyOrReduce - Comparison key or reduce function.
@@ -258,19 +236,16 @@ export function replaceBy(arr, value, keyOrReduce) {
 }
 /**
  * Reverses array.
- *
  * @param arr - Array.
  * @returns New array.
  */
 export function reverse(arr) {
     const result = clone(arr);
-    // eslint-disable-next-line misc/typescript-misc/functions/array/prefer-reverse -- Ok
     result.reverse();
     return result;
 }
 /**
  * Returns the second element from an array.
- *
  * @param arr - Array.
  * @returns The second element if available.
  * @throws Error otherwise.
@@ -280,20 +255,17 @@ export function second(arr) {
 }
 /**
  * Sorts array.
- *
  * @param arr - Array.
  * @param compareFn - Comparison function.
  * @returns New array.
  */
 export function sort(arr, compareFn) {
     const result = clone(arr);
-    // eslint-disable-next-line misc/typescript-misc/functions/array/prefer-sort -- Ok
     result.sort(compareFn);
     return result;
 }
 /**
  * Returns the third element from an array.
- *
  * @param arr - Array.
  * @returns The third element if available.
  * @throws Error otherwise.
@@ -303,7 +275,6 @@ export function third(arr) {
 }
 /**
  * Adds/removes value to/from an array.
- *
  * @param arr - Array.
  * @param value - Value.
  * @param keyOrReduce - Comparison key or reduce function.
@@ -316,23 +287,19 @@ export function toggleBy(arr, value, keyOrReduce) {
 }
 /**
  * Truncates array.
- *
  * @param mutableArray - Array.
  */
 export function truncate(mutableArray) {
-    // eslint-disable-next-line misc/typescript-misc/functions/array/prefer-truncate -- Ok
     mutableArray.length = 0;
 }
 /**
  * Creates unique array.
- *
  * @param arr - Array.
  * @param keyOrReduce - Comparison key or reduce function.
  * @returns Unique array.
  */
 export function uniqueBy(arr, keyOrReduce) {
     const reduce = mixedToReduce(keyOrReduce);
-    // eslint-disable-next-line misc/typescript-misc/functions/prefer-readonly-set -- Ok
     const seen = new Set();
     return arr.filter(element => {
         const reduced = reduce(element);
@@ -344,7 +311,6 @@ export function uniqueBy(arr, keyOrReduce) {
 }
 /**
  * Adds element to the beginning of an array.
- *
  * @param arr - Array.
  * @param value - Value.
  * @returns New array with one element added.
@@ -354,7 +320,6 @@ export function unshift(arr, value) {
 }
 /**
  * Replaces elements matching value if found, unshifts value otherwise.
- *
  * @param arr - Array.
  * @param value - Value.
  * @param keyOrReduce - Comparison key or reduce function.
@@ -367,7 +332,6 @@ export function unshiftOrReplaceBy(arr, value, keyOrReduce) {
 }
 /**
  * Adds element to the beginning of an array if it does already not exist.
- *
  * @param arr - Array.
  * @param value - Value.
  * @returns New array with one element added.
@@ -377,7 +341,6 @@ export function unshiftUnique(arr, value) {
 }
 /**
  * Creates reduce function.
- *
  * @param keyOrReduce - Comparison key or reduce function.
  * @returns Reduce function.
  */

@@ -1,10 +1,7 @@
-/* eslint jest/max-expects: [warn, { max: 3 }] -- Ok */
-
 import { a, regexp } from "@";
 
 test.each([
   { expected: "gu", flags: "gu" },
-  // eslint-disable-next-line spellcheck/spell-checker -- Ok
   { expected: "giu", flags: "iu" }
 ])("addFlags", ({ expected, flags }) => {
   expect(regexp.addFlags(/.*/gu, flags).flags).toBe(expected);

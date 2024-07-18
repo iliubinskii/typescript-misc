@@ -5,7 +5,6 @@ const functions_1 = require("../../../../functions");
 exports.pluralReduce = (0, functions_1.defineFn)(
 /**
  * Reduces count for plural form.
- *
  * @param count - Count.
  * @returns Reduced count.
  */
@@ -15,7 +14,6 @@ exports.pluralReduce = (0, functions_1.defineFn)(
 }, {
     /**
      * Reduces count for plural form.
-     *
      * @param count - Count.
      * @returns Reduced count.
      */

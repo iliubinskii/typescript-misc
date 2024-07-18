@@ -1,4 +1,5 @@
 "use strict";
+/* eslint-disable import/no-internal-modules -- Ok */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.matchers = exports.warn = exports.error = void 0;
 const functions_1 = require("../functions");
@@ -23,9 +24,9 @@ exports.matchers = {
             functions_1.assert.toBeFalse(expectedToThrow, "Expecting function not to throw");
             return (0, expect_1.buildEqualsResult)((0, expect_utils_1.equals)(result, expected), "Unexpected function execution result", result, expected);
         }
-        catch (e) {
+        catch (err) {
             functions_1.assert.toBeTrue(expectedToThrow, "Expecting function to throw");
-            return (0, expect_1.buildEqualsResult)((0, expect_utils_1.equals)(e, expected), "Unexpected function execution result", e, expected);
+            return (0, expect_1.buildEqualsResult)((0, expect_utils_1.equals)(err, expected), "Unexpected function execution result", err, expected);
         }
     },
     executionTimeToBe: async (got, expected, precision = 10) => {
@@ -49,9 +50,9 @@ exports.matchers = {
             functions_1.assert.toBeFalse(expectedToThrow, "Expecting promise not to throw");
             return (0, expect_1.buildEqualsResult)((0, expect_utils_1.equals)(result, expected), "Unexpected promise execution result", result, expected);
         }
-        catch (e) {
+        catch (err) {
             functions_1.assert.toBeTrue(expectedToThrow, "Expecting promise to throw");
-            return (0, expect_1.buildEqualsResult)((0, expect_utils_1.equals)(e, expected), "Unexpected promise execution result", e, expected);
+            return (0, expect_1.buildEqualsResult)((0, expect_utils_1.equals)(err, expected), "Unexpected promise execution result", err, expected);
         }
     },
     toBeSameAs: (got, expected) => {
@@ -61,7 +62,6 @@ exports.matchers = {
 };
 /**
  * Checks that value type is Mock.
- *
  * @param value - Value.
  * @returns _True_ if value type is Mock, _false_ otherwise.
  */

@@ -7,13 +7,11 @@ export declare class Definitions {
     readonly pluralReduce: PluralReduce;
     /**
      * Creates class instance.
-     *
      * @param raw - Language definition.
      */
     constructor(raw: RawLanguage);
     /**
      * Returns word based on context, count, and replacements.
-     *
      * @param key - Key.
      * @param context - Context.
      * @param count - Count for plural form.
@@ -24,7 +22,6 @@ export declare class Definitions {
     get(key: string, context: lang.Context | undefined, count: number, replacements: ReadonlyMap<string, string>, forms?: strings | string): WordInfo;
     /**
      * Checks if dictionary has word.
-     *
      * @param key - Key.
      * @returns _True_ if dictionary has word, _false_ otherwise.
      */

@@ -1,9 +1,7 @@
-import "jest-extended";
 import { dateFnsWrapper, dictionary, jsonDumper, loremIpsumWrapper } from "../facade-implementations";
 import { datetime, dump, faker, lang } from "../facades";
 import { defineFn, typedef } from "../functions";
 import { error, matchers, warn } from "./jest.internal";
-import jestExtendedMatchers from "jest-extended/all";
 export const jestReset = defineFn(
 /**
  * Jest reset.
@@ -22,7 +20,6 @@ export const jestReset = defineFn(
 }, {
     /**
      * Jest reset.
-     *
      * @param definitions - Language definitions.
      */
     dictionary: (definitions) => {
@@ -34,15 +31,22 @@ export const jestSetup = defineFn(
  * Jest setup.
  */
 () => {
-    expect.extend(jestExtendedMatchers);
     expect.extend(matchers);
     jest.spyOn(console, "error").mockImplementation(errorMock);
     jest.spyOn(console, "warn").mockImplementation(warnMock);
     jestReset();
+    /**
+     * Mock console error.
+     * @param args - Arguments.
+     */
     function errorMock(...args) {
         error(...args);
         throw new Error("Console error");
     }
+    /**
+     * Mock console warn.
+     * @param args - Arguments.
+     */
     function warnMock(...args) {
         warn(...args);
         throw new Error("Console warn");
@@ -50,7 +54,6 @@ export const jestSetup = defineFn(
 }, {
     /**
      * Jest setup.
-     *
      * @param definitions - Language definitions.
      */
     dictionary: (definitions) => {

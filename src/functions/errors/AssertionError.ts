@@ -3,7 +3,6 @@ export class AssertionError extends Error {
 
   /**
    * Creates class instance.
-   *
    * @param message - Message.
    */
   public constructor(message = "Assertion failed") {

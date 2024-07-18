@@ -18,7 +18,6 @@ export class Definitions {
 
   /**
    * Creates class instance.
-   *
    * @param raw - Language definition.
    */
   public constructor(raw: RawLanguage) {
@@ -36,7 +35,6 @@ export class Definitions {
     const words = new ReadonlyMap(
       _.flatMap(
         o.entries(raw.words),
-        // eslint-disable-next-line misc/typescript/prefer-array-type-alias -- Ok
         ([key, value]): ReadonlyArray<Entry<string, Definition>> => [
           [
             s.lcFirst(key),
@@ -78,7 +76,6 @@ export class Definitions {
 
   /**
    * Returns word based on context, count, and replacements.
-   *
    * @param key - Key.
    * @param context - Context.
    * @param count - Count for plural form.
@@ -93,7 +90,7 @@ export class Definitions {
     replacements: ReadonlyMap<string, string>,
     forms: strings | string = []
   ): WordInfo {
-    forms = is.string(forms) ? this.wordForms.get(forms) ?? [forms] : forms;
+    forms = is.string(forms) ? (this.wordForms.get(forms) ?? [forms]) : forms;
 
     const definition = this.words.get(key);
 
@@ -104,7 +101,6 @@ export class Definitions {
 
   /**
    * Checks if dictionary has word.
-   *
    * @param key - Key.
    * @returns _True_ if dictionary has word, _false_ otherwise.
    */
@@ -119,17 +115,17 @@ export class Definitions {
 
 /**
  * Applies callback to raw definition.
- *
  * @param definition - Raw definition.
  * @param callback - Callback.
  * @returns Raw definition.
  */
 function map(definition: RawDefinition, callback: Callback): RawDefinition {
   switch (typeof definition) {
-    case "string":
+    case "string": {
       return callback(definition);
+    }
 
-    case "object":
+    case "object": {
       if (is.array(definition)) {
         const definitions = mapDefinitions(definition[1], callback);
 
@@ -139,12 +135,12 @@ function map(definition: RawDefinition, callback: Callback): RawDefinition {
       }
 
       return mapDefinitions(definition, callback);
+    }
   }
 }
 
 /**
  * Applies callback to raw definitions.
- *
  * @param definitions - Raw definitions.
  * @param callback - Callback.
  * @returns Raw definitions.
@@ -161,7 +157,6 @@ function mapDefinitions(
 
 /**
  * Validates language definition.
- *
  * @param raw - Language definition.
  */
 function validate(raw: RawLanguage): void {
@@ -179,7 +174,6 @@ function validate(raw: RawLanguage): void {
 interface Callback {
   /**
    * Callback.
-   *
    * @param str - String.
    * @returns Result.
    */

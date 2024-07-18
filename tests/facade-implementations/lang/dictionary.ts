@@ -1,4 +1,4 @@
-/* eslint jest/max-expects: [warn, { max: 5 }] -- Ok */
+/* eslint-disable @cspell/spellchecker -- Ok */
 
 import { dictionary, typedef } from "@";
 import type { lang } from "@";
@@ -110,7 +110,6 @@ test.each([
   {
     expectedEn: "must be valid string",
     expectedRu: "введите корректную строку",
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     key: typedef<lang.Key>("mustbevalidstring")
   },
   {
@@ -138,7 +137,6 @@ test.each([
   { expected: true, key: "MUSTBEVALIDSTRING" },
   {
     expected: true,
-    // eslint-disable-next-line spellcheck/spell-checker -- Ok
     key: "mustbevalidstring"
   },
   { expected: true, key: "plain:Unknown" },

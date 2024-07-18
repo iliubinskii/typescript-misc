@@ -2,7 +2,6 @@ import type { PartialOptions } from "./core";
 import type { datetime } from "../../../facades";
 /**
  * Implements datetime facade.
- *
  * @param options - Options.
  * @returns Datetime facade implementation.
  */

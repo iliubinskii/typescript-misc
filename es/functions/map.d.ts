@@ -1,7 +1,6 @@
 export { _delete as delete };
 /**
  * Sets key.
- *
  * @param map - Map.
  * @param key - Key.
  * @param value - Value.
@@ -10,7 +9,6 @@ export { _delete as delete };
 export declare function set<K, V>(map: ReadonlyMap<K, V>, key: K, value: V): ReadonlyMap<K, V>;
 /**
  * Removes key.
- *
  * @param map - Map.
  * @param key - Key.
  * @returns Map with key removed.

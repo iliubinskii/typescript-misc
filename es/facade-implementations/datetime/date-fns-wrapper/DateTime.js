@@ -1,4 +1,3 @@
-/* eslint-disable misc/max-identifier-blocks -- Ok */
 import { add, differenceInDays, differenceInHours, differenceInMinutes, differenceInMonths, differenceInYears, format as formatDate, getDate, getDay, getHours, getMinutes, getMonth, getSeconds, getYear, isSameDay, isSameHour, isSameMinute, isSameMonth, isSameYear, isValid, parse, setDate, setDay, setHours, setMinutes, setMonth, setYear, startOfDay, startOfHour, startOfMinute, startOfMonth, startOfWeek, startOfYear, sub } from "date-fns";
 import { TimeUnit } from "../../../facades";
 import { formatStrings } from "./core";
@@ -6,23 +5,10 @@ import { is } from "../../../functions";
 export class DateTime {
     /**
      * Creates class instance.
-     *
      * @param date - Date.
      * @param options - Options.
      */
     constructor(date, options) {
-        Object.defineProperty(this, "options", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "value", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         if (date instanceof Date)
             this.value = date;
         else if (date instanceof DateTime)
@@ -34,6 +20,11 @@ export class DateTime {
         else
             this.value = new Date();
         this.options = options;
+        /**
+         * Parses string.
+         * @param str - String.
+         * @returns Date.
+         */
         function parseString(str) {
             const now = Date.now();
             for (const formatString of formatStrings) {
@@ -73,14 +64,14 @@ export class DateTime {
     format(format) {
         format = this.options.pm
             ? format
-                .replace(/H{4}/gu, "hh")
-                .replace(/H{3}/gu, "h")
-                .replace(/A/gu, "a")
+                .replaceAll(/H{4}/gu, "hh")
+                .replaceAll(/H{3}/gu, "h")
+                .replaceAll("A", "a")
                 .trim()
             : format
-                .replace(/H{4}/gu, "HH")
-                .replace(/H{3}/gu, "H")
-                .replace(/A/gu, "")
+                .replaceAll(/H{4}/gu, "HH")
+                .replaceAll(/H{3}/gu, "H")
+                .replaceAll("A", "")
                 .trim();
         return formatDate(this.value, format, { locale: this.options.locale });
     }
@@ -217,9 +208,10 @@ export class DateTime {
     year() {
         return getYear(this.value);
     }
+    options;
+    value;
     /**
      * Creates DateTime object with the same options.
-     *
      * @param date - Date.
      * @returns DateTime object.
      */
@@ -229,7 +221,6 @@ export class DateTime {
 }
 /**
  * Creates date-fns duration.
- *
  * @param amount - Amount.
  * @param unit - Unit.
  * @returns Duration.
@@ -238,28 +229,34 @@ function getDuration(amount, unit) {
     const result = {};
     switch (unit) {
         case TimeUnit.minute:
-        case TimeUnit.minutes:
+        case TimeUnit.minutes: {
             result.minutes = amount;
             break;
+        }
         case TimeUnit.hour:
-        case TimeUnit.hours:
+        case TimeUnit.hours: {
             result.hours = amount;
             break;
+        }
         case TimeUnit.day:
-        case TimeUnit.days:
+        case TimeUnit.days: {
             result.days = amount;
             break;
+        }
         case TimeUnit.week:
-        case TimeUnit.weeks:
+        case TimeUnit.weeks: {
             result.weeks = amount;
             break;
+        }
         case TimeUnit.month:
-        case TimeUnit.months:
+        case TimeUnit.months: {
             result.months = amount;
             break;
+        }
         case TimeUnit.year:
-        case TimeUnit.years:
+        case TimeUnit.years: {
             result.years = amount;
+        }
     }
     return result;
 }

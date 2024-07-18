@@ -1,13 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sum = exports.rootMeanSquareDeviation = exports.limit = exports.average = exports.round = exports.floor = exports.ceil = void 0;
+exports.round = exports.floor = exports.ceil = void 0;
+exports.average = average;
+exports.limit = limit;
+exports.rootMeanSquareDeviation = rootMeanSquareDeviation;
+exports.sum = sum;
 const tslib_1 = require("tslib");
 const assert = tslib_1.__importStar(require("./assertions"));
 const core_1 = require("./core");
 exports.ceil = (0, core_1.defineFn)(
 /**
  * Ceils number to a given precision.
- *
  * @param value - Value.
  * @param precision - The number of digits to keep.
  * @returns Ceiled value.
@@ -18,7 +21,6 @@ exports.ceil = (0, core_1.defineFn)(
 }, {
     /**
      * Rounds number up to a given precision.
-     *
      * @param value - Value.
      * @param step - Step.
      * @param from - From.
@@ -29,7 +31,6 @@ exports.ceil = (0, core_1.defineFn)(
 exports.floor = (0, core_1.defineFn)(
 /**
  * Rounds number down to a given precision.
- *
  * @param value - Value.
  * @param precision - The number of digits to keep.
  * @returns Rounded value.
@@ -40,7 +41,6 @@ exports.floor = (0, core_1.defineFn)(
 }, {
     /**
      * Floors number.
-     *
      * @param value - Value.
      * @param step - Step.
      * @param from - From.
@@ -51,7 +51,6 @@ exports.floor = (0, core_1.defineFn)(
 exports.round = (0, core_1.defineFn)(
 /**
  * Rounds number to a given precision.
- *
  * @param value - Value.
  * @param precision - The number of digits to keep.
  * @returns Rounded value.
@@ -62,7 +61,6 @@ exports.round = (0, core_1.defineFn)(
 }, {
     /**
      * Rounds number.
-     *
      * @param value - Value.
      * @param step - Step.
      * @param from - From.
@@ -72,7 +70,6 @@ exports.round = (0, core_1.defineFn)(
 });
 /**
  * Averages values.
- *
  * @param values - Values.
  * @returns The average.
  */
@@ -80,10 +77,8 @@ function average(...values) {
     assert.toBeTrue(values.length > 0, "Average is not defined for no args");
     return sum(...values) / values.length;
 }
-exports.average = average;
 /**
  * Limits value to be within [min, max] range.
- *
  * @param value - Value.
  * @param min - Min.
  * @param max - Max.
@@ -92,10 +87,8 @@ exports.average = average;
 function limit(value, min, max) {
     return Math.min(Math.max(value, min), max);
 }
-exports.limit = limit;
 /**
  * Calculates root-mean-square deviation.
- *
  * @param values - Values.
  * @returns Root-mean-square deviation.
  */
@@ -103,15 +96,12 @@ function rootMeanSquareDeviation(...values) {
     const averageValue = average(...values);
     return Math.sqrt(sum(...values.map(value => (value - averageValue) ** 2)) / values.length);
 }
-exports.rootMeanSquareDeviation = rootMeanSquareDeviation;
 /**
  * Sums values.
- *
  * @param values - Values.
  * @returns The sum.
  */
 function sum(...values) {
     return values.reduce((x, y) => x + y, 0);
 }
-exports.sum = sum;
 //# sourceMappingURL=number.js.map

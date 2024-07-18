@@ -3,12 +3,10 @@ import { createFacade } from "../functions";
 
 export const faker = createFacade<faker.Facade>("faker", {});
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare -- Ok
 export namespace faker {
   export interface Facade {
     /**
      * Generates random boolean.
-     *
      * @param trueWeight - Weight of the _true_ value.
      * @param falseWeight - Weight of the _false_ value.
      * @returns Random boolean.
@@ -16,7 +14,6 @@ export namespace faker {
     readonly boolean: (trueWeight?: number, falseWeight?: number) => boolean;
     /**
      * Generates random date.
-     *
      * @param from - Min date.
      * @param to - Max date.
      * @param step - Step.
@@ -31,7 +28,6 @@ export namespace faker {
     ) => string;
     /**
      * Generates random number.
-     *
      * @param from - Min value.
      * @param to - Max value.
      * @param step - Step.
@@ -40,14 +36,12 @@ export namespace faker {
     readonly number: (from: number, to: number, step?: number) => number;
     /**
      * Returns random element from an array.
-     *
      * @param values - Values.
      * @returns Random element.
      */
     readonly oneOf: <T>(values: readonly T[]) => T;
     /**
      * Generates random paragraph.
-     *
      * @param minSentences - Min sentences.
      * @param maxSentences - Max sentences.
      * @param minWords - Min words.
@@ -62,7 +56,6 @@ export namespace faker {
     ) => string;
     /**
      * Generates random phrase.
-     *
      * @param minWords - Min words.
      * @param maxWords - Max words.
      * @returns Random phrase.
@@ -70,7 +63,6 @@ export namespace faker {
     readonly phrase: (minWords?: number, maxWords?: number) => string;
     /**
      * Generates random sentence.
-     *
      * @param minWords - Min words.
      * @param maxWords - Max words.
      * @returns Random sentence.
@@ -78,7 +70,6 @@ export namespace faker {
     readonly sentence: (minWords?: number, maxWords?: number) => string;
     /**
      * Generates random word.
-     *
      * @returns Random word.
      */
     readonly word: () => string;

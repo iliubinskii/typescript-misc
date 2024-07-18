@@ -7,7 +7,6 @@ export const clock = onDemand(() => {
 });
 /**
  * Installs fake timer.
- *
  * @param options - Options.
  */
 export function installFakeTimer(options = {}) {
@@ -23,7 +22,6 @@ export function installFakeTimer(options = {}) {
 }
 /**
  * Executes promise or async function.
- *
  * @param mixed - Promise or async function.
  * @returns The result of callback execution.
  */

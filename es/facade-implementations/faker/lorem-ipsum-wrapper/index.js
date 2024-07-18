@@ -17,23 +17,29 @@ export const loremIpsumWrapper = {
         const step2 = evaluate(() => {
             switch (unit) {
                 case TimeUnit.day:
-                case TimeUnit.days:
+                case TimeUnit.days: {
                     return step * 24 * 3600 * 1000;
+                }
                 case TimeUnit.hour:
-                case TimeUnit.hours:
+                case TimeUnit.hours: {
                     return step * 3600 * 1000;
+                }
                 case TimeUnit.minute:
-                case TimeUnit.minutes:
+                case TimeUnit.minutes: {
                     return step * 60 * 1000;
+                }
                 case TimeUnit.month:
-                case TimeUnit.months:
+                case TimeUnit.months: {
                     return step * 30 * 24 * 3600 * 1000;
+                }
                 case TimeUnit.week:
-                case TimeUnit.weeks:
+                case TimeUnit.weeks: {
                     return step * 7 * 24 * 3600 * 1000;
+                }
                 case TimeUnit.year:
-                case TimeUnit.years:
+                case TimeUnit.years: {
                     return step * 365 * 24 * 3600 * 1000;
+                }
             }
         });
         const time = num.floor.step(_.random(from2, to2), step2);

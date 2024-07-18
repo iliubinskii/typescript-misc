@@ -1,9 +1,3 @@
-/* eslint-disable misc/typescript-misc/functions/array/prefer-clone -- Ok */
-/* eslint-disable misc/typescript-misc/functions/array/prefer-fromIterable -- Ok */
-/* eslint-disable misc/typescript-misc/functions/object/prefer-entries -- Ok */
-/* eslint-disable misc/typescript-misc/functions/object/prefer-hasOwnProp -- Ok */
-/* eslint-disable misc/typescript-misc/functions/object/prefer-values -- Ok */
-
 import type {
   IndexedObject,
   IndexedRecord,
@@ -28,7 +22,6 @@ export const and = defineFn(
 
     /**
      * Checks if value type is A & B.
-     *
      * @param value - Value.
      * @param guard1 - Guard for type A.
      * @param guard2 - Guard for type B.
@@ -42,7 +35,6 @@ export const and = defineFn(
 
     /**
      * Checks if value type is A & B & C.
-     *
      * @param value - Value.
      * @param guard1 - Guard for type A.
      * @param guard2 - Guard for type B.
@@ -58,7 +50,6 @@ export const and = defineFn(
 
     /**
      * Checks if value type is A & B & C & D.
-     *
      * @param value - Value.
      * @param guard1 - Guard for type A.
      * @param guard2 - Guard for type B.
@@ -74,6 +65,12 @@ export const and = defineFn(
       guard4: Guard<D>
     ): value is A & B & C & D;
 
+    /**
+     * Checks if value type is the union of types.
+     * @param value - Value.
+     * @param guards - Guards.
+     * @returns _True_ if value type is the union of types, _false_ otherwise.
+     */
     function result(value: unknown, ...guards: Guards): value is unknown {
       return guards.every(guard => guard(value));
     }
@@ -84,7 +81,6 @@ export const and = defineFn(
 
       /**
        * Creates guard for type A & B.
-       *
        * @param guard1 - Guard for type A.
        * @param guard2 - Guard for type B.
        * @returns Guard for type A & B.
@@ -93,7 +89,6 @@ export const and = defineFn(
 
       /**
        * Creates guard for type A & B & C.
-       *
        * @param guard1 - Guard for type A.
        * @param guard2 - Guard for type B.
        * @param guard3 - Guard for type C.
@@ -107,7 +102,6 @@ export const and = defineFn(
 
       /**
        * Creates guard for type A & B & C & D.
-       *
        * @param guard1 - Guard for type A.
        * @param guard2 - Guard for type B.
        * @param guard3 - Guard for type C.
@@ -121,6 +115,11 @@ export const and = defineFn(
         guard4: Guard<D>
       ): Guard<A & B & C & D>;
 
+      /**
+       * Creates guard for the union of types.
+       * @param guards - Guards.
+       * @returns Guard for the union of types.
+       */
       function result(...guards: Guards): Guard {
         return (value): value is unknown => guards.every(guard => guard(value));
       }
@@ -134,7 +133,6 @@ export const or = defineFn(
 
     /**
      * Checks if value type is A | B.
-     *
      * @param value - Value.
      * @param guard1 - Guard for type A.
      * @param guard2 - Guard for type B.
@@ -148,7 +146,6 @@ export const or = defineFn(
 
     /**
      * Checks if value type is A | B | C.
-     *
      * @param value - Value.
      * @param guard1 - Guard for type A.
      * @param guard2 - Guard for type B.
@@ -164,7 +161,6 @@ export const or = defineFn(
 
     /**
      * Checks if value type is A | B | C | D.
-     *
      * @param value - Value.
      * @param guard1 - Guard for type A.
      * @param guard2 - Guard for type B.
@@ -180,6 +176,12 @@ export const or = defineFn(
       guard4: Guard<D>
     ): value is A | B | C | D;
 
+    /**
+     * Checks if value type is the union of types.
+     * @param value - Value.
+     * @param guards - Guards.
+     * @returns _True_ if value type is the union of types, _false_ otherwise.
+     */
     function result(value: unknown, ...guards: Guards): value is unknown {
       return guards.some(guard => guard(value));
     }
@@ -190,7 +192,6 @@ export const or = defineFn(
 
       /**
        * Creates guard for type A | B.
-       *
        * @param guard1 - Guard for type A.
        * @param guard2 - Guard for type B.
        * @returns Guard for type A | B.
@@ -199,7 +200,6 @@ export const or = defineFn(
 
       /**
        * Creates guard for type A | B | C.
-       *
        * @param guard1 - Guard for type A.
        * @param guard2 - Guard for type B.
        * @param guard3 - Guard for type C.
@@ -213,7 +213,6 @@ export const or = defineFn(
 
       /**
        * Creates guard for type A | B | C | D.
-       *
        * @param guard1 - Guard for type A.
        * @param guard2 - Guard for type B.
        * @param guard3 - Guard for type C.
@@ -227,6 +226,11 @@ export const or = defineFn(
         guard4: Guard<D>
       ): Guard<A | B | C | D>;
 
+      /**
+       * Creates guard for the union of types.
+       * @param guards - Guards.
+       * @returns Guard for the union of types.
+       */
       function result(...guards: Guards): Guard {
         return (value): value is unknown => guards.some(guard => guard(value));
       }
@@ -237,7 +241,6 @@ export const or = defineFn(
 export const array = defineFn(
   /**
    * Checks if value is an array.
-   *
    * @param value - Value.
    * @returns _True_ if value is an array, _false_ otherwise.
    */
@@ -245,7 +248,6 @@ export const array = defineFn(
   {
     /**
      * Checks if value type is T[].
-     *
      * @param value - Value.
      * @param guard - Guard for type T.
      * @returns _True_ if value type is T[], _false_ otherwise.
@@ -270,7 +272,6 @@ export const booleansU = or.factory(booleans, _undefined);
 export const indexedObject = defineFn(
   /**
    * Checks if value type is IndexedObject.
-   *
    * @param value - Value.
    * @returns _True_ if value type is IndexedObject, _false_ otherwise.
    */
@@ -279,7 +280,6 @@ export const indexedObject = defineFn(
   {
     /**
      * Checks if value type is IndexedObject\<T\>.
-     *
      * @param value - Value.
      * @param guard - Guard for type T.
      * @returns _True_ if value type is IndexedObject\<T\>, _false_ otherwise.
@@ -298,7 +298,6 @@ export const indexedObjectsU = or.factory(indexedObjects, _undefined);
 export const map = defineFn(
   /**
    * Checks if value type is Map.
-   *
    * @param value - Value.
    * @returns _True_ if value type is Map, _false_ otherwise.
    */
@@ -307,7 +306,6 @@ export const map = defineFn(
   {
     /**
      * Checks if value type is Map\<K, V\>.
-     *
      * @param value - Value.
      * @param keyGuard - Key guard.
      * @param valueGuard - Value guard.
@@ -343,7 +341,6 @@ export const numbersU = or.factory(numbers, _undefined);
 export const object = defineFn(
   /**
    * Checks if value is an object.
-   *
    * @param value - Value.
    * @returns _True_ if value is an object, _false_ otherwise.
    */
@@ -355,7 +352,6 @@ export const object = defineFn(
 
       /**
        * Creates object guard.
-       *
        * @param required - Guards for required properties.
        * @param optional - Guards for optional properties.
        * @returns Object guard.
@@ -370,7 +366,6 @@ export const object = defineFn(
 
       /**
        * Creates object guard.
-       *
        * @param required - Guards for required properties.
        * @param optional - Guards for optional properties.
        * @returns Object guard.
@@ -380,6 +375,12 @@ export const object = defineFn(
         optional: GuardsRecord<T, types.object.keys.Optional<T>>
       ): Guard<T>;
 
+      /**
+       * Creates object guard.
+       * @param required - Guards for required properties.
+       * @param optional - Guards for optional properties.
+       * @returns Object guard.
+       */
       function result<T extends object>(
         required: GuardsRecord<T, types.object.keys.Required<T>>,
         optional: GuardsRecord<T, types.object.keys.Optional<T>>
@@ -392,7 +393,6 @@ export const object = defineFn(
 
       /**
        * Checks if value is an object.
-       *
        * @param value - Value.
        * @param required - Guards for required properties.
        * @param optional - Guards for optional properties.
@@ -407,7 +407,6 @@ export const object = defineFn(
 
       /**
        * Checks if value is an object.
-       *
        * @param value - Value.
        * @param required - Guards for required properties.
        * @param optional - Guards for optional properties.
@@ -419,6 +418,13 @@ export const object = defineFn(
         optional: GuardsRecord<T, types.object.keys.Optional<T>>
       ): value is T;
 
+      /**
+       * Checks if value is an object.
+       * @param value - Value.
+       * @param required - Guards for required properties.
+       * @param optional - Guards for optional properties.
+       * @returns _True_ if value is an object, _false_ otherwise.
+       */
       function result<T extends object>(
         value: unknown,
         required: GuardsRecord<T, types.object.keys.Required<T>>,
@@ -453,7 +459,6 @@ export const propertyKeysU = or.factory(propertyKeys, _undefined);
 export const set = defineFn(
   /**
    * Checks if value type is Set.
-   *
    * @param value - Value.
    * @returns _True_ if value type is Set, _false_ otherwise.
    */
@@ -461,7 +466,6 @@ export const set = defineFn(
   {
     /**
      * Checks if value type is Set\<T\>.
-     *
      * @param value - Value.
      * @param guard - Guard for type T.
      * @returns _True_ if value type is Set\<T\>, _false_ otherwise.
@@ -493,7 +497,6 @@ export const tuple = defineFn(
 
     /**
      * Checks if value type is [A].
-     *
      * @param value - Value.
      * @param guard - Guard for type A.
      * @returns _True_ if value type is [A], _false_ otherwise.
@@ -502,7 +505,6 @@ export const tuple = defineFn(
 
     /**
      * Checks if value type is [A, B].
-     *
      * @param value - Value.
      * @param guard1 - Guard for type A.
      * @param guard2 - Guard for type B.
@@ -512,12 +514,10 @@ export const tuple = defineFn(
       value: unknown,
       guard1: Guard<A>,
       guard2: Guard<B>
-      // eslint-disable-next-line misc/typescript/no-multi-type-tuples -- Ok
     ): value is readonly [A, B];
 
     /**
      * Checks if value type is [A, B, C].
-     *
      * @param value - Value.
      * @param guard1 - Guard for type A.
      * @param guard2 - Guard for type B.
@@ -529,12 +529,10 @@ export const tuple = defineFn(
       guard1: Guard<A>,
       guard2: Guard<B>,
       guard3: Guard<C>
-      // eslint-disable-next-line misc/typescript/no-multi-type-tuples -- Ok
     ): value is readonly [A, B, C];
 
     /**
      * Checks if value type is [A, B, C, D].
-     *
      * @param value - Value.
      * @param guard1 - Guard for type A.
      * @param guard2 - Guard for type B.
@@ -548,9 +546,14 @@ export const tuple = defineFn(
       guard2: Guard<B>,
       guard3: Guard<C>,
       guard4: Guard<D>
-      // eslint-disable-next-line misc/typescript/no-multi-type-tuples -- Ok
     ): value is readonly [A, B, C, D];
 
+    /**
+     * Checks if value type is tuple.
+     * @param value - Value.
+     * @param guards - Guards.
+     * @returns _True_ if value type is tuple, _false_ otherwise.
+     */
     function result(value: unknown, ...guards: Guards): value is unknown {
       return (
         array(value) && guards.every((guard, index) => guard(value[index]))
@@ -563,7 +566,6 @@ export const tuple = defineFn(
 
       /**
        * Creates guard for type [A].
-       *
        * @param guard - Guard for type A.
        * @returns Guard for type [A].
        */
@@ -571,7 +573,6 @@ export const tuple = defineFn(
 
       /**
        * Creates guard for type [A, B].
-       *
        * @param guard1 - Guard for type A.
        * @param guard2 - Guard for type B.
        * @returns Guard for type [A, B].
@@ -579,12 +580,10 @@ export const tuple = defineFn(
       function result<A, B>(
         guard1: Guard<A>,
         guard2: Guard<B>
-        // eslint-disable-next-line misc/typescript/no-multi-type-tuples -- Ok
       ): Guard<readonly [A, B]>;
 
       /**
        * Creates guard for type [A, B, C].
-       *
        * @param guard1 - Guard for type A.
        * @param guard2 - Guard for type B.
        * @param guard3 - Guard for type C.
@@ -594,12 +593,10 @@ export const tuple = defineFn(
         guard1: Guard<A>,
         guard2: Guard<B>,
         guard3: Guard<C>
-        // eslint-disable-next-line misc/typescript/no-multi-type-tuples -- Ok
       ): Guard<readonly [A, B, C]>;
 
       /**
        * Creates guard for type [A, B, C, D].
-       *
        * @param guard1 - Guard for type A.
        * @param guard2 - Guard for type B.
        * @param guard3 - Guard for type C.
@@ -611,9 +608,13 @@ export const tuple = defineFn(
         guard2: Guard<B>,
         guard3: Guard<C>,
         guard4: Guard<D>
-        // eslint-disable-next-line misc/typescript/no-multi-type-tuples -- Ok
       ): Guard<readonly [A, B, C, D]>;
 
+      /**
+       * Creates guard for tuple.
+       * @param guards - Guards.
+       * @returns Guard for tuple.
+       */
       function result(...guards: Guards): Guard {
         return (value): value is unknown =>
           array(value) && guards.every((guard, index) => guard(value[index]));
@@ -629,7 +630,6 @@ export const unknownsU = or.factory(unknowns, _undefined);
 export const not = defineFn(
   /**
    * Checks if value type is not T.
-   *
    * @param value - Value.
    * @param guard - Guard for type T.
    * @returns _True_ if value type is not T, _false_ otherwise.
@@ -659,7 +659,6 @@ export const not = defineFn(
 
 /**
  * Checks if value is a boolean.
- *
  * @param value - Value.
  * @returns _True_ if value is a boolean, _false_ otherwise.
  */
@@ -669,7 +668,6 @@ export function boolean(value: unknown): value is boolean {
 
 /**
  * Checks if value type is T.
- *
  * @param value - Value.
  * @returns _True_ if value type is T, _false_ otherwise.
  */
@@ -681,7 +679,6 @@ export function callable<T extends types.fn.Callable>(
 
 /**
  * Checks if value type is T.
- *
  * @param value - Value.
  * @returns _True_ if value type is T, _false_ otherwise.
  */
@@ -693,7 +690,6 @@ export function constructor<T extends types.fn.Constructor>(
 
 /**
  * Checks if value type is empty.
- *
  * @param value - Value.
  * @returns _True_ if value type is empty, _false_ otherwise.
  */
@@ -703,7 +699,6 @@ export function empty(value: unknown): value is baseEmpty {
 
 /**
  * Checks if value type is T.
- *
  * @param value - Value.
  * @param en - Validation object.
  * @returns _True_ if value type is T, _false_ otherwise.
@@ -717,7 +712,6 @@ export function enumeration<T extends string>(
 
 /**
  * Creates single-arg guard.
- *
  * @param guard - Multi-arg guard.
  * @param args - Arguments.
  * @returns Single-arg guard.
@@ -731,7 +725,6 @@ export function factory<T, A extends baseUnknowns>(
 
 /**
  * Checks if value type is T.
- *
  * @param value - Value.
  * @param ctor - Constructor.
  * @returns _True_ if value type is T, _false_ otherwise.
@@ -745,7 +738,6 @@ export function instanceOf<T>(
 
 /**
  * Checks if value type is T[].
- *
  * @param value - Value.
  * @param ctor - Constructor.
  * @returns _True_ if value type is T[], _false_ otherwise.
@@ -759,7 +751,6 @@ export function instancesOf<T>(
 
 /**
  * Checks if value is _never_.
- *
  * @param _value - Value.
  * @returns _False_.
  */
@@ -769,26 +760,27 @@ export function never(_value: unknown): _value is never {
 
 /**
  * Checks if value type is NumStr.
- *
  * @param value - Value.
  * @returns _True_ if value type is NumStr, _false_ otherwise.
  */
 export function numStr(value: unknown): value is NumStr {
   switch (typeof value) {
-    case "number":
+    case "number": {
       return !Number.isNaN(value);
+    }
 
-    case "string":
+    case "string": {
       return true;
+    }
 
-    default:
+    default: {
       return false;
+    }
   }
 }
 
 /**
  * Checks if value is a number.
- *
  * @param value - Value.
  * @returns _True_ if value is a number, _false_ otherwise.
  */
@@ -798,29 +790,31 @@ export function number(value: unknown): value is number {
 
 /**
  * Checks if value type is PropertyKey.
- *
  * @param value - Value.
  * @returns _True_ if value type is PropertyKey, _false_ otherwise.
  */
 export function propertyKey(value: unknown): value is PropertyKey {
   switch (typeof value) {
-    case "number":
+    case "number": {
       return !Number.isNaN(value);
+    }
 
-    case "string":
+    case "string": {
       return true;
+    }
 
-    case "symbol":
+    case "symbol": {
       return true;
+    }
 
-    default:
+    default: {
       return false;
+    }
   }
 }
 
 /**
  * Checks if value is a string.
- *
  * @param value - Value.
  * @returns _True_ if value is a string, _false_ otherwise.
  */
@@ -830,26 +824,27 @@ export function string(value: unknown): value is string {
 
 /**
  * Checks if value is a string.
- *
  * @param value - Value.
  * @returns _True_ if value is a string, _false_ otherwise.
  */
 export function stringU(value: unknown): value is baseStringU {
   switch (typeof value) {
-    case "string":
+    case "string": {
       return value !== "";
+    }
 
-    case "undefined":
+    case "undefined": {
       return true;
+    }
 
-    default:
+    default: {
       return false;
+    }
   }
 }
 
 /**
  * Checks if value is a symbol.
- *
  * @param value - Value.
  * @returns _True_ if value is a symbol, _false_ otherwise.
  */
@@ -859,7 +854,6 @@ export function symbol(value: unknown): value is symbol {
 
 /**
  * Checks if value is _unknown_.
- *
  * @param _value - Value.
  * @returns _True_.
  */
@@ -870,7 +864,6 @@ export function unknown(_value: unknown): _value is unknown {
 export interface ExclusionGuard<T> {
   /**
    * Checks if value type is not T.
-   *
    * @param value - Value.
    * @returns _True_ if value type is not T, _false_ otherwise.
    */
@@ -880,7 +873,6 @@ export interface ExclusionGuard<T> {
 export interface Guard<T = unknown> {
   /**
    * Checks if value type is T.
-   *
    * @param value - Value.
    * @returns _True_ if value type is T, _false_ otherwise.
    */
@@ -896,7 +888,6 @@ export type GuardsRecord<T, K extends keyof T = keyof T> = {
 export interface MultiArgGuard<T, A extends baseUnknowns> {
   /**
    * Checks if value type is T.
-   *
    * @param value - Value.
    * @param args - Arguments.
    * @returns _True_ if value type is T, _false_ otherwise.
@@ -906,7 +897,6 @@ export interface MultiArgGuard<T, A extends baseUnknowns> {
 
 /**
  * Checks if value is _false_.
- *
  * @param value - Value.
  * @returns _True_ if value is _false_, _false_ otherwise.
  */
@@ -916,7 +906,6 @@ function _false(value: unknown): value is false {
 
 /**
  * Creates guard for type not T.
- *
  * @param guard - Guard for type T.
  * @returns Guard for type not T.
  */
@@ -926,7 +915,6 @@ function _notFactory<T>(guard: Guard<T>): ExclusionGuard<T> {
 
 /**
  * Checks if value is _null_.
- *
  * @param value - Value.
  * @returns _True_ if value is _null_, _false_ otherwise.
  */
@@ -936,7 +924,6 @@ function _null(value: unknown): value is null {
 
 /**
  * Checks if value is _true_.
- *
  * @param value - Value.
  * @returns _True_ if value is _true_, _false_ otherwise.
  */
@@ -946,7 +933,6 @@ function _true(value: unknown): value is true {
 
 /**
  * Checks if value is _undefined_.
- *
  * @param value - Value.
  * @returns _True_ if value is _undefined_, _false_ otherwise.
  */
@@ -956,7 +942,6 @@ function _undefined(value: unknown): value is undefined {
 
 /**
  * Checks if object has optional property.
- *
  * @param obj - Object.
  * @param key - Key.
  * @param guard - Guard.
@@ -974,7 +959,6 @@ function checkOptionalProp(
 
 /**
  * Checks if object has required property.
- *
  * @param obj - Object.
  * @param key - Key.
  * @param guard - Guard.
