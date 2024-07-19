@@ -35,6 +35,7 @@ const config = {
             [
               "asyncs",
               "escompat",
+              "packagejson",
               "sonarjs",
               "strs",
               "subtest",
