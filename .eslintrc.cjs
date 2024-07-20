@@ -17,7 +17,7 @@ const config = {
     configurable: "readonly",
     facades: "readonly"
   },
-  extends: "./.eslintrc.base.cjs",
+  extends: "union",
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: { jsx: true },
@@ -34,7 +34,8 @@ const config = {
             // @sorted
             [
               "asyncs",
-              "escompat",
+              "cjsx",
+              "mjsx",
               "packagejson",
               "sonarjs",
               "strs",
