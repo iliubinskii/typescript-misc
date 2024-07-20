@@ -10,14 +10,14 @@
 - [Installation](#installation)
 - [Modules](#modules)
 
-## <a id="overview"></a>Overview
+## Overview
 
 Typescript library.
 
-## <a id="installation"></a>Installation
+## Installation
 
 ```sh
 npm install typescript-misc
 ```
 
-## <a id="modules"></a>Modules
+## Modules
